@@ -84,10 +84,6 @@ export function getComparisonAttributes(product: Product, similar: Product[]): C
       label: "Battery Capacity",
       values: all.map((_, i) => `${2 + (i % 3)} Ah`),
     },
-    {
-      label: "Price",
-      values: all.map((p) => p.price ?? "On Request"),
-    },
   ];
 }
 

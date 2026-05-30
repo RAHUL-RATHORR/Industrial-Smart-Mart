@@ -77,6 +77,24 @@ export interface Product {
   reviews?: number;
 }
 
+/** Stable rating/reviews for every product card and detail page */
+export function getProductDisplayRating(product: Product): { rating: number; reviews: number } {
+  if (product.rating != null && product.reviews != null) {
+    return { rating: product.rating, reviews: product.reviews };
+  }
+
+  let hash = 0;
+  for (let i = 0; i < product.id.length; i++) {
+    hash = (hash + product.id.charCodeAt(i) * (i + 1)) | 0;
+  }
+  const abs = Math.abs(hash);
+
+  return {
+    rating: Math.round((4.5 + (abs % 5) * 0.1) * 10) / 10,
+    reviews: 12 + (abs % 248),
+  };
+}
+
 export interface SubCategoryGroup {
   title: string;
   items: string[];
@@ -209,6 +227,9 @@ export const getProductsByCategory = (categoryId: string, count: number = 6): Pr
     const priceValue = 500 + ((i * 1234) % 9500);
     const brandName = brands[(i + categoryId.length) % brands.length];
 
+    const rating = Math.round((4.5 + ((i * 3 + categoryId.length) % 5) * 0.1) * 10) / 10;
+    const reviews = 12 + ((i * 47 + categoryId.length * 13) % 248);
+
     return {
       id: `prod-${categoryId}-${i}`,
       name: `Premium ${catName} Item ${i + 1}`,
@@ -216,6 +237,8 @@ export const getProductsByCategory = (categoryId: string, count: number = 6): Pr
       brand: brandName,
       image: catImage,
       price: `₹ ${priceValue.toLocaleString()}`,
+      rating,
+      reviews,
     };
   });
 };
