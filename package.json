@@ -1,0 +1,10 @@
+{
+  "name": "industrial-smart-mart",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix industrial-safety-mart",
+    "build": "npm run build --prefix industrial-safety-mart",
+    "start": "npm run start --prefix industrial-safety-mart",
+    "lint": "npm run lint --prefix industrial-safety-mart"
+  }
+}
