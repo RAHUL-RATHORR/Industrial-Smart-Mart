@@ -6,7 +6,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronRight as ChevronRightSmall,
-  ShoppingCart,
+  MessageCircle,
   Star,
   ThumbsDown,
   ThumbsUp,
@@ -99,13 +99,13 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
                     </Link>
                     <p className="text-sm font-bold">{item.price ?? "On Request"}</p>
                     <a
-                      href={generateWhatsAppLink(`I want to add ${item.name} to my quote.`)}
+                      href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share price and availability.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1 w-full bg-[#e53935] text-white text-[10px] sm:text-xs font-bold py-1.5 rounded"
+                      className="inline-flex items-center justify-center gap-1 w-full bg-[#25D366] text-white text-[10px] sm:text-xs font-bold py-1.5 rounded hover:bg-[#128C7E] transition-colors"
                     >
-                      <ShoppingCart className="h-3 w-3" />
-                      ADD TO CART
+                      <MessageCircle className="h-3 w-3" />
+                      WhatsApp Inquiry
                     </a>
                   </div>
                 ))}

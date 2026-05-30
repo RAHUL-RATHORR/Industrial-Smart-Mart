@@ -172,33 +172,15 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center rounded-lg bg-[#1a73e8] text-white font-bold py-3 text-sm hover:bg-[#1558b0] transition-colors"
-                >
-                  ADD TO QUOTE
-                </a>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center rounded-lg bg-[#e53935] text-white font-bold py-3 text-sm hover:bg-[#c62828] transition-colors"
-                >
-                  BUY NOW ON WHATSAPP
-                </a>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white font-bold py-3 text-sm hover:bg-[#128C7E] transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  Get Quotation
-                </a>
-              </div>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white font-bold py-3 text-sm hover:bg-[#128C7E] transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp Inquiry
+              </a>
 
               <div className="border-t pt-4 space-y-2">
                 <p className="text-sm font-semibold flex items-center gap-2">
@@ -301,9 +283,9 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-lg border-2 border-[#e53935] text-[#e53935] font-bold px-4 py-2.5 text-sm hover:bg-[#e53935] hover:text-white transition-colors whitespace-nowrap"
+            className="shrink-0 rounded-lg bg-[#25D366] text-white font-bold px-4 py-2.5 text-sm hover:bg-[#128C7E] transition-colors whitespace-nowrap"
           >
-            CLICK TO RAISE REQUEST
+            WhatsApp Inquiry
           </a>
         </div>
 
