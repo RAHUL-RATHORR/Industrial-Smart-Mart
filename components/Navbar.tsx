@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, PhoneCall } from "lucide-react";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
+import SiteLogo from "@/components/SiteLogo";
 import SearchBar from "@/components/SearchBar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -29,11 +30,7 @@ export default function Navbar() {
         <div className="flex h-16 md:h-20 items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
-            <Link href="/" className="flex items-center gap-2 min-w-0">
-              <span className="text-base sm:text-lg md:text-2xl font-black uppercase tracking-tighter text-brand-black dark:text-white truncate">
-                Industrial<span className="text-brand-yellow">Safety</span>Mart
-              </span>
-            </Link>
+            <SiteLogo imageClassName="h-10 sm:h-12 md:h-14 w-auto" />
           </div>
 
           {/* Search Bar (Desktop) */}

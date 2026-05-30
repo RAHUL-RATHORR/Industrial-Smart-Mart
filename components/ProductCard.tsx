@@ -87,7 +87,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 e.stopPropagation();
                 window.open(whatsappUrl, "_blank", "noopener,noreferrer");
               }}
-              className="inline-flex w-full items-center justify-center gap-1 rounded-md bg-[#25D366] px-2 py-2 text-white hover:bg-[#128C7E] shadow-sm font-semibold text-[10px] sm:text-xs leading-none transition-all cursor-pointer"
+              className="inline-flex w-full items-center justify-center gap-1 rounded-md bg-[#25D366] px-2 py-2 text-white hover:bg-brand-black hover:text-white shadow-sm font-semibold text-[10px] sm:text-xs leading-none transition-all cursor-pointer"
             >
               <MessageCircle className="h-3.5 w-3.5 shrink-0" />
               <span>WhatsApp Inquiry</span>

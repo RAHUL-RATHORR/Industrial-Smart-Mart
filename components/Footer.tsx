@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import SiteLogo from "@/components/SiteLogo";
 
 const socialLinks = [
   {
@@ -51,11 +52,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <Link href="/" className="inline-block">
-              <span className="text-2xl font-black uppercase tracking-tighter text-white">
-                Industrial<span className="text-brand-yellow">Safety</span>Mart
-              </span>
-            </Link>
+            <SiteLogo imageClassName="h-14 w-auto" />
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted partner for industrial safety equipment, power tools, and B2B supplies. We deliver PAN India with guaranteed authenticity.
             </p>

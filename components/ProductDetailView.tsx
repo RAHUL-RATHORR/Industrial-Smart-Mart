@@ -176,7 +176,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white font-bold py-3 text-sm hover:bg-[#128C7E] transition-colors"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white font-bold py-3 text-sm hover:bg-brand-black hover:text-white transition-colors"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Inquiry
@@ -283,7 +283,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-lg bg-[#25D366] text-white font-bold px-4 py-2.5 text-sm hover:bg-[#128C7E] transition-colors whitespace-nowrap"
+            className="shrink-0 rounded-lg bg-[#25D366] text-white font-bold px-4 py-2.5 text-sm hover:bg-brand-black hover:text-white transition-colors whitespace-nowrap"
           >
             WhatsApp Inquiry
           </a>

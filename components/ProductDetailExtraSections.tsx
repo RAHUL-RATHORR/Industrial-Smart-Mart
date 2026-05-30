@@ -102,7 +102,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
                       href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share price and availability.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1 w-full bg-[#25D366] text-white text-[10px] sm:text-xs font-bold py-1.5 rounded hover:bg-[#128C7E] transition-colors"
+                      className="inline-flex items-center justify-center gap-1 w-full bg-[#25D366] text-white text-[10px] sm:text-xs font-bold py-1.5 rounded hover:bg-brand-black hover:text-white transition-colors"
                     >
                       <MessageCircle className="h-3 w-3" />
                       WhatsApp Inquiry
