@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex h-16 md:h-20 items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
-            <SiteLogo imageClassName="h-10 sm:h-12 md:h-14 w-auto" />
+            <SiteLogo variant="dark" imageClassName="h-10 sm:h-12 md:h-14 w-auto" />
           </div>
 
           {/* Search Bar (Desktop) */}
