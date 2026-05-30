@@ -2,6 +2,7 @@
   "name": "industrial-smart-mart",
   "private": true,
   "scripts": {
+    "postinstall": "npm install --prefix industrial-safety-mart",
     "dev": "npm run dev --prefix industrial-safety-mart",
     "build": "npm run build --prefix industrial-safety-mart",
     "start": "npm run start --prefix industrial-safety-mart",

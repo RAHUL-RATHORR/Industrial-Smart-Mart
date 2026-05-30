@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm install --prefix industrial-safety-mart",
+  "buildCommand": "npm run build --prefix industrial-safety-mart"
+}
