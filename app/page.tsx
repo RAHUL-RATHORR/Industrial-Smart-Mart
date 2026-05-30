@@ -26,7 +26,7 @@ import {
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 const PRODUCT_GRID =
-  "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4";
+  "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 items-start";
 
 const iconMap = {
   Package,
@@ -75,17 +75,17 @@ export default function HomePage() {
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-14 max-w-2xl">
-                  <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-2 md:mb-3 leading-tight">
+                <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-10 md:px-14 max-w-2xl">
+                  <h1 className="text-base sm:text-3xl md:text-4xl font-black text-white mb-1 sm:mb-3 leading-snug sm:leading-tight line-clamp-2 sm:line-clamp-none">
                     {activeHero.title}
                   </h1>
-                  <p className="text-sm sm:text-base text-white/90 mb-4 md:mb-6 line-clamp-2 sm:line-clamp-none">
+                  <p className="text-[11px] sm:text-base text-white/90 mb-2.5 sm:mb-6 line-clamp-2 sm:line-clamp-none leading-snug">
                     {activeHero.subtitle}
                   </p>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     <Link
                       href="/products"
-                      className="inline-flex w-fit items-center rounded-lg bg-brand-yellow px-5 py-2.5 text-sm font-bold text-brand-black hover:bg-brand-yellow/90 transition-colors"
+                      className="inline-flex w-fit items-center rounded-md sm:rounded-lg bg-brand-yellow px-3 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-sm font-bold text-brand-black hover:bg-brand-yellow/90 transition-colors"
                     >
                       {activeHero.cta}
                     </Link>
@@ -93,7 +93,7 @@ export default function HomePage() {
                       href={generateWhatsAppLink(`Hi, I want to inquire about ${activeHero.title}`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex w-fit items-center rounded-lg border-2 border-brand-yellow px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-yellow hover:text-brand-black transition-colors"
+                      className="inline-flex w-fit items-center rounded-md sm:rounded-lg border-2 border-brand-yellow px-3 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-sm font-bold text-white hover:bg-brand-yellow hover:text-brand-black transition-colors"
                     >
                       WhatsApp Inquiry
                     </a>

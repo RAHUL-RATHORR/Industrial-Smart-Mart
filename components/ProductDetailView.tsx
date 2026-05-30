@@ -14,7 +14,7 @@ import {
   Truck,
 } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
-import { Product } from "@/lib/data";
+import { Product, getProductDisplayRating } from "@/lib/data";
 import { ProductDetailExtras } from "@/lib/products";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import ProductDetailExtraSections from "@/components/ProductDetailExtraSections";
@@ -25,6 +25,7 @@ interface ProductDetailViewProps {
 }
 
 export default function ProductDetailView({ product, extras }: ProductDetailViewProps) {
+  const { rating, reviews } = getProductDisplayRating(product);
   const [activeImage, setActiveImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [pincode, setPincode] = useState("");
@@ -36,7 +37,6 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
       `Product: ${product.name}`,
       `Brand: ${product.brand}`,
       `Quantity: ${quantity}`,
-      product.price ? `Listed Price: ${product.price}` : "",
       pincode ? `Delivery Pincode: ${pincode}` : "",
     ].filter(Boolean);
 
@@ -101,41 +101,21 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
           {/* Product Info */}
           <div className="lg:col-span-4 space-y-4">
             <div className="bg-white border rounded-xl p-4 sm:p-5 space-y-4">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-brand-yellow mb-1">{product.brand}</p>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1 rounded bg-[#0e8a2a] px-2 py-0.5 text-xs font-bold text-white">
+                    {rating}
+                    <Star className="h-3 w-3 fill-current" />
+                  </span>
+                  <span className="text-sm text-muted-foreground">({reviews})</span>
+                </div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{product.brand}</p>
                 <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-brand-black leading-snug">{product.name}</h1>
               </div>
 
-              {product.rating && (
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1 bg-[#0e8a2a] text-white text-xs font-bold px-2 py-0.5 rounded">
-                    {product.rating} <Star className="h-3 w-3 fill-current" />
-                  </span>
-                  <span className="text-sm text-muted-foreground">{product.reviews} Ratings & Reviews</span>
-                </div>
-              )}
-
-              <div className="border-t pt-4">
-                <div className="flex flex-wrap items-end gap-2">
-                  <span className="text-2xl sm:text-3xl font-black text-brand-black">{product.price || "Price on Request"}</span>
-                  {product.mrp && <span className="text-sm line-through text-muted-foreground">{product.mrp}</span>}
-                  {product.discount && <span className="text-sm font-bold text-[#0e8a2a]">{product.discount}</span>}
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">Inclusive of all taxes · Free delivery on bulk orders</p>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold text-brand-black mb-2">Buy More & Save More</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2">
-                  {extras.bulkTiers.map((tier) => (
-                    <div key={tier.qty} className="border rounded-lg p-2 text-center bg-muted/20">
-                      <p className="text-[10px] sm:text-xs text-muted-foreground">Qty {tier.qty}</p>
-                      <p className="text-sm font-bold text-brand-black">{tier.price}</p>
-                      <p className="text-[10px] text-muted-foreground">per unit</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <p className="text-xs text-muted-foreground border-t pt-4">
+                Get quotation on WhatsApp · PAN India delivery on bulk orders
+              </p>
 
               <div className="space-y-2">
                 <div className="rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs sm:text-sm text-blue-900">
@@ -154,11 +134,6 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
           {/* Purchase Box */}
           <div className="lg:col-span-3">
             <div className="bg-white border rounded-xl p-4 sm:p-5 space-y-4 lg:sticky lg:top-24">
-              <div>
-                <p className="text-xs text-muted-foreground">Deal Price</p>
-                <p className="text-2xl font-black text-brand-black">{product.price || "Price on Request"}</p>
-              </div>
-
               <div>
                 <p className="text-sm font-semibold mb-2">Quantity</p>
                 <div className="inline-flex items-center border rounded-lg overflow-hidden">

@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex h-16 md:h-20 items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
-            <SiteLogo variant="dark" imageClassName="h-10 sm:h-12 md:h-14 w-auto" />
+            <SiteLogo imageClassName="h-10 sm:h-12 md:h-14 w-auto" />
           </div>
 
           {/* Search Bar (Desktop) */}
@@ -51,7 +51,7 @@ export default function Navbar() {
                 </Link>
               ))}
             </nav>
-              <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand-yellow text-brand-black hover:bg-brand-yellow/90 font-bold px-6")}>
+              <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand-yellow text-white hover:bg-brand-black hover:text-white font-bold px-6 transition-colors")}>
                 Get Quote
               </a>
           </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="pt-2">
-                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "w-full rounded-md bg-brand-yellow text-brand-black hover:bg-brand-yellow/90 font-bold justify-center")}>
+                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "w-full rounded-md bg-brand-yellow text-white hover:bg-brand-black hover:text-white font-bold justify-center transition-colors")}>
                   <PhoneCall className="mr-2 h-4 w-4" /> Get Quote
                 </a>
               </div>

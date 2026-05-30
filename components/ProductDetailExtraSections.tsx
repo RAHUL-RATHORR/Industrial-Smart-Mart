@@ -97,7 +97,6 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
                       <SafeImage src={item.image} alt={item.name} className="w-16 h-16 mx-auto object-contain" />
                       <p className="text-[11px] font-medium line-clamp-2 mt-2 hover:text-brand-yellow">{item.name}</p>
                     </Link>
-                    <p className="text-sm font-bold">{item.price ?? "On Request"}</p>
                     <a
                       href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share price and availability.`)}
                       target="_blank"

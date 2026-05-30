@@ -54,7 +54,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 pt-2 border-t border-white/10">
           <div className="space-y-6">
-            <SiteLogo variant="dark" imageClassName="h-16 w-auto" />
+            <SiteLogo imageClassName="h-14 w-auto" />
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted partner for industrial safety equipment, power tools, and B2B supplies. We deliver PAN India with guaranteed authenticity.
             </p>
