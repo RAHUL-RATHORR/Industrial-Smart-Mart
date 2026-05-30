@@ -12,26 +12,26 @@ export default function ContactPage() {
         <h1 className="text-4xl font-black mb-4">Contact Us</h1>
         <p className="text-muted-foreground">We&apos;re here to help with your industrial procurement needs.</p>
       </div>
-      <div className="max-w-2xl mx-auto grid gap-8">
-        <div className="bg-card p-8 rounded-2xl border shadow-sm flex flex-col items-center text-center">
+      <div className="max-w-5xl mx-auto grid gap-8">
+        <div className="max-w-2xl mx-auto w-full bg-card p-8 rounded-2xl border shadow-sm flex flex-col items-center text-center">
           <MessageCircle className="h-12 w-12 text-[#25D366] mb-4" />
           <h2 className="text-2xl font-bold mb-2">WhatsApp Support</h2>
           <p className="text-muted-foreground mb-6">Get instant quotes and replies via WhatsApp.</p>
           <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "bg-[#25D366] text-white hover:bg-[#128C7E]")}>Chat on WhatsApp</a>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-4 text-center mt-8">
-          <div className="p-6 border rounded-xl bg-muted/20">
-            <Phone className="h-8 w-8 mx-auto mb-3 text-brand-yellow" />
-            <div className="font-semibold">+91 75684 50691</div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div className="p-6 border rounded-xl bg-muted/20 min-w-0 flex flex-col items-center">
+            <Phone className="h-8 w-8 mb-3 text-brand-yellow shrink-0" />
+            <div className="font-semibold text-sm sm:text-base">+91 75684 50691</div>
           </div>
-          <div className="p-6 border rounded-xl bg-muted/20">
-            <Mail className="h-8 w-8 mx-auto mb-3 text-brand-yellow" />
-            <div className="font-semibold">inquiry@industrialsafetymart.com</div>
+          <div className="p-6 border rounded-xl bg-muted/20 min-w-0 flex flex-col items-center">
+            <Mail className="h-8 w-8 mb-3 text-brand-yellow shrink-0" />
+            <div className="font-semibold text-sm sm:text-base break-words max-w-full px-1">inquiry@industrialsafetymart.com</div>
           </div>
-          <div className="p-6 border rounded-xl bg-muted/20">
-            <MapPin className="h-8 w-8 mx-auto mb-3 text-brand-yellow" />
-            <div className="font-semibold">New Delhi, India</div>
+          <div className="p-6 border rounded-xl bg-muted/20 min-w-0 flex flex-col items-center">
+            <MapPin className="h-8 w-8 mb-3 text-brand-yellow shrink-0" />
+            <div className="font-semibold text-sm sm:text-base">New Delhi, India</div>
           </div>
         </div>
       </div>
