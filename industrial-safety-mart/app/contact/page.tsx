@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-3 gap-4 text-center mt-8">
           <div className="p-6 border rounded-xl bg-muted/20">
             <Phone className="h-8 w-8 mx-auto mb-3 text-brand-yellow" />
-            <div className="font-semibold">+91 98765 43210</div>
+            <div className="font-semibold">+91 75684 50691</div>
           </div>
           <div className="p-6 border rounded-xl bg-muted/20">
             <Mail className="h-8 w-8 mx-auto mb-3 text-brand-yellow" />
