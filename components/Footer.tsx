@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import SiteLogo from "@/components/SiteLogo";
+import FooterTrustBar from "@/components/FooterTrustBar";
 
 const socialLinks = [
   {
@@ -47,12 +48,13 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-black text-white pt-16 pb-8 border-t border-white/10 mt-auto">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
+    <footer className="bg-brand-black text-white mt-auto border-t border-white/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
+        <FooterTrustBar />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 pt-2 border-t border-white/10">
           <div className="space-y-6">
-            <SiteLogo imageClassName="h-14 w-auto" />
+            <SiteLogo variant="dark" imageClassName="h-16 w-auto" />
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted partner for industrial safety equipment, power tools, and B2B supplies. We deliver PAN India with guaranteed authenticity.
             </p>
@@ -70,7 +72,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-brand-yellow">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-400">
@@ -82,7 +83,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Top Categories */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-brand-yellow">Top Categories</h3>
             <ul className="space-y-3 text-sm text-gray-400">
@@ -94,7 +94,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Details */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-brand-yellow">Contact Us</h3>
             <ul className="space-y-4 text-sm text-gray-400">
@@ -114,8 +113,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-4 text-center text-xs text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-4 text-center text-xs text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10">
           <p>&copy; {new Date().getFullYear()} Industrial Safety Mart. All rights reserved.</p>
           <div className="space-x-4">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
