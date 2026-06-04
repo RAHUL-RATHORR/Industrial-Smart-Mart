@@ -27,21 +27,21 @@ function TrustIcon({ variant }: { variant: TrustIconVariant }) {
     case "wallet":
       return (
         <div className="mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
-          <Wallet className={`${iconClass} text-[#e53935]`} strokeWidth={stroke} />
+          <Wallet className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />
         </div>
       );
     case "truck":
       return (
         <div className="mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
-          <Truck className={`${iconClass} text-[#e53935]`} strokeWidth={stroke} />
+          <Truck className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />
         </div>
       );
     case "payment":
       return (
         <div className="relative mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
           <CreditCard className={`${iconClass} text-brand-black`} strokeWidth={stroke} />
-          <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#e53935] ring-2 ring-white">
-            <ShieldCheck className="h-3 w-3 text-white" strokeWidth={2.5} />
+          <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow ring-2 ring-white">
+            <ShieldCheck className="h-3 w-3 text-brand-black" strokeWidth={2.5} />
           </span>
         </div>
       );
@@ -49,8 +49,8 @@ function TrustIcon({ variant }: { variant: TrustIconVariant }) {
       return (
         <div className="relative mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
           <HandHelping className={`${iconClass} text-brand-black`} strokeWidth={stroke} />
-          <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#e53935] ring-2 ring-white">
-            <ShieldCheck className="h-3 w-3 text-white" strokeWidth={2.5} />
+          <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow ring-2 ring-white">
+            <ShieldCheck className="h-3 w-3 text-brand-black" strokeWidth={2.5} />
           </span>
         </div>
       );
@@ -90,7 +90,7 @@ export default function FooterTrustBar() {
   const whatsappUrl = generateWhatsAppLink("Hello! I need help from Industrial Safety Mart.");
 
   return (
-    <div className="bg-white text-brand-black rounded-xl border border-gray-200 py-8 md:py-10 px-4 sm:px-6 mb-10">
+    <div className="card-pro bg-white text-brand-black py-8 md:py-10 px-4 sm:px-6 mb-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-0 lg:divide-x lg:divide-gray-200">
         {trustFeatures.map(({ icon, title, description }) => (
           <div
@@ -106,17 +106,17 @@ export default function FooterTrustBar() {
         <div className="flex flex-col items-center text-center px-2 lg:px-6 last:lg:pr-0">
           <div className="relative mb-3 flex h-12 w-12 items-center justify-center">
             <Headphones className="h-11 w-11 text-brand-black" strokeWidth={1.35} aria-hidden="true" />
-            <span className="absolute top-1 left-1 h-3 w-3 rounded-full bg-[#e53935]" aria-hidden="true" />
-            <span className="absolute top-1 right-1 h-3 w-3 rounded-full bg-[#e53935]" aria-hidden="true" />
+            <span className="absolute top-1 left-1 h-3 w-3 rounded-full bg-brand-yellow" aria-hidden="true" />
+            <span className="absolute top-1 right-1 h-3 w-3 rounded-full bg-brand-yellow" aria-hidden="true" />
           </div>
           <h3 className="text-sm font-bold text-brand-black mb-2">365 Days Help Desk</h3>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-black hover:text-[#25D366] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-black hover:text-brand-yellow transition-colors"
           >
-            <MessageCircle className="h-5 w-5 text-[#25D366] shrink-0" />
+            <MessageCircle className="h-5 w-5 text-brand-yellow shrink-0" />
             {phoneDisplay}
           </a>
           <Link

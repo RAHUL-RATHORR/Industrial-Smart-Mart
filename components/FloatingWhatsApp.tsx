@@ -14,7 +14,7 @@ export default function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-[#128C7E] transition-colors sm:px-5 sm:py-3 sm:text-base"
+        className="btn-brand gap-2 rounded-full px-3 py-2 text-xs shadow-pro-float sm:px-4 sm:py-2.5 sm:text-sm"
         title="Chat with us on WhatsApp"
       >
         <WhatsAppIcon className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
@@ -22,7 +22,7 @@ export default function FloatingWhatsApp() {
       </a>
       <a
         href={telLink}
-        className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-[#1D4ED8] transition-colors sm:px-5 sm:py-3 sm:text-base"
+        className="btn-brand-dark gap-2 px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm"
         title="Call us"
       >
         <Phone className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />

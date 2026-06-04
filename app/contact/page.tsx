@@ -13,11 +13,11 @@ export default function ContactPage() {
         <p className="text-muted-foreground">We&apos;re here to help with your industrial procurement needs.</p>
       </div>
       <div className="max-w-5xl mx-auto grid gap-8">
-        <div className="max-w-2xl mx-auto w-full bg-card p-8 rounded-2xl border shadow-sm flex flex-col items-center text-center">
-          <MessageCircle className="h-12 w-12 text-[#25D366] mb-4" />
+        <div className="card-pro max-w-2xl mx-auto w-full p-8 rounded-2xl flex flex-col items-center text-center">
+          <MessageCircle className="h-12 w-12 text-brand-yellow mb-4" />
           <h2 className="text-2xl font-bold mb-2">WhatsApp Support</h2>
           <p className="text-muted-foreground mb-6">Get instant quotes and replies via WhatsApp.</p>
-          <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "bg-[#25D366] text-white hover:bg-[#128C7E]")}>Chat on WhatsApp</a>
+          <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "brand" }))}>Chat on WhatsApp</a>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">

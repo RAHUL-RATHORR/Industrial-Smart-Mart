@@ -25,22 +25,22 @@ export default function Navbar() {
   const quoteUrl = generateWhatsAppLink("Hello! I would like to get a quote.");
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 shadow-sm">
+    <header className="sticky top-0 z-40 w-full border-b border-pro bg-background/98 shadow-pro-sm backdrop-blur supports-backdrop-filter:bg-background/80">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 md:h-20 items-center justify-between gap-2">
+        <div className="flex h-14 md:h-16 items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
-            <SiteLogo imageClassName="h-10 sm:h-12 md:h-14 w-auto" />
+            <SiteLogo imageClassName="h-9 sm:h-10 md:h-11 w-auto" />
           </div>
 
           {/* Search Bar (Desktop) */}
-          <div className="hidden flex-1 max-w-xl mx-4 lg:mx-8 md:block">
+          <div className="hidden flex-1 max-w-lg mx-3 lg:mx-5 md:block min-w-0">
             <SearchBar onSearch={() => setIsMobileMenuOpen(false)} />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-6">
-            <nav className="flex items-center gap-6 text-sm font-semibold text-black dark:text-white">
+          <div className="hidden md:flex md:items-center md:gap-4 shrink-0">
+            <nav className="flex items-center gap-4 text-xs lg:text-sm font-semibold text-black dark:text-white">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -51,7 +51,7 @@ export default function Navbar() {
                 </Link>
               ))}
             </nav>
-              <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand-yellow text-white hover:bg-brand-black hover:text-white font-bold px-6 transition-colors")}>
+              <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "brand" }), "rounded-full font-bold px-4 py-1.5 text-xs lg:text-sm")}>
                 Get Quote
               </a>
           </div>
@@ -80,7 +80,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t bg-background"
+            className="border-pro bg-background border-t md:hidden"
           >
             <div className="space-y-1 px-4 pb-3 pt-2">
               <div className="mb-4 mt-2 md:hidden">
@@ -116,7 +116,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="pt-2">
-                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "default" }), "w-full rounded-md bg-brand-yellow text-white hover:bg-brand-black hover:text-white font-bold justify-center transition-colors")}>
+                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "brand" }), "w-full rounded-md font-bold justify-center")}>
                   <PhoneCall className="mr-2 h-4 w-4" /> Get Quote
                 </a>
               </div>

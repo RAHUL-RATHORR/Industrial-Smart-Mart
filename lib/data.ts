@@ -1,39 +1,69 @@
 
-export const heroBanners = [
+export type HeroOfferBanner = {
+  id: string;
+  type: "offer";
+  href: string;
+  title: string;
+  tagline: string;
+  discountLabel: string;
+  discount: string;
+  cta: string;
+  backgroundImage: string;
+  productAlt: string;
+};
+
+const heroImg = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?q=80&w=1400&h=600&auto=format&fit=crop`;
+
+/** Hero slider — full-bleed sale banners */
+export const heroBanners: HeroOfferBanner[] = [
   {
-    id: "banner-1",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200",
-    title: "Heavy Manufacturing Machinery",
-    subtitle: "High-speed commercial printers and heavy duty plotting machines.",
-    cta: "Explore Printers",
-  },
-  {
-    id: "banner-2",
-    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=1200",
-    title: "Precision Engineering Tools",
-    subtitle: "Precision instruments for accurate industrial testing.",
-    cta: "View Equipment",
-  },
-  {
-    id: "banner-3",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200",
-    title: "Industrial Welding & Safety",
-    subtitle: "Next-gen CNC machines, lathes, and robotics.",
-    cta: "Check Machinery",
-  },
-  {
-    id: "banner-4",
-    image: "https://images.unsplash.com/photo-1530893609608-31a9209ec305?q=80&w=1200",
-    title: "Professional Hardware",
-    subtitle: "Top-grade materials and engineering tools for large scale projects.",
+    id: "hero-offer-1",
+    type: "offer",
+    href: "/categories/office",
+    title: "Office Furniture",
+    tagline: "Chairs, desks & workspace deals",
+    discountLabel: "UP TO",
+    discount: "50%",
     cta: "Shop Now",
+    backgroundImage: heroImg("1497366216548-375260702dfb"),
+    productAlt: "Office furniture sale",
   },
   {
-    id: "banner-5",
-    image: "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&w=1200",
-    title: "Warehouse Logistics",
-    subtitle: "Pallet trucks, forklifts, and complete warehouse solutions.",
-    cta: "Explore Handling",
+    id: "hero-offer-2",
+    type: "offer",
+    href: "/categories/tools",
+    title: "Industrial Tools",
+    tagline: "Drills, grinders & power tools",
+    discountLabel: "FLAT",
+    discount: "70%",
+    cta: "Shop Now",
+    backgroundImage: heroImg("1504148455328-c376907d081c"),
+    productAlt: "Industrial tools sale",
+  },
+  {
+    id: "hero-offer-3",
+    type: "offer",
+    href: "/categories/electrical",
+    title: "Electrical & Wires",
+    tagline: "Cables, panels & safety gear",
+    discountLabel: "UP TO",
+    discount: "50%",
+    cta: "Shop Now",
+    backgroundImage: heroImg("1621905251189-08b45d6a269e"),
+    productAlt: "Electrical sale",
+  },
+  {
+    id: "hero-offer-4",
+    type: "offer",
+    href: "/categories/safety",
+    title: "Safety Supplies",
+    tagline: "Helmets, gloves & PPE kits",
+    discountLabel: "UP TO",
+    discount: "50%",
+    cta: "Shop Now",
+    backgroundImage: heroImg("1581092160562-40aa08e78837"),
+    productAlt: "Safety supplies sale",
   },
 ];
 
@@ -46,7 +76,7 @@ export const promoBanners = [
   },
   {
     id: "promo-2",
-    image: "https://images.unsplash.com/photo-1592982537447-6f2963162b77?q=80&w=800&h=300&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1625246331285-6d788bb32d06?q=80&w=800&h=300&auto=format&fit=crop",
     alt: "Agri & Farming Offer",
     link: "/categories/agri"
   },
@@ -105,6 +135,8 @@ export interface Category {
   name: string;
   image: string;
   href: string;
+  /** Unique pastel tile background per category */
+  tileBg: string;
   subgroups?: SubCategoryGroup[];
 }
 
@@ -113,6 +145,7 @@ export const categories: Category[] = [
     id: "cat-electrical",
     name: "Electrical & Appliances",
     image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400",
+    tileBg: "bg-cat-electrical",
     href: "/categories/electrical",
     subgroups: [
       { title: "Wires & Cables", items: ["House Wires", "Multicore Cables", "Submersible Cables", "Solar Cables", "CCTV Cables"] },
@@ -125,6 +158,7 @@ export const categories: Category[] = [
     id: "cat-tools",
     name: "Industrial Tools",
     image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400",
+    tileBg: "bg-cat-tools",
     href: "/categories/tools",
     subgroups: [
       { title: "Power Tools", items: ["Drill Machines", "Angle Grinders", "Rotary Hammers", "Blowers"] },
@@ -136,6 +170,7 @@ export const categories: Category[] = [
     id: "cat-office",
     name: "Office Supplies",
     image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=400",
+    tileBg: "bg-cat-office",
     href: "/categories/office",
     subgroups: [
       { title: "Office Furniture", items: ["Office Chairs", "Executive Tables", "Cabinets"] },
@@ -145,7 +180,8 @@ export const categories: Category[] = [
   {
     id: "cat-agri",
     name: "Agri & Gardening",
-    image: "https://images.unsplash.com/photo-1592982537447-6f2963162b77?q=80&w=200&h=200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1625246331285-6d788bb32d06?q=80&w=400&h=320&auto=format&fit=crop",
+    tileBg: "bg-cat-agri",
     href: "/categories/agri",
     subgroups: [
       { title: "Farming Tools", items: ["Brush Cutters", "Chainsaws", "Earth Augers"] },
@@ -156,6 +192,7 @@ export const categories: Category[] = [
     id: "cat-medical",
     name: "Medical & Lab Supplies",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400",
+    tileBg: "bg-cat-medical",
     href: "/categories/medical",
     subgroups: [
       { title: "Lab Instruments", items: ["Microscopes", "Centrifuges", "Incubators"] },
@@ -166,6 +203,7 @@ export const categories: Category[] = [
     id: "cat-safety",
     name: "Safety Supplies",
     image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=400",
+    tileBg: "bg-cat-safety",
     href: "/categories/safety",
     subgroups: [
       { title: "Personal Protective Equipment", items: ["Safety Helmets", "Safety Shoes", "Safety Goggles"] },
@@ -177,6 +215,7 @@ export const categories: Category[] = [
     id: "cat-construction",
     name: "Construction Materials",
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400",
+    tileBg: "bg-cat-construction",
     href: "/categories/construction",
     subgroups: [
       { title: "Building Materials", items: ["Cement", "Steel TMT Bars", "Bricks"] },
@@ -187,6 +226,7 @@ export const categories: Category[] = [
     id: "cat-automotive",
     name: "Automotive",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=400",
+    tileBg: "bg-cat-automotive",
     href: "/categories/automotive",
     subgroups: [
       { title: "Car Accessories", items: ["Car Covers", "Floor Mats", "Car Perfumes"] },
@@ -197,6 +237,7 @@ export const categories: Category[] = [
     id: "cat-packaging",
     name: "Packaging & Material Handling",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400",
+    tileBg: "bg-cat-packaging",
     href: "/categories/packaging",
     subgroups: [
       { title: "Packaging Materials", items: ["Corrugated Boxes", "Bubble Wrap", "Packaging Tape"] },
@@ -207,6 +248,7 @@ export const categories: Category[] = [
     id: "cat-express",
     name: "Mogli Express",
     image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=400",
+    tileBg: "bg-cat-express",
     href: "/categories/express",
     subgroups: [
       { title: "Next Day Delivery", items: ["Top Rated Tools", "Bestselling Safety Gear", "Urgent Supplies"] }
@@ -332,7 +374,7 @@ export interface RelatedItem {
 }
 
 export const recentlyViewedItems: RelatedItem[] = [
-  { id: "rv-1", title: "Agricultural Machinery", image: "https://images.unsplash.com/photo-1592982537447-6f2963162b77?q=80&w=200", count: 94 },
+  { id: "rv-1", title: "Agricultural Machinery", image: "https://images.unsplash.com/photo-1625246331285-6d788bb32d06?q=80&w=200&auto=format&fit=crop", count: 94 },
   { id: "rv-2", title: "Farming Tools, Equipment and..", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=200", count: 797 },
   { id: "rv-3", title: "Animal Mats", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200", count: 50 },
   { id: "rv-4", title: "Rice Mill Machines", image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=200", count: 25 },

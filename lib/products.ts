@@ -160,7 +160,7 @@ export function getProductFaqs(product: Product): ProductFaq[] {
     },
     {
       question: "Do you deliver PAN India?",
-      answer: "Yes, we deliver across India. Enter your pincode above to check serviceability.",
+      answer: "Yes, we deliver across India. Contact us on WhatsApp for delivery details.",
     },
   ];
 }

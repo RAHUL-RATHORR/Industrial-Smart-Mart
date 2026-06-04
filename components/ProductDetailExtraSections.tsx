@@ -33,9 +33,9 @@ function RatingBar({ stars, percent }: { stars: number; percent: number }) {
   return (
     <div className="flex items-center gap-2 text-xs">
       <span className="w-3">{stars}</span>
-      <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+      <Star className="h-3 w-3 fill-brand-yellow text-brand-yellow" />
       <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-        <div className="h-full bg-[#0e8a2a] rounded-full" style={{ width: `${percent}%` }} />
+        <div className="h-full bg-brand-yellow rounded-full" style={{ width: `${percent}%` }} />
       </div>
       <span className="w-8 text-right text-muted-foreground">{percent}%</span>
     </div>
@@ -101,7 +101,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
                       href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share price and availability.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1 w-full bg-[#25D366] text-white text-[10px] sm:text-xs font-bold py-1.5 rounded hover:bg-brand-black hover:text-white transition-colors"
+                      className="btn-brand w-full gap-1 text-[10px] sm:text-xs py-1.5 rounded"
                     >
                       <MessageCircle className="h-3 w-3" />
                       WhatsApp Inquiry
@@ -137,7 +137,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 pb-6 border-b">
           <div>
-            <p className="text-4xl font-black text-brand-black">{avgRating} <Star className="inline h-6 w-6 fill-amber-400 text-amber-400" /></p>
+            <p className="text-4xl font-black text-brand-black">{avgRating} <Star className="inline h-6 w-6 fill-brand-yellow text-brand-yellow" /></p>
             <p className="text-sm text-muted-foreground mt-1">
               Average Rating based on {totalReviews} ratings and {totalReviews} reviews
             </p>
@@ -154,7 +154,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
               href={generateWhatsAppLink(`I want to write a review for ${product.name}`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border-2 border-[#e53935] text-[#e53935] font-bold px-4 py-2 text-sm hover:bg-[#e53935] hover:text-white transition-colors"
+              className="btn-brand-outline px-4 py-2 text-sm rounded-lg"
             >
               WRITE A REVIEW
             </a>
@@ -176,11 +176,11 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
               <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <span className="inline-flex items-center gap-0.5 bg-[#0e8a2a] text-white text-xs font-bold px-1.5 py-0.5 rounded">
+                    <span className="badge-brand gap-0.5 text-xs px-1.5 py-0.5">
                       {review.rating} <Star className="h-3 w-3 fill-current" />
                     </span>
                     {review.verified && (
-                      <span className="text-[10px] font-semibold text-[#0e8a2a] border border-[#0e8a2a] px-1.5 py-0.5 rounded">
+                      <span className="text-[10px] font-semibold text-brand-black border border-brand-yellow bg-brand-yellow/10 px-1.5 py-0.5 rounded">
                         Verified Purchase
                       </span>
                     )}
@@ -203,7 +203,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
             </div>
           ))}
         </div>
-        <Link href="/faq" className="inline-block text-sm font-semibold text-blue-600 hover:underline mt-4">
+        <Link href="/faq" className="link-brand inline-block text-sm mt-4">
           VIEW ALL REVIEWS &gt;
         </Link>
       </section>
@@ -216,7 +216,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
             href={generateWhatsAppLink(`I have a question about ${product.name}`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border-2 border-[#e53935] text-[#e53935] font-bold px-4 py-2 text-sm hover:bg-[#e53935] hover:text-white transition-colors text-center shrink-0"
+            className="btn-brand-outline px-4 py-2 text-sm rounded-lg text-center shrink-0"
           >
             ASK NOW
           </a>
@@ -229,7 +229,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
             </div>
           ))}
         </div>
-        <Link href="/faq" className="inline-block text-sm font-semibold text-blue-600 hover:underline mt-4">
+        <Link href="/faq" className="link-brand inline-block text-sm mt-4">
           VIEW ALL FAQS &gt;
         </Link>
       </section>
@@ -242,7 +242,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
             <Link
               key={item.id}
               href={item.href}
-              className="flex items-center gap-3 border rounded-lg p-3 hover:border-brand-yellow hover:shadow-sm transition-all group"
+              className="card-pro flex items-center gap-3 p-3 transition-all group"
             >
               <SafeImage src={item.image} alt={item.title} className="w-12 h-12 object-contain shrink-0" />
               <p className="text-xs sm:text-sm font-medium line-clamp-2 flex-1 group-hover:text-brand-yellow">{item.title}</p>

@@ -45,7 +45,7 @@ export default function SearchBar({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className={cn(
-            "block w-full border-2 border-muted bg-muted/50 py-2 sm:py-2.5 pl-9 sm:pl-10 pr-4 text-sm focus:border-brand-yellow focus:bg-background focus:outline-none focus:ring-0 transition-all rounded-full",
+            "block w-full rounded-full border border-pro bg-white py-2 pl-9 pr-4 text-sm shadow-pro-sm transition-all focus:border-brand-yellow focus:bg-background focus:outline-none focus:ring-2 focus:ring-brand-yellow/25 sm:py-2.5 sm:pl-10",
             inputClassName
           )}
           placeholder={placeholder}

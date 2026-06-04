@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function SeoLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="text-blue-600 hover:underline">
+    <Link href={href} className="link-brand">
       {children}
     </Link>
   );

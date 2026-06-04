@@ -28,7 +28,7 @@ export default async function ProductsPage({
       </div>
 
       {products.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 items-start">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -37,7 +37,7 @@ export default async function ProductsPage({
         <div className="rounded-xl border bg-muted/20 p-10 text-center max-w-lg mx-auto">
           <p className="font-semibold text-brand-black mb-2">No products found</p>
           <p className="text-sm text-muted-foreground mb-4">Try searching with a different keyword or brand name.</p>
-          <Link href="/products" className="text-sm font-semibold text-blue-600 hover:underline">
+          <Link href="/products" className="link-brand text-sm">
             Clear search
           </Link>
         </div>

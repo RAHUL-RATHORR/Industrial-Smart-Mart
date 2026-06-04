@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ProductCard from "@/components/ProductCard";
 import { getCategoryBySlug, getCategoryProducts } from "@/lib/categories";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -49,7 +50,7 @@ export default async function CategoryPage({
         <span className="text-brand-black">{category.name}</span>
       </nav>
 
-      <div className="mb-8 md:mb-10">
+      <div className={cn("mb-8 rounded-2xl border border-pro p-5 sm:p-6 md:mb-10 md:p-8", category.tileBg)}>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-black mb-2">{category.name}</h1>
         <p className="text-muted-foreground text-sm md:text-base">
           {q
@@ -85,7 +86,7 @@ export default async function CategoryPage({
       )}
 
       {products.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-6 items-start">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6 items-start">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -94,7 +95,7 @@ export default async function CategoryPage({
         <div className="rounded-xl border bg-muted/20 p-10 text-center">
           <p className="font-semibold text-brand-black mb-2">No products found</p>
           <p className="text-sm text-muted-foreground mb-4">Try a different filter or browse all products.</p>
-          <Link href="/products" className="text-sm font-semibold text-blue-600 hover:underline">
+          <Link href="/products" className="link-brand text-sm">
             View all products
           </Link>
         </div>

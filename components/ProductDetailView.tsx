@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ChevronRight,
-  MapPin,
   MessageCircle,
   Minus,
   Plus,
@@ -28,20 +27,16 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
   const { rating, reviews } = getProductDisplayRating(product);
   const [activeImage, setActiveImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [pincode, setPincode] = useState("");
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const whatsappMessage = useMemo(() => {
-    const lines = [
+    return [
       `Hello, I want to inquire about:`,
       `Product: ${product.name}`,
       `Brand: ${product.brand}`,
       `Quantity: ${quantity}`,
-      pincode ? `Delivery Pincode: ${pincode}` : "",
-    ].filter(Boolean);
-
-    return lines.join("\n");
-  }, [product, quantity, pincode]);
+    ].join("\n");
+  }, [product, quantity]);
 
   const whatsappUrl = generateWhatsAppLink(whatsappMessage);
 
@@ -89,7 +84,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                   type="button"
                   onClick={() => setActiveImage(index)}
                   className={`shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg border bg-white p-1 ${
-                    activeImage === index ? "border-brand-yellow ring-2 ring-brand-yellow/30" : "border-gray-200"
+                    activeImage === index ? "border-brand-yellow ring-2 ring-brand-yellow/30" : "border-pro"
                   }`}
                 >
                   <SafeImage src={image} alt={`${product.name} view ${index + 1}`} className="w-full h-full object-contain" />
@@ -100,10 +95,10 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
 
           {/* Product Info */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="bg-white border rounded-xl p-4 sm:p-5 space-y-4">
+            <div className="card-pro bg-white p-4 sm:p-5 space-y-4">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1 rounded bg-[#0e8a2a] px-2 py-0.5 text-xs font-bold text-white">
+                  <span className="badge-brand gap-1 px-2 py-0.5 text-xs">
                     {rating}
                     <Star className="h-3 w-3 fill-current" />
                   </span>
@@ -118,13 +113,13 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
               </p>
 
               <div className="space-y-2">
-                <div className="rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs sm:text-sm text-blue-900">
+                <div className="surface-brand px-3 py-2 text-xs sm:text-sm">
                   Sign Up & Save — Get extra GST benefits on business orders.
                 </div>
-                <div className="rounded-lg border border-amber-100 bg-amber-50 px-3 py-2 text-xs sm:text-sm text-amber-900">
+                <div className="surface-brand px-3 py-2 text-xs sm:text-sm">
                   Coupons & Offers — Ask on WhatsApp for latest bulk discount codes.
                 </div>
-                <div className="rounded-lg border border-green-100 bg-green-50 px-3 py-2 text-xs sm:text-sm text-green-900">
+                <div className="surface-brand px-3 py-2 text-xs sm:text-sm">
                   ISM Business — Dedicated support for corporate procurement.
                 </div>
               </div>
@@ -133,10 +128,10 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
 
           {/* Purchase Box */}
           <div className="lg:col-span-3">
-            <div className="bg-white border rounded-xl p-4 sm:p-5 space-y-4 lg:sticky lg:top-24">
+            <div className="card-pro bg-white p-4 sm:p-5 space-y-4 lg:sticky lg:top-24">
               <div>
                 <p className="text-sm font-semibold mb-2">Quantity</p>
-                <div className="inline-flex items-center border rounded-lg overflow-hidden">
+                <div className="inline-flex items-center border-pro rounded-lg overflow-hidden">
                   <button type="button" onClick={() => setQuantity((q) => Math.max(1, q - 1))} className="px-3 py-2 hover:bg-muted" aria-label="Decrease quantity">
                     <Minus className="h-4 w-4" />
                   </button>
@@ -151,30 +146,11 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white font-bold py-3 text-sm hover:bg-brand-black hover:text-white transition-colors"
+                className="btn-brand w-full gap-2 py-3 text-sm"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Inquiry
               </a>
-
-              <div className="border-t pt-4 space-y-2">
-                <p className="text-sm font-semibold flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-brand-yellow" />
-                  Check Delivery
-                </p>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={6}
-                  value={pincode}
-                  onChange={(e) => setPincode(e.target.value.replace(/\D/g, ""))}
-                  placeholder="Enter pincode"
-                  className="w-full rounded-lg border px-3 py-2 text-sm focus:border-brand-yellow focus:outline-none"
-                />
-                <p className="text-xs text-muted-foreground">
-                  {pincode.length === 6 ? "Delivery available to this pincode. Confirm on WhatsApp." : "Enter 6-digit pincode for delivery estimate."}
-                </p>
-              </div>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="flex items-center gap-2 p-2 rounded-lg bg-muted/30">
@@ -187,7 +163,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                 </div>
               </div>
 
-              <button type="button" onClick={handleShare} className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 text-sm font-medium hover:border-brand-yellow hover:text-brand-yellow transition-colors">
+              <button type="button" onClick={handleShare} className="btn-brand-outline w-full gap-2 py-2 text-sm font-medium">
                 <Share2 className="h-4 w-4" />
                 Share Product
               </button>
@@ -196,11 +172,11 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
         </div>
 
         {/* Insights */}
-        <div className="mt-6 bg-blue-50 border border-blue-100 rounded-xl p-4 sm:p-5">
+        <div className="mt-6 rounded-xl border border-pro bg-brand-yellow-soft p-4 shadow-pro-sm sm:p-5">
           <h2 className="text-sm sm:text-base font-bold text-brand-black mb-3">Industrial Safety Mart Insights</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {extras.insights.map((insight) => (
-              <div key={insight} className="bg-white rounded-lg border p-3 text-sm text-gray-700">
+              <div key={insight} className="card-pro bg-white p-3 text-sm text-foreground">
                 {insight}
               </div>
             ))}
@@ -208,7 +184,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
         </div>
 
         {/* About Product */}
-        <div className="mt-6 bg-white border rounded-xl p-4 sm:p-6 space-y-6">
+        <div className="card-pro mt-6 bg-white p-4 sm:p-6 space-y-6">
           <h2 className="text-lg font-bold text-brand-black">About this product</h2>
 
           <div>
@@ -222,7 +198,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
 
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground mb-3">Product Specifications</h3>
-            <div className="border rounded-lg overflow-hidden">
+            <div className="border-pro rounded-lg overflow-hidden">
               {extras.specs.map((spec, index) => (
                 <div key={spec.label} className={`grid grid-cols-2 text-sm ${index % 2 === 0 ? "bg-muted/20" : "bg-white"}`}>
                   <div className="px-4 py-2.5 font-medium text-gray-600 border-r">{spec.label}</div>
@@ -240,7 +216,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
             <button
               type="button"
               onClick={() => setShowFullDescription((prev) => !prev)}
-              className="text-sm font-semibold text-blue-600 hover:underline mt-2"
+              className="link-brand text-sm mt-2"
             >
               {showFullDescription ? "Read Less" : "Read More"}
             </button>
@@ -248,7 +224,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
         </div>
 
         {/* Bulk Inquiry */}
-        <div className="mt-6 bg-white border rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
+        <div className="card-pro mt-6 bg-white p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
           <SafeImage src={product.image} alt={product.name} className="w-20 h-20 object-contain shrink-0" />
           <div className="flex-1 text-center sm:text-left">
             <p className="font-bold text-brand-black">Looking to purchase in bulk?</p>
@@ -258,7 +234,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-lg bg-[#25D366] text-white font-bold px-4 py-2.5 text-sm hover:bg-brand-black hover:text-white transition-colors whitespace-nowrap"
+            className="btn-brand shrink-0 px-4 py-2.5 text-sm whitespace-nowrap"
           >
             WhatsApp Inquiry
           </a>

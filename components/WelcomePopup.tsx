@@ -55,7 +55,7 @@ export default function WelcomePopup() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="welcome-popup-title"
-            className="relative w-full max-w-md rounded-2xl bg-white p-6 sm:p-8 shadow-2xl"
+            className="relative w-full max-w-md rounded-2xl border-pro bg-white p-6 sm:p-8 shadow-pro-float"
             initial={{ opacity: 0, scale: 0.95, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 12 }}
@@ -84,7 +84,7 @@ export default function WelcomePopup() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href={telLink}
-                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-5 py-3 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-colors"
+                  className="btn-brand flex-1 gap-2 rounded-xl px-5 py-3 text-sm"
                 >
                   <Phone className="h-4 w-4" />
                   Call Us
@@ -93,7 +93,7 @@ export default function WelcomePopup() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-bold text-white hover:bg-[#128C7E] transition-colors"
+                  className="btn-brand-outline flex-1 gap-2 rounded-xl px-5 py-3 text-sm"
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp

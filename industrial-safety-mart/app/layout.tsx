@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import TopBanner from "@/components/TopBanner";
 import Navbar from "@/components/Navbar";
 import CategoryNav from "@/components/CategoryNav";
 import Footer from "@/components/Footer";
@@ -22,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col font-sans">
-        <TopBanner />
         <Navbar />
         <CategoryNav />
         <main className="flex-1">{children}</main>

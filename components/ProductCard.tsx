@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Share2, Star } from "lucide-react";
+import { Share2, Star } from "lucide-react";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 import SafeImage from "@/components/SafeImage";
@@ -37,61 +37,53 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <motion.div
       whileHover={{ y: -4 }}
-      className="group/card relative flex h-full flex-col rounded-xl border bg-card shadow-sm transition-all hover:shadow-md"
+      className="group/card card-pro relative flex h-full flex-col transition-all"
     >
       <Link
         href={productUrl}
-        className="relative flex aspect-[4/3] w-full shrink-0 items-center justify-center overflow-hidden rounded-t-xl border-b bg-white p-2 sm:p-3"
+        className="relative block aspect-[4/3] w-full shrink-0 overflow-hidden rounded-t-xl border-b border-pro bg-surface-subtle"
       >
         <SafeImage
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover/card:scale-105 dark:mix-blend-normal"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
         />
       </Link>
 
-      <div className="flex min-h-0 flex-1 flex-col p-2.5 sm:p-3">
-        <div className="mb-1 flex items-center gap-1.5">
-          <span className="inline-flex items-center gap-0.5 rounded bg-[#0e8a2a] px-1.5 py-0.5 text-[10px] font-bold leading-none text-white">
+      <div className="flex min-h-0 flex-1 flex-col p-3 sm:p-4">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="badge-brand gap-0.5 px-2 py-0.5 text-[10px] leading-none sm:text-xs">
             {rating}
             <Star className="h-2.5 w-2.5 fill-current" />
           </span>
           <span className="text-[10px] text-muted-foreground sm:text-xs">({reviews})</span>
         </div>
 
-        <p className="mb-0.5 line-clamp-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground sm:text-xs">
+        <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground sm:text-xs">
           {product.brand}
         </p>
 
-        <Link href={productUrl} className="mb-2 block flex-1">
-          <h3 className="line-clamp-3 text-xs font-bold leading-snug text-brand-black transition-colors group-hover/card:text-brand-yellow sm:line-clamp-2 sm:text-sm dark:text-white">
+        <Link href={productUrl} className="mb-3 block flex-1 min-h-[2.5rem] sm:min-h-[2.75rem]">
+          <h3 className="line-clamp-3 text-xs font-bold leading-relaxed text-brand-black transition-colors group-hover/card:text-brand-yellow sm:line-clamp-2 sm:text-sm dark:text-white">
             {product.name}
           </h3>
         </Link>
 
-        <div className="mt-auto flex gap-1 sm:gap-1.5">
-          <Link
-            href={productUrl}
-            className="flex min-w-0 flex-1 items-center justify-center gap-0.5 rounded-md bg-[#1a2744] px-1.5 py-2 text-[9px] font-semibold leading-none text-white transition-colors hover:bg-brand-black sm:gap-1 sm:px-2 sm:text-[10px]"
-          >
-            Details
-            <ArrowRight className="h-3 w-3 shrink-0" />
-          </Link>
-
+        <div className="mt-auto flex gap-2 sm:gap-2.5 pt-1">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-w-0 flex-1 items-center justify-center gap-1 rounded-md bg-[#2aab9b] px-1.5 py-2 text-[9px] font-semibold leading-none text-white transition-colors hover:bg-[#229e90] sm:px-2 sm:text-[10px]"
+            className="btn-brand-outline min-w-0 flex-1 gap-1.5 rounded-lg px-2.5 py-2.5 text-[10px] leading-none sm:px-3 sm:py-2.5 sm:text-xs"
           >
-            <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
+            <WhatsAppIcon className="h-4 w-4 shrink-0" />
             <span className="truncate">Inquiry Now</span>
           </a>
 
           <button
             type="button"
             onClick={handleShare}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#25D366] bg-white text-[#25D366] transition-colors hover:bg-[#25D366]/10 sm:h-9 sm:w-9"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border-pro bg-white text-brand-black transition-colors hover:border-brand-yellow hover:bg-brand-yellow/10 sm:h-10 sm:w-10"
             aria-label="Share product"
           >
             <Share2 className="h-3.5 w-3.5" />
