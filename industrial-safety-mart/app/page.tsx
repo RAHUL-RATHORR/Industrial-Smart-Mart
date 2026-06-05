@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import HeroOfferSlide from "@/components/HeroOfferSlide";
 import ProductCard from "@/components/ProductCard";
 import SafeImage from "@/components/SafeImage";
 import {
@@ -23,7 +24,6 @@ import {
   recentlyViewedItems,
   whyChooseUs,
 } from "@/lib/data";
-import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 const PRODUCT_GRID =
   "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4";
@@ -69,36 +69,7 @@ export default function HomePage() {
                 transition={{ duration: 0.4 }}
                 className="absolute inset-0"
               >
-                <SafeImage
-                  src={activeHero.image}
-                  alt={activeHero.title}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-14 max-w-2xl">
-                  <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-2 md:mb-3 leading-tight">
-                    {activeHero.title}
-                  </h1>
-                  <p className="text-sm sm:text-base text-white/90 mb-4 md:mb-6 line-clamp-2 sm:line-clamp-none">
-                    {activeHero.subtitle}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      href="/products"
-                      className="inline-flex w-fit items-center rounded-lg bg-brand-yellow px-5 py-2.5 text-sm font-bold text-brand-black hover:bg-brand-yellow/90 transition-colors"
-                    >
-                      {activeHero.cta}
-                    </Link>
-                    <a
-                      href={generateWhatsAppLink(`Hi, I want to inquire about ${activeHero.title}`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex w-fit items-center rounded-lg border-2 border-brand-yellow px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-yellow hover:text-brand-black transition-colors"
-                    >
-                      WhatsApp Inquiry
-                    </a>
-                  </div>
-                </div>
+                <HeroOfferSlide banner={activeHero} />
               </motion.div>
             </AnimatePresence>
 
