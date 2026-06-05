@@ -36,7 +36,7 @@ const iconMap = {
   Award,
 } as const;
 
-const categorySections = categories.slice(0, 6);
+const categorySections = categories;
 
 export default function HomePage() {
   const [heroIndex, setHeroIndex] = useState(0);

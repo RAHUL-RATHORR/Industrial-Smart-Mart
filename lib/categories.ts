@@ -10,7 +10,9 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 }
 
 export function getCategoryProducts(categoryId: string, query?: string): Product[] {
-  let products = getProductsByCategory(categoryId, 12);
+  const category = categories.find((c) => c.id === categoryId);
+  const count = Math.min(category?.productCount ?? 12, 12);
+  let products = getProductsByCategory(categoryId, count);
 
   if (query?.trim()) {
     const term = query.trim().toLowerCase();

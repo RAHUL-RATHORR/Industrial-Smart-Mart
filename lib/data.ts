@@ -15,50 +15,53 @@ export type HeroOfferBanner = {
 const heroImg = (id: string) =>
   `https://images.unsplash.com/photo-${id}?q=80&w=1400&h=600&auto=format&fit=crop`;
 
+const catImg = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?q=80&w=500&auto=format&fit=crop`;
+
 /** Hero slider — full-bleed sale banners */
 export const heroBanners: HeroOfferBanner[] = [
   {
     id: "hero-offer-1",
     type: "offer",
-    href: "/categories/office",
-    title: "Office Furniture",
-    tagline: "Chairs, desks & workspace deals",
+    href: "/categories/safety-shoes",
+    title: "Safety Shoes",
+    tagline: "Steel toe & industrial footwear",
     discountLabel: "UP TO",
     discount: "50%",
     cta: "Shop Now",
-    backgroundImage: heroImg("1497366216548-375260702dfb"),
-    productAlt: "Office furniture sale",
+    backgroundImage: heroImg("1542291026-7eec264c27ff"),
+    productAlt: "Safety shoes sale",
   },
   {
     id: "hero-offer-2",
     type: "offer",
-    href: "/categories/tools",
-    title: "Industrial Tools",
-    tagline: "Drills, grinders & power tools",
+    href: "/categories/welding",
+    title: "Welding Machines",
+    tagline: "ARC, MIG & accessories",
     discountLabel: "FLAT",
     discount: "70%",
     cta: "Shop Now",
-    backgroundImage: heroImg("1504148455328-c376907d081c"),
-    productAlt: "Industrial tools sale",
+    backgroundImage: heroImg("1504917595217-d4dc5ebe6122"),
+    productAlt: "Welding machines sale",
   },
   {
     id: "hero-offer-3",
     type: "offer",
-    href: "/categories/electrical",
-    title: "Electrical & Wires",
-    tagline: "Cables, panels & safety gear",
+    href: "/categories/reflective-jackets",
+    title: "Reflective Jackets",
+    tagline: "High visibility workwear",
     discountLabel: "UP TO",
     discount: "50%",
     cta: "Shop Now",
-    backgroundImage: heroImg("1621905251189-08b45d6a269e"),
-    productAlt: "Electrical sale",
+    backgroundImage: heroImg("1581092160562-40aa08e78837"),
+    productAlt: "Reflective jackets sale",
   },
   {
     id: "hero-offer-4",
     type: "offer",
-    href: "/categories/safety",
-    title: "Safety Supplies",
-    tagline: "Helmets, gloves & PPE kits",
+    href: "/categories/safety-helmets",
+    title: "Safety Helmets",
+    tagline: "HDPE & ratchet helmets",
     discountLabel: "UP TO",
     discount: "50%",
     cta: "Shop Now",
@@ -70,27 +73,27 @@ export const heroBanners: HeroOfferBanner[] = [
 export const promoBanners = [
   {
     id: "promo-1",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&h=300&fit=crop",
-    alt: "Office Furniture Offer",
-    link: "/categories/office"
+    image: catImg("1542291026-7eec264c27ff"),
+    alt: "Safety Shoes Offer",
+    link: "/categories/safety-shoes",
   },
   {
     id: "promo-2",
-    image: "https://images.unsplash.com/photo-1625246331285-6d788bb32d06?q=80&w=800&h=300&auto=format&fit=crop",
-    alt: "Agri & Farming Offer",
-    link: "/categories/agri"
+    image: catImg("1504917595217-d4dc5ebe6122"),
+    alt: "Welding Machines Offer",
+    link: "/categories/welding",
   },
   {
     id: "promo-3",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&h=300&fit=crop",
-    alt: "Wires & Cables Offer",
-    link: "/categories/electrical"
+    image: catImg("1581092160562-40aa08e78837"),
+    alt: "Reflective Jackets Offer",
+    link: "/categories/reflective-jackets",
   },
   {
     id: "promo-4",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&h=300&fit=crop",
-    alt: "Cooling Appliances Offer",
-    link: "/categories/medical"
+    image: catImg("1531834685032-c34bf0d84c77"),
+    alt: "Safety Helmets Offer",
+    link: "/categories/safety-helmets",
   },
 ];
 
@@ -135,136 +138,107 @@ export interface Category {
   name: string;
   image: string;
   href: string;
+  productCount: number;
   /** Unique pastel tile background per category */
   tileBg: string;
   subgroups?: SubCategoryGroup[];
 }
 
+/** Client category sequence — 125 products total */
 export const categories: Category[] = [
   {
-    id: "cat-electrical",
-    name: "Electrical & Appliances",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400",
-    tileBg: "bg-cat-electrical",
-    href: "/categories/electrical",
-    subgroups: [
-      { title: "Wires & Cables", items: ["House Wires", "Multicore Cables", "Submersible Cables", "Solar Cables", "CCTV Cables"] },
-      { title: "Power Generation", items: ["Stabilizers", "Batteries", "Generators", "Soft Starters"] },
-      { title: "Industrial Coolers", items: ["Desert Coolers", "Air Coolers"] },
-      { title: "Fans", items: ["Ceiling Fans", "Pedestal Fans", "Exhaust Fans", "Wall Fans"] }
-    ]
-  },
-  {
-    id: "cat-tools",
-    name: "Industrial Tools",
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400",
-    tileBg: "bg-cat-tools",
-    href: "/categories/tools",
-    subgroups: [
-      { title: "Power Tools", items: ["Drill Machines", "Angle Grinders", "Rotary Hammers", "Blowers"] },
-      { title: "Hand Tools", items: ["Spanners", "Wrenches", "Screwdrivers", "Pliers"] },
-      { title: "Machine Tools", items: ["Lathe Tools", "Milling Cutters", "Drill Bits"] }
-    ]
-  },
-  {
-    id: "cat-office",
-    name: "Office Supplies",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=400",
-    tileBg: "bg-cat-office",
-    href: "/categories/office",
-    subgroups: [
-      { title: "Office Furniture", items: ["Office Chairs", "Executive Tables", "Cabinets"] },
-      { title: "IT & Electronics", items: ["Printers", "Monitors", "Keyboards", "Projectors"] }
-    ]
-  },
-  {
-    id: "cat-agri",
-    name: "Agri & Gardening",
-    image: "https://images.unsplash.com/photo-1625246331285-6d788bb32d06?q=80&w=400&h=320&auto=format&fit=crop",
-    tileBg: "bg-cat-agri",
-    href: "/categories/agri",
-    subgroups: [
-      { title: "Farming Tools", items: ["Brush Cutters", "Chainsaws", "Earth Augers"] },
-      { title: "Water Pumps", items: ["Centrifugal Pumps", "Submersible Pumps", "Sewage Pumps"] }
-    ]
-  },
-  {
-    id: "cat-medical",
-    name: "Medical & Lab Supplies",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400",
-    tileBg: "bg-cat-medical",
-    href: "/categories/medical",
-    subgroups: [
-      { title: "Lab Instruments", items: ["Microscopes", "Centrifuges", "Incubators"] },
-      { title: "Medical Consumables", items: ["Surgical Gloves", "Syringes", "Masks"] }
-    ]
-  },
-  {
-    id: "cat-safety",
-    name: "Safety Supplies",
-    image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=400",
+    id: "cat-safety-shoes",
+    name: "Safety Shoes",
+    productCount: 20,
+    image: catImg("1542291026-7eec264c27ff"),
     tileBg: "bg-cat-safety",
-    href: "/categories/safety",
-    subgroups: [
-      { title: "Personal Protective Equipment", items: ["Safety Helmets", "Safety Shoes", "Safety Goggles"] },
-      { title: "Fall Protection", items: ["Safety Harness", "Fall Arresters", "Lanyards"] },
-      { title: "Fire Safety", items: ["Fire Extinguishers", "Fire Alarms", "Smoke Detectors"] }
-    ]
+    href: "/categories/safety-shoes",
+    subgroups: [{ title: "Safety Shoes", items: ["Steel Toe Shoes", "PU Sole Shoes", "Double Density", "Gumboots"] }],
   },
   {
-    id: "cat-construction",
-    name: "Construction Materials",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400",
+    id: "cat-pvc-gumboots",
+    name: "PVC GumBoots",
+    productCount: 15,
+    image: catImg("1605810227924-f60667beb4ce"),
+    tileBg: "bg-cat-tools",
+    href: "/categories/pvc-gumboots",
+    subgroups: [{ title: "PVC GumBoots", items: ["Knee Length", "Ankle Length", "Food Grade", "Chemical Resistant"] }],
+  },
+  {
+    id: "cat-reflective-jackets",
+    name: "Reflective Jackets",
+    productCount: 10,
+    image: catImg("1581092160562-40aa08e78837"),
+    tileBg: "bg-cat-electrical",
+    href: "/categories/reflective-jackets",
+    subgroups: [{ title: "Reflective Jackets", items: ["Orange Mesh", "Green Mesh", "Polyester", "Cotton"] }],
+  },
+  {
+    id: "cat-safety-helmets",
+    name: "Safety Helmets",
+    productCount: 5,
+    image: catImg("1531834685032-c34bf0d84c77"),
     tileBg: "bg-cat-construction",
-    href: "/categories/construction",
-    subgroups: [
-      { title: "Building Materials", items: ["Cement", "Steel TMT Bars", "Bricks"] },
-      { title: "Paints & Coatings", items: ["Interior Paints", "Exterior Paints", "Primers"] }
-    ]
+    href: "/categories/safety-helmets",
+    subgroups: [{ title: "Safety Helmets", items: ["HDPE Helmets", "Ratchet Type", "Ventilated", "With Chin Strap"] }],
   },
   {
-    id: "cat-automotive",
-    name: "Automotive",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=400",
-    tileBg: "bg-cat-automotive",
-    href: "/categories/automotive",
-    subgroups: [
-      { title: "Car Accessories", items: ["Car Covers", "Floor Mats", "Car Perfumes"] },
-      { title: "Auto Tools", items: ["Hydraulic Jacks", "Tyre Inflators", "Battery Chargers"] }
-    ]
+    id: "cat-safety-gloves",
+    name: "Safety Gloves",
+    productCount: 15,
+    image: catImg("1576871337636-b2b0c195a089"),
+    tileBg: "bg-cat-medical",
+    href: "/categories/safety-gloves",
+    subgroups: [{ title: "Safety Gloves", items: ["Leather Gloves", "Latex Coated", "Cut Resistant", "Welding Gloves"] }],
   },
   {
-    id: "cat-packaging",
-    name: "Packaging & Material Handling",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400",
+    id: "cat-welding",
+    name: "Welding Machine & Accessories",
+    productCount: 30,
+    image: catImg("1504917595217-d4dc5ebe6122"),
+    tileBg: "bg-cat-tools",
+    href: "/categories/welding",
+    subgroups: [{ title: "Welding", items: ["ARC Machines", "MIG Welders", "Welding Rods", "Helmets & Gloves"] }],
+  },
+  {
+    id: "cat-disposable-ppe",
+    name: "Disposable PPE Products",
+    productCount: 10,
+    image: catImg("1584985562121-2692b387d6cf"),
+    tileBg: "bg-cat-medical",
+    href: "/categories/disposable-ppe",
+    subgroups: [{ title: "Disposable PPE", items: ["Face Masks", "Shoe Covers", "Head Covers", "Aprons"] }],
+  },
+  {
+    id: "cat-face-ear",
+    name: "Face & Ear Protection",
+    productCount: 15,
+    image: catImg("1576091160399-112f8cc25c2f"),
     tileBg: "bg-cat-packaging",
-    href: "/categories/packaging",
-    subgroups: [
-      { title: "Packaging Materials", items: ["Corrugated Boxes", "Bubble Wrap", "Packaging Tape"] },
-      { title: "Material Handling", items: ["Pallet Trucks", "Trolleys", "Hoists"] }
-    ]
+    href: "/categories/face-ear-protection",
+    subgroups: [{ title: "Face & Ear", items: ["Safety Goggles", "Face Shields", "Ear Muffs", "Ear Plugs"] }],
   },
   {
-    id: "cat-express",
-    name: "Mogli Express",
-    image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=400",
+    id: "cat-road-safety",
+    name: "Road Safety",
+    productCount: 5,
+    image: catImg("1558618666-fcd25c85cd64"),
     tileBg: "bg-cat-express",
-    href: "/categories/express",
-    subgroups: [
-      { title: "Next Day Delivery", items: ["Top Rated Tools", "Bestselling Safety Gear", "Urgent Supplies"] }
-    ]
+    href: "/categories/road-safety",
+    subgroups: [{ title: "Road Safety", items: ["Traffic Cones", "Warning Tapes", "Barricades", "Reflective Strips"] }],
   },
 ];
 
 // Helper to generate dynamic products for each category
-export const getProductsByCategory = (categoryId: string, count: number = 6): Product[] => {
+export const getProductsByCategory = (categoryId: string, count?: number): Product[] => {
   const category = categories.find(c => c.id === categoryId);
   const catName = category ? category.name : "Industrial Product";
-  const catImage = category ? category.image : "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400";
+  const catImage = category ? category.image : catImg("1531834685032-c34bf0d84c77");
+  const itemCount = count ?? category?.productCount ?? 6;
 
-  const brands = ["Bosch", "DeWalt", "Karam", "Havells", "Taparia", "3M", "Allen Cooper", "Fluke"];
+  const brands = ["SafeHawk", "Accord", "Safegrip", "Agreson", "Prenav", "Karam", "3M", "Allen Cooper"];
 
-  return Array.from({ length: count }).map((_, i) => {
+  return Array.from({ length: itemCount }).map((_, i) => {
     // Generate a pseudo-random price
     const priceValue = 500 + ((i * 1234) % 9500);
     const brandName = brands[(i + categoryId.length) % brands.length];
@@ -285,15 +259,14 @@ export const getProductsByCategory = (categoryId: string, count: number = 6): Pr
   });
 };
 
-export const featuredProducts: Product[] = getProductsByCategory("cat-tools", 4);
+export const featuredProducts: Product[] = getProductsByCategory("cat-safety-shoes", 4);
 
 export const industrialBrands = [
-  { name: "Bosch", logo: "https://placehold.co/200x100/eeeeee/111111?text=Bosch" },
-  { name: "DeWalt", logo: "https://placehold.co/200x100/eeeeee/111111?text=DeWalt" },
-  { name: "Karam", logo: "https://placehold.co/200x100/eeeeee/111111?text=Karam" },
-  { name: "Havells", logo: "https://placehold.co/200x100/eeeeee/111111?text=Havells" },
-  { name: "Taparia", logo: "https://placehold.co/200x100/eeeeee/111111?text=Taparia" },
-  { name: "3M", logo: "https://placehold.co/200x100/eeeeee/111111?text=3M" },
+  { name: "SafeHawk", logo: "https://placehold.co/240x100/fdf6e3/1a1a1a?text=SafeHawk&font=roboto" },
+  { name: "Accord", logo: "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Accord&font=roboto" },
+  { name: "Safegrip", logo: "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Safegrip&font=roboto" },
+  { name: "Agreson", logo: "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Agreson&font=roboto" },
+  { name: "Prenav", logo: "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Prenav&font=roboto" },
 ];
 
 export const bestsellers: Product[] = [
@@ -373,10 +346,9 @@ export interface RelatedItem {
   count: number;
 }
 
-export const recentlyViewedItems: RelatedItem[] = [
-  { id: "rv-1", title: "Agricultural Machinery", image: "https://images.unsplash.com/photo-1625246331285-6d788bb32d06?q=80&w=200&auto=format&fit=crop", count: 94 },
-  { id: "rv-2", title: "Farming Tools, Equipment and..", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=200", count: 797 },
-  { id: "rv-3", title: "Animal Mats", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200", count: 50 },
-  { id: "rv-4", title: "Rice Mill Machines", image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=200", count: 25 },
-  { id: "rv-5", title: "Weed Control Mats", image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=200", count: 74 }
-];
+export const recentlyViewedItems: RelatedItem[] = categories.slice(0, 5).map((cat) => ({
+  id: `rv-${cat.id}`,
+  title: cat.name,
+  image: cat.image.replace("w=500", "w=200"),
+  count: cat.productCount,
+}));

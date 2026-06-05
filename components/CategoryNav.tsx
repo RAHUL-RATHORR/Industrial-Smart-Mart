@@ -48,7 +48,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             "w-full",
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
-              : "grid grid-cols-5 gap-x-0.5 gap-y-1.5 py-1.5 lg:flex lg:items-start lg:justify-between lg:gap-0.5"
+              : "grid grid-cols-5 gap-x-1 gap-y-2 py-2 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1"
           )}
         >
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
@@ -56,7 +56,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
               key={category.id}
               className={cn(
                 "relative min-w-0",
-                !isMobile && "lg:flex-1 lg:max-w-[7rem]",
+                !isMobile && "lg:flex-1 lg:max-w-[5.5rem] xl:max-w-[6.5rem]",
                 !isMobile && activeCategory === category.id ? "text-brand-yellow" : ""
               )}
               onMouseEnter={() => !isMobile && setActiveCategory(category.id)}
@@ -88,7 +88,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 ) : (
                   <div
                     className={cn(
-                      "flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md border border-pro shadow-pro-sm sm:h-9 sm:w-9 lg:h-8 lg:w-8",
+                      "flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-pro shadow-pro-sm sm:h-12 sm:w-12 lg:h-14 lg:w-14",
                       category.tileBg
                     )}
                   >
@@ -105,7 +105,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                     "font-medium text-center leading-snug line-clamp-2 transition-colors",
                     isMobile
                       ? "text-[11px] text-brand-black px-1"
-                      : "text-[8px] sm:text-[9px] lg:text-[10px] font-bold",
+                      : "text-[9px] sm:text-[10px] lg:text-[11px] font-bold",
                     !isMobile &&
                       (activeCategory === category.id
                         ? "text-brand-yellow"

@@ -41,6 +41,8 @@ export interface ProductSpec {
 
 export interface ProductDetailExtras {
   images: string[];
+  videoUrl: string;
+  videoPoster: string;
   features: string[];
   specs: ProductSpec[];
   bulkTiers: BulkTier[];
@@ -203,8 +205,19 @@ export function getProductDetailExtras(product: Product): ProductDetailExtras {
     { label: "Dispatch Time", value: "24-48 Hours" },
   ];
 
+  const extraShots = [
+    "1581092160562-40aa08e78837",
+    "1531834685032-c34bf0d84c77",
+    "1504917595217-d4dc5ebe6122",
+    "1576091160399-112f8cc25c2f",
+  ];
+  const altImage = `https://images.unsplash.com/photo-${extraShots[seed % extraShots.length]}?q=80&w=800&auto=format&fit=crop`;
+
   return {
-    images: [product.image, product.image, product.image, product.image],
+    images: [product.image, altImage],
+    videoUrl:
+      "https://cdn.coverr.co/videos/coverr-worker-wearing-a-hard-hat-9765/1080p.mp4",
+    videoPoster: product.image,
     features: [
       "Built with industrial-grade materials for long-lasting performance.",
       "Ideal for factories, workshops, construction sites, and B2B procurement.",
