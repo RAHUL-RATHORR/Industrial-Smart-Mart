@@ -9,7 +9,7 @@ export default function FloatingWhatsApp() {
   const telLink = `tel:+${WHATSAPP_NUMBER}`;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 sm:bottom-6 sm:right-6 sm:gap-3">
+    <div className="fixed bottom-10 right-4 z-50 flex items-center gap-2 sm:bottom-6 sm:right-6 sm:gap-3">
       <a
         href={whatsappUrl}
         target="_blank"

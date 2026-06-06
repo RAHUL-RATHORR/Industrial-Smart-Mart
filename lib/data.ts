@@ -330,6 +330,18 @@ export const bestsellers: Product[] = [
     rating: 4.7,
     reviews: 55
   },
+  {
+    id: "bs-6",
+    name: "SafeHawk Steel Toe Industrial Safety Shoes",
+    description: "Double density sole with anti-slip grip for factory use.",
+    brand: "SafeHawk",
+    image: catImg("1542291026-7eec264c27ff"),
+    price: "₹1,899",
+    mrp: "₹3,499",
+    discount: "46% OFF",
+    rating: 4.9,
+    reviews: 87
+  },
 ];
 
 export const whyChooseUs = [

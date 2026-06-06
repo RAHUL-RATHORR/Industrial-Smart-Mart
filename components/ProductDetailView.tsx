@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   ChevronRight,
   MessageCircle,
+  Phone,
   Play,
   Share2,
   ShieldCheck,
@@ -15,7 +16,7 @@ import ProductImageMagnifier from "@/components/ProductImageMagnifier";
 import SafeImage from "@/components/SafeImage";
 import { Product, getProductDisplayRating } from "@/lib/data";
 import { ProductDetailExtras } from "@/lib/products";
-import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { generateWhatsAppLink, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import ProductDetailExtraSections from "@/components/ProductDetailExtraSections";
 import { cn } from "@/lib/utils";
 
@@ -55,6 +56,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
   );
 
   const whatsappUrl = generateWhatsAppLink(whatsappMessage);
+  const telLink = `tel:+${WHATSAPP_NUMBER}`;
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -82,59 +84,61 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-          <div className="lg:col-span-5 space-y-3">
-            {currentMedia.type === "image" ? (
-              <ProductImageMagnifier src={currentMedia.src} alt={product.name} />
-            ) : (
-              <div className="aspect-square w-full overflow-hidden rounded-xl border border-pro bg-black">
-                <video
-                  src={currentMedia.src}
-                  poster={currentMedia.poster}
-                  controls
-                  playsInline
-                  className="h-full w-full object-contain"
-                >
-                  Your browser does not support product videos.
-                </video>
-              </div>
-            )}
-            <p className="text-center text-[11px] text-muted-foreground lg:text-left">
-              2 photos + 1 video · Hover image to magnify
-            </p>
-            <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
-              {mediaItems.map((item, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setActiveMedia(index)}
-                  className={cn(
-                    "relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border bg-white p-1 sm:h-20 sm:w-20",
-                    activeMedia === index
-                      ? "border-brand-yellow ring-2 ring-brand-yellow/30"
-                      : "border-pro"
-                  )}
-                  aria-label={item.type === "video" ? "Product video" : `Product photo ${index + 1}`}
-                >
-                  {item.type === "image" ? (
-                    <SafeImage
-                      src={item.src}
-                      alt={`${product.name} view ${index + 1}`}
-                      className="h-full w-full object-contain"
-                    />
-                  ) : (
-                    <>
+          <div className="relative z-10 overflow-visible lg:col-span-5">
+            <div className="flex gap-2 sm:gap-3">
+              <div className="flex shrink-0 flex-col gap-2">
+                {mediaItems.map((item, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setActiveMedia(index)}
+                    className={cn(
+                      "relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border bg-white p-1 sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]",
+                      activeMedia === index
+                        ? "border-brand-yellow ring-2 ring-brand-yellow/30"
+                        : "border-pro"
+                    )}
+                    aria-label={item.type === "video" ? "Product video" : `Product photo ${index + 1}`}
+                  >
+                    {item.type === "image" ? (
                       <SafeImage
-                        src={item.poster}
-                        alt={`${product.name} video`}
-                        className="h-full w-full object-cover"
+                        src={item.src}
+                        alt={`${product.name} view ${index + 1}`}
+                        className="h-full w-full object-contain"
                       />
-                      <span className="absolute inset-0 flex items-center justify-center bg-black/35">
-                        <Play className="h-6 w-6 fill-white text-white" />
-                      </span>
-                    </>
-                  )}
-                </button>
-              ))}
+                    ) : (
+                      <>
+                        <SafeImage
+                          src={item.poster}
+                          alt={`${product.name} video`}
+                          className="h-full w-full object-cover"
+                        />
+                        <span className="absolute inset-0 flex items-center justify-center bg-black/35">
+                          <Play className="h-5 w-5 fill-white text-white sm:h-6 sm:w-6" />
+                        </span>
+                      </>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              <div className="min-w-0 flex-1">
+                {currentMedia.type === "image" ? (
+                  <ProductImageMagnifier src={currentMedia.src} alt={product.name} />
+                ) : (
+                  <div className="aspect-square w-full overflow-hidden rounded-xl border border-pro bg-black">
+                    <video
+                      src={currentMedia.src}
+                      poster={currentMedia.poster}
+                      controls
+                      playsInline
+                      className="h-full w-full object-contain"
+                    >
+                      Your browser does not support product videos.
+                    </video>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -180,6 +184,11 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Inquiry
+              </a>
+
+              <a href={telLink} className="btn-brand-dark w-full gap-2 py-3 text-sm">
+                <Phone className="h-4 w-4" />
+                Call Now
               </a>
 
               <div className="grid grid-cols-2 gap-2 text-xs">

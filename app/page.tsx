@@ -24,10 +24,22 @@ import {
   promoBanners,
   recentlyViewedItems,
   whyChooseUs,
+  type Product,
 } from "@/lib/data";
 import { cn } from "@/lib/utils";
+
+const DESKTOP_PRODUCT_COUNT = 5;
+const MOBILE_PRODUCT_COUNT = 6;
 const PRODUCT_GRID =
-  "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5 lg:gap-6 items-start";
+  "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-6 items-start";
+
+function renderHomeProducts(products: Product[]) {
+  return products.slice(0, MOBILE_PRODUCT_COUNT).map((product, index) => (
+    <div key={product.id} className={cn(index >= DESKTOP_PRODUCT_COUNT && "lg:hidden")}>
+      <ProductCard product={product} />
+    </div>
+  ));
+}
 
 const iconMap = {
   Package,
@@ -55,13 +67,12 @@ export default function HomePage() {
   }, [nextHero]);
 
   const activeHero = heroBanners[heroIndex];
-  const mobilePromoBanner = promoBanners[0];
 
   return (
     <div className="flex flex-col">
       <section className="relative w-full overflow-hidden bg-muted">
-        <div className="container mx-auto px-0 md:px-4 py-0 md:py-3">
-          <div className="relative aspect-[3/2] min-h-[220px] sm:aspect-[16/9] sm:min-h-[260px] md:aspect-[21/6] md:min-h-0 w-full md:rounded-xl overflow-hidden">
+        <div className="container mx-auto px-0 md:px-4 py-0 md:pt-2 md:pb-0">
+          <div className="relative aspect-[3/2] min-h-[210px] w-full overflow-hidden sm:aspect-[16/7] sm:min-h-[240px] md:rounded-xl lg:aspect-auto lg:h-[280px] xl:h-[300px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeHero.id}
@@ -109,26 +120,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-4 md:py-8">
-        {/* Mobile: ek fixed banner — admin se baad mein change hoga */}
-        <Link
-          href={mobilePromoBanner.link}
-          className="relative block overflow-hidden rounded-xl aspect-[2/1] min-h-[140px] lg:hidden"
-        >
-          <SafeImage
-            src={mobilePromoBanner.image}
-            alt={mobilePromoBanner.alt}
-            className="h-full w-full object-cover"
-          />
-        </Link>
-
-        {/* Desktop: 4 promo cards */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-4">
+      <section className="container mx-auto hidden px-4 py-3 lg:block lg:py-3">
+        {/* Desktop: 4 promo cards — slider ke turant niche */}
+        <div className="grid grid-cols-4 gap-3">
           {promoBanners.map((promo) => (
             <Link
               key={promo.id}
               href={promo.link}
-              className="group card-pro relative overflow-hidden aspect-[8/3] transition-shadow"
+              className="group card-pro relative h-[88px] overflow-hidden transition-shadow xl:h-[96px]"
             >
               <SafeImage
                 src={promo.image}
@@ -180,16 +179,12 @@ export default function HomePage() {
               Shop all
             </Link>
           </div>
-          <div className={PRODUCT_GRID}>
-            {bestsellers.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <div className={PRODUCT_GRID}>{renderHomeProducts(bestsellers)}</div>
         </div>
       </section>
 
       {categorySections.map((category) => {
-        const products = getProductsByCategory(category.id, 5);
+        const products = getProductsByCategory(category.id, MOBILE_PRODUCT_COUNT);
         return (
           <section
             key={category.id}
@@ -205,11 +200,7 @@ export default function HomePage() {
                   View category
                 </Link>
               </div>
-              <div className={PRODUCT_GRID}>
-                {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
+              <div className={PRODUCT_GRID}>{renderHomeProducts(products)}</div>
             </div>
           </section>
         );
