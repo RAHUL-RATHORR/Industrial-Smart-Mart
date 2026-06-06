@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SeoSection from "@/components/SeoSection";
 import PopularSearches from "@/components/PopularSearches";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScrollToTop from "@/components/ScrollToTop";
 import WelcomePopup from "@/components/WelcomePopup";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
         <PopularSearches />
         <Footer />
         <FloatingWhatsApp />
+        <ScrollToTop />
         <WelcomePopup />
       </body>
     </html>
