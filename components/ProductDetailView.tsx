@@ -74,7 +74,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
 
   return (
     <div className="bg-muted/20 min-h-screen">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-4 md:py-6">
         <nav className="flex flex-wrap items-center gap-1 text-xs sm:text-sm text-muted-foreground mb-4">
           <Link href="/" className="hover:text-brand-yellow">Home</Link>
           <ChevronRight className="h-3 w-3" />

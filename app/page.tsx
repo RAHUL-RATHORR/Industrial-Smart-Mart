@@ -71,7 +71,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <section className="relative w-full overflow-hidden bg-muted">
-        <div className="container mx-auto px-0 md:px-4 py-0 md:pt-2 md:pb-0">
+        <div className="container mx-auto px-0 md:px-3 lg:px-4 py-0 md:pt-2 md:pb-0">
           <div className="relative aspect-[3/2] min-h-[210px] w-full overflow-hidden sm:aspect-[16/7] sm:min-h-[240px] md:rounded-xl lg:aspect-auto lg:h-[280px] xl:h-[300px]">
             <AnimatePresence mode="wait">
               <motion.div
@@ -120,7 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container mx-auto hidden px-4 py-3 lg:block lg:py-3">
+      <section className="container mx-auto hidden px-4 sm:px-5 lg:px-6 py-3 lg:block lg:py-3">
         {/* Desktop: 4 promo cards — slider ke turant niche */}
         <div className="grid grid-cols-4 gap-3">
           {promoBanners.map((promo) => (
@@ -142,7 +142,7 @@ export default function HomePage() {
       <CategoryNav visibility="mobile" />
 
       <section className="w-full bg-section py-4 md:py-6">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-black md:text-xl">Recently Viewed</h2>
             <Link href="/categories" className="text-sm font-semibold text-brand-yellow hover:underline">
@@ -172,7 +172,7 @@ export default function HomePage() {
       </section>
 
       <section className="w-full bg-white py-6 md:py-8">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-6">
           <div className="mb-5 flex items-center justify-between md:mb-7">
             <h2 className="text-xl font-black md:text-2xl">Bestsellers</h2>
             <Link href="/products" className="text-sm font-semibold text-brand-yellow hover:underline">
@@ -190,7 +190,7 @@ export default function HomePage() {
             key={category.id}
             className={cn("w-full py-7 md:py-9", category.tileBg)}
           >
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 sm:px-5 lg:px-6">
               <div className="mb-5 flex items-center justify-between md:mb-7">
                 <h2 className="text-lg font-black md:text-2xl">{category.name}</h2>
                 <Link
@@ -207,7 +207,7 @@ export default function HomePage() {
       })}
 
       <section className="w-full overflow-hidden border-y border-pro bg-section py-8 md:py-12">
-        <div className="container mx-auto px-4 mb-6">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-6 mb-6">
           <h2 className="text-center text-lg md:text-xl font-black">Trusted Brands</h2>
         </div>
         <div className="relative flex overflow-hidden">
@@ -229,7 +229,7 @@ export default function HomePage() {
       </section>
 
       <section className="w-full bg-page py-10 md:py-14">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         <h2 className="mb-8 text-center text-xl font-black md:mb-10 md:text-2xl">
           Why Choose Industrial Safety Mart
         </h2>

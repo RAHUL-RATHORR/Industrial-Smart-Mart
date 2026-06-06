@@ -312,4 +312,14 @@
   .bg-brand-sale {
     background-color: var(--brand-sale);
   }
+
+  .container {
+    @media (width >= 1024px) {
+      max-width: min(1680px, calc(100vw - 2.5rem));
+    }
+
+    @media (width >= 1536px) {
+      max-width: min(1820px, calc(100vw - 3rem));
+    }
+  }
 }

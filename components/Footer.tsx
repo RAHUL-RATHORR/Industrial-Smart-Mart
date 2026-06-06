@@ -49,7 +49,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-brand-black text-white mt-auto border-t border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-6 pt-10 pb-8">
         <FooterTrustBar />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 pt-2 border-t border-white/10">

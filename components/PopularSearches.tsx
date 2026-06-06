@@ -37,7 +37,7 @@ function SearchColumn({ groups }: { groups: PopularSearchGroup[] }) {
 export default function PopularSearches() {
   return (
     <section className="border-t border-b bg-muted/30 py-10 md:py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         <h2 className="text-lg md:text-xl font-bold text-brand-black mb-8">
           Popular searches on Industrial Safety Mart
         </h2>

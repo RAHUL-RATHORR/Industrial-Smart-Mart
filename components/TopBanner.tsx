@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function TopBanner() {
   return (
     <div className="w-full bg-linear-to-r from-brand-black via-[#1a1a1a] to-[#5c1018] text-white border-b border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
         <div className="flex items-center gap-2 min-w-0">
           <span className="text-sm sm:text-base font-black tracking-tight whitespace-nowrap">
             <span className="text-brand-yellow">Industrial</span>

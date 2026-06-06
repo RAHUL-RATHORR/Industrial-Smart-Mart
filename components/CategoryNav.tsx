@@ -33,7 +33,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
       )}
       onMouseLeave={() => setActiveCategory(null)}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         {isMobile && (
           <div className="flex items-center justify-between pt-5 pb-4">
             <h2 className="text-lg font-bold text-brand-black">Category Stores</h2>
@@ -135,7 +135,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
 
       {activeData?.subgroups && !isMobile && (
         <div className="absolute left-0 right-0 top-full z-50 hidden border-t border-pro bg-white shadow-pro lg:block">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-6">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
               {activeData.subgroups.map((group) => (
                 <div key={group.title} className="flex flex-col space-y-2 min-w-0">
