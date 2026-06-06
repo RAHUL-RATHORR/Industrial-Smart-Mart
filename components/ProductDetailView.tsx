@@ -84,7 +84,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-          <div className="relative z-10 overflow-visible lg:col-span-5">
+          <div className="relative overflow-visible lg:col-span-5">
             <div className="flex gap-2 sm:gap-3">
               <div className="flex shrink-0 flex-col gap-2">
                 {mediaItems.map((item, index) => (

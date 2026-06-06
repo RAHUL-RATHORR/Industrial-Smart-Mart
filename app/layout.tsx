@@ -11,6 +11,11 @@ import WelcomePopup from "@/components/WelcomePopup";
 export const metadata: Metadata = {
   title: "Industrial Safety Mart | B2B Industrial Supplies",
   description: "Your trusted partner for industrial safety equipment, power tools, and B2B supplies. PAN India delivery.",
+  icons: {
+    icon: [{ url: "/images/logo.jpeg", type: "image/jpeg" }],
+    shortcut: ["/images/logo.jpeg"],
+    apple: [{ url: "/images/logo.jpeg", type: "image/jpeg" }],
+  },
 };
 
 export const viewport: Viewport = {

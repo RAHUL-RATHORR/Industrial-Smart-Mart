@@ -5,7 +5,8 @@ import SafeImage from "@/components/SafeImage";
 import { cn } from "@/lib/utils";
 
 const LENS_SIZE = 120;
-const ZOOM_PANEL_SCALE = 1.65;
+const ZOOM_PANEL_WIDTH_SCALE = 1.65;
+const ZOOM_PANEL_HEIGHT_SCALE = 1;
 
 type ImageBounds = {
   displayW: number;
@@ -129,8 +130,8 @@ export default function ProductImageMagnifier({
   const zoomRatioY =
     zoomDims.height > 0 ? zoomDims.height / LENS_SIZE : dims.height / LENS_SIZE;
 
-  const zoomPanelWidth = dims.width > 0 ? dims.width * ZOOM_PANEL_SCALE : 0;
-  const zoomPanelHeight = dims.height > 0 ? dims.height * ZOOM_PANEL_SCALE : 0;
+  const zoomPanelWidth = dims.width > 0 ? dims.width * ZOOM_PANEL_WIDTH_SCALE : 0;
+  const zoomPanelHeight = dims.height > 0 ? dims.height * ZOOM_PANEL_HEIGHT_SCALE : 0;
 
   const zoomBackgroundStyle =
     isActive && bounds.displayW > 0
@@ -213,12 +214,12 @@ export default function ProductImageMagnifier({
       <div
         ref={zoomRef}
         className={cn(
-          "pointer-events-none absolute top-0 z-30 hidden aspect-square overflow-hidden rounded-xl border border-pro bg-white shadow-pro-lg transition-opacity duration-150 lg:block",
+          "pointer-events-none absolute z-10 hidden overflow-hidden rounded-xl border border-pro bg-white shadow-pro-lg transition-opacity duration-150 lg:block",
           isActive ? "opacity-100" : "opacity-0"
         )}
         style={{
           left: "calc(100% + 1rem)",
-          top: dims.height > 0 ? (dims.height - zoomPanelHeight) / 2 : 0,
+          top: 0,
           width: zoomPanelWidth > 0 ? zoomPanelWidth : "100%",
           height: zoomPanelHeight > 0 ? zoomPanelHeight : "100%",
           ...zoomBackgroundStyle,

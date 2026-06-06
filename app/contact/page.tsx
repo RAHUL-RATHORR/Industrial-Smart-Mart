@@ -1,38 +1,75 @@
-import { generateWhatsAppLink } from "@/lib/whatsapp";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Mail, MapPin, Phone } from "lucide-react";
+import ContactChannelIcon from "@/components/ContactChannelIcon";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
+import {
+  PRIMARY_EMAIL,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  contactChannels,
+} from "@/lib/contact";
 
 export default function ContactPage() {
-  const quoteUrl = generateWhatsAppLink("Hello! I want to contact the sales team.");
-
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-black mb-4">Contact Us</h1>
-        <p className="text-muted-foreground">We&apos;re here to help with your industrial procurement needs.</p>
-      </div>
-      <div className="max-w-5xl mx-auto grid gap-8">
-        <div className="card-pro max-w-2xl mx-auto w-full p-8 rounded-2xl flex flex-col items-center text-center">
-          <MessageCircle className="h-12 w-12 text-brand-yellow mb-4" />
-          <h2 className="text-2xl font-bold mb-2">WhatsApp Support</h2>
-          <p className="text-muted-foreground mb-6">Get instant quotes and replies via WhatsApp.</p>
-          <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "brand" }))}>Chat on WhatsApp</a>
+    <div className="bg-muted/20 min-h-screen">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-10 md:py-14">
+        <div className="mb-8 text-center md:mb-10">
+          <h1 className="text-3xl font-black text-brand-black md:text-4xl">Contact Us</h1>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:text-base">
+            Reach us on your preferred platform. We respond quickly for quotes, bulk orders, and product support.
+          </p>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-          <div className="p-6 border rounded-xl bg-muted/20 min-w-0 flex flex-col items-center">
-            <Phone className="h-8 w-8 mb-3 text-brand-yellow shrink-0" />
-            <div className="font-semibold text-sm sm:text-base">+91 75684 50691</div>
+
+        <div className="mx-auto mb-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
+          <a href={PHONE_TEL} className="card-pro flex flex-col items-center bg-white p-5 text-center transition-all hover:border-brand-yellow/50">
+            <Phone className="mb-3 h-8 w-8 text-brand-yellow" />
+            <p className="text-sm font-bold text-brand-black">Phone</p>
+            <p className="mt-1 text-sm text-muted-foreground">{PHONE_DISPLAY}</p>
+          </a>
+          <a
+            href={`mailto:${PRIMARY_EMAIL}`}
+            className="card-pro flex flex-col items-center bg-white p-5 text-center transition-all hover:border-brand-yellow/50"
+          >
+            <Mail className="mb-3 h-8 w-8 text-brand-yellow" />
+            <p className="text-sm font-bold text-brand-black">Email</p>
+            <p className="mt-1 break-all text-sm text-muted-foreground">{PRIMARY_EMAIL}</p>
+          </a>
+          <div className="card-pro flex flex-col items-center bg-white p-5 text-center">
+            <MapPin className="mb-3 h-8 w-8 text-brand-yellow" />
+            <p className="text-sm font-bold text-brand-black">Location</p>
+            <p className="mt-1 text-sm text-muted-foreground">New Delhi, India</p>
           </div>
-          <div className="p-6 border rounded-xl bg-muted/20 min-w-0 flex flex-col items-center">
-            <Mail className="h-8 w-8 mb-3 text-brand-yellow shrink-0" />
-            <div className="font-semibold text-sm sm:text-base break-words max-w-full px-1">inquiry@industrialsafetymart.com</div>
-          </div>
-          <div className="p-6 border rounded-xl bg-muted/20 min-w-0 flex flex-col items-center">
-            <MapPin className="h-8 w-8 mb-3 text-brand-yellow shrink-0" />
-            <div className="font-semibold text-sm sm:text-base">New Delhi, India</div>
-          </div>
+        </div>
+
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-4">
+          {contactChannels.map((channel) => (
+            <a
+              key={channel.id}
+              href={channel.href}
+              target={channel.href.startsWith("http") ? "_blank" : undefined}
+              rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="card-pro group flex flex-col items-center bg-white p-4 text-center transition-all hover:border-brand-yellow/50 sm:p-5"
+            >
+              <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-surface-subtle transition-colors group-hover:bg-brand-yellow/10">
+                <ContactChannelIcon channelId={channel.id} className="h-8 w-8" />
+              </div>
+              <p className="text-sm font-bold text-brand-black group-hover:text-brand-yellow transition-colors">
+                {channel.name}
+              </p>
+              <p className="mt-1 line-clamp-2 text-[11px] text-muted-foreground">{channel.description}</p>
+            </a>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-md flex-col items-center text-center">
+          <p className="mb-4 text-sm text-muted-foreground">Need pricing for bulk industrial safety products?</p>
+          <Link
+            href="/get-quote"
+            className={cn(buttonVariants({ variant: "brand" }), "rounded-full px-6 py-2.5 text-sm font-bold")}
+          >
+            Get Quote
+          </Link>
         </div>
       </div>
     </div>

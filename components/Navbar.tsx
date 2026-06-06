@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, PhoneCall } from "lucide-react";
-import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { Menu, X } from "lucide-react";
 import SiteLogo from "@/components/SiteLogo";
 import SearchBar from "@/components/SearchBar";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,11 +17,11 @@ const navLinks = [
   { name: "Categories", href: "/categories" },
   { name: "Products", href: "/products" },
   { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const quoteUrl = generateWhatsAppLink("Hello! I would like to get a quote.");
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-pro bg-background/98 shadow-pro-sm backdrop-blur supports-backdrop-filter:bg-background/80">
@@ -30,11 +29,20 @@ export default function Navbar() {
         <div className="flex h-14 md:h-16 items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
-            <SiteLogo imageClassName="h-9 sm:h-10 md:h-11 w-auto" />
+            <SiteLogo imageClassName="h-8 w-auto sm:h-10 md:h-11" />
+          </div>
+
+          {/* Search Bar (Mobile) */}
+          <div className="min-w-0 flex-1 px-2 md:hidden">
+            <SearchBar
+              placeholder="Search..."
+              inputClassName="rounded-lg py-1.5 pl-8 pr-3 text-xs"
+              onSearch={() => setIsMobileMenuOpen(false)}
+            />
           </div>
 
           {/* Search Bar (Desktop) */}
-          <div className="hidden flex-1 max-w-lg mx-3 lg:mx-5 md:block min-w-0">
+          <div className="hidden min-w-0 max-w-lg flex-1 mx-3 lg:mx-5 md:block">
             <SearchBar onSearch={() => setIsMobileMenuOpen(false)} />
           </div>
 
@@ -51,9 +59,12 @@ export default function Navbar() {
                 </Link>
               ))}
             </nav>
-              <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "brand" }), "rounded-full font-bold px-4 py-1.5 text-xs lg:text-sm")}>
+              <Link
+                href="/get-quote"
+                className={cn(buttonVariants({ variant: "brand" }), "rounded-full px-4 py-1.5 text-xs lg:text-sm font-bold")}
+              >
                 Get Quote
-              </a>
+              </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -83,13 +94,6 @@ export default function Navbar() {
             className="border-pro bg-background border-t md:hidden"
           >
             <div className="space-y-1 px-4 pb-3 pt-2">
-              <div className="mb-4 mt-2 md:hidden">
-                <SearchBar
-                  placeholder="Search..."
-                  inputClassName="rounded-md"
-                  onSearch={() => setIsMobileMenuOpen(false)}
-                />
-              </div>
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -116,9 +120,13 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="pt-2">
-                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "brand" }), "w-full rounded-md font-bold justify-center")}>
-                  <PhoneCall className="mr-2 h-4 w-4" /> Get Quote
-                </a>
+                <Link
+                  href="/get-quote"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(buttonVariants({ variant: "brand" }), "w-full rounded-md font-bold justify-center")}
+                >
+                  Get Quote
+                </Link>
               </div>
             </div>
           </motion.div>
