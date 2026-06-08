@@ -143,45 +143,22 @@ export default function ProductImageMagnifier({
         }
       : undefined;
 
-  const mobileZoomStyle =
-    isActive && bounds.displayW > 0
-      ? {
-          backgroundImage: `url("${src}")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: `${bounds.displayW * 2}px ${bounds.displayH * 2}px`,
-          backgroundPosition: `${-(lens.x - bounds.offsetX) * 2}px ${-(lens.y - bounds.offsetY) * 2}px`,
-        }
-      : undefined;
-
   return (
     <div className={cn("relative w-full", className)}>
       <div
         ref={containerRef}
-        className="relative aspect-square w-full cursor-crosshair overflow-hidden rounded-xl border border-pro bg-white"
+        className="relative aspect-square w-full overflow-hidden rounded-xl border border-pro bg-white lg:cursor-crosshair"
         onMouseEnter={(e) => {
           setIsActive(true);
           updateLens(e.clientX, e.clientY);
         }}
         onMouseLeave={() => setIsActive(false)}
         onMouseMove={(e) => updateLens(e.clientX, e.clientY)}
-        onTouchStart={(e) => {
-          setIsActive(true);
-          const touch = e.touches[0];
-          if (touch) updateLens(touch.clientX, touch.clientY);
-        }}
-        onTouchMove={(e) => {
-          const touch = e.touches[0];
-          if (touch) updateLens(touch.clientX, touch.clientY);
-        }}
-        onTouchEnd={() => setIsActive(false)}
       >
         <SafeImage
           src={src}
           alt={alt}
-          className={cn(
-            "absolute inset-0 h-full w-full object-contain select-none transition-opacity",
-            isActive ? "opacity-0 lg:opacity-100" : "opacity-100"
-          )}
+          className="absolute inset-0 h-full w-full object-contain select-none"
           draggable={false}
           onLoad={(e) => {
             const img = e.currentTarget;
@@ -198,14 +175,6 @@ export default function ProductImageMagnifier({
               left: lens.x,
               top: lens.y,
             }}
-            aria-hidden
-          />
-        )}
-
-        {isActive && dims.width > 0 && (
-          <div
-            className="pointer-events-none absolute inset-0 overflow-hidden lg:hidden"
-            style={mobileZoomStyle}
             aria-hidden
           />
         )}
