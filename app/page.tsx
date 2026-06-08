@@ -127,7 +127,7 @@ export default function HomePage() {
             <Link
               key={promo.id}
               href={promo.link}
-              className="group card-pro relative h-[88px] overflow-hidden transition-shadow xl:h-[96px]"
+              className="group card-pro relative h-[130px] overflow-hidden transition-shadow xl:h-[139px]"
             >
               <SafeImage
                 src={promo.image}

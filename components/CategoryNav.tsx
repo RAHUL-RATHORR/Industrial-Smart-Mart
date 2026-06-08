@@ -48,7 +48,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             "w-full",
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
-              : "grid grid-cols-5 gap-x-1 gap-y-2 py-2 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1"
+              : "grid grid-cols-5 gap-x-1 gap-y-2 py-0 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1"
           )}
         >
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
