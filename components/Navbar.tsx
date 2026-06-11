@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import SiteLogo from "@/components/SiteLogo";
 import SearchBar from "@/components/SearchBar";
 import { buttonVariants } from "@/components/ui/button";
@@ -22,6 +22,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-pro bg-background/98 shadow-pro-sm backdrop-blur supports-backdrop-filter:bg-background/80">
@@ -30,15 +31,6 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
             <SiteLogo imageClassName="h-8 w-auto sm:h-10 md:h-11" />
-          </div>
-
-          {/* Search Bar (Mobile) */}
-          <div className="min-w-0 flex-1 px-2 md:hidden">
-            <SearchBar
-              placeholder="Search..."
-              inputClassName="rounded-lg py-1.5 pl-8 pr-3 text-xs"
-              onSearch={() => setIsMobileMenuOpen(false)}
-            />
           </div>
 
           {/* Search Bar (Desktop) */}
@@ -67,10 +59,28 @@ export default function Navbar() {
               </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
+          {/* Mobile Search + Menu */}
+          <div className="flex items-center gap-0.5 md:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileSearchOpen((open) => !open);
+                setIsMobileMenuOpen(false);
+              }}
+              className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground focus:outline-none"
+              aria-expanded={isMobileSearchOpen}
+              aria-label={isMobileSearchOpen ? "Close search" : "Open search"}
+            >
+              {isMobileSearchOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Search className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                setIsMobileSearchOpen(false);
+              }}
               className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
@@ -82,6 +92,24 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Search Panel */}
+        <AnimatePresence>
+          {isMobileSearchOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden border-t border-pro pb-3 pt-2 md:hidden"
+            >
+              <SearchBar
+                placeholder="Search products, categories, brands..."
+                autoFocus
+                onSearch={() => setIsMobileSearchOpen(false)}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Mobile Menu */}

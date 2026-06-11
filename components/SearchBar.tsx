@@ -11,6 +11,7 @@ interface SearchBarProps {
   placeholder?: string;
   defaultValue?: string;
   onSearch?: () => void;
+  autoFocus?: boolean;
 }
 
 export default function SearchBar({
@@ -19,6 +20,7 @@ export default function SearchBar({
   placeholder = "Search products, categories, brands...",
   defaultValue = "",
   onSearch,
+  autoFocus = false,
 }: SearchBarProps) {
   const router = useRouter();
   const [query, setQuery] = useState(defaultValue);
@@ -44,6 +46,7 @@ export default function SearchBar({
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          autoFocus={autoFocus}
           className={cn(
             "block w-full rounded-full border border-pro bg-white py-2 pl-9 pr-4 text-sm shadow-pro-sm transition-all focus:border-brand-yellow focus:bg-background focus:outline-none focus:ring-2 focus:ring-brand-yellow/25 sm:py-2.5 sm:pl-10",
             inputClassName
