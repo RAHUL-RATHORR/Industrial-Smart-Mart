@@ -37,18 +37,21 @@ export default function SearchBar({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={className}>
-      <div className="relative group">
+    <form onSubmit={handleSubmit} className={cn("outline-none", className)}>
+      <div className="relative group outline-none">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <Search className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground group-focus-within:text-brand-yellow transition-colors" />
         </div>
         <input
-          type="search"
+          type="text"
+          inputMode="search"
+          enterKeyHint="search"
+          autoComplete="off"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus={autoFocus}
           className={cn(
-            "block w-full rounded-full border border-pro bg-white py-2 pl-9 pr-4 text-sm shadow-pro-sm transition-all focus:border-brand-yellow focus:bg-background focus:outline-none focus:ring-2 focus:ring-brand-yellow/25 sm:py-2.5 sm:pl-10",
+            "block w-full appearance-none rounded-full border border-pro bg-white py-2 pl-9 pr-4 text-sm shadow-none caret-brand-yellow transition-colors [-webkit-tap-highlight-color:transparent] focus:border-brand-yellow focus:bg-background focus:outline-none focus-visible:outline-none focus:shadow-none focus:ring-0 sm:py-2.5 sm:pl-10",
             inputClassName
           )}
           placeholder={placeholder}

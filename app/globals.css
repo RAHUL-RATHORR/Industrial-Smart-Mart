@@ -175,6 +175,12 @@
   video {
     max-width: 100%;
   }
+  input:focus,
+  input:focus-visible,
+  textarea:focus,
+  textarea:focus-visible {
+    outline: none;
+  }
 }
 
 @layer utilities {

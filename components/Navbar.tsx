@@ -100,11 +100,10 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden border-t border-pro pb-3 pt-2 md:hidden"
+              className="overflow-hidden pb-3 pt-2 md:hidden"
             >
               <SearchBar
                 placeholder="Search products, categories, brands..."
-                autoFocus
                 onSearch={() => setIsMobileSearchOpen(false)}
               />
             </motion.div>
