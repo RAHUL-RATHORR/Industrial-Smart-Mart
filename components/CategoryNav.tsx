@@ -139,7 +139,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
               {activeData.subgroups.map((group) => (
                 <div key={group.title} className="flex flex-col space-y-2 min-w-0">
-                  <h3 className="border-b border-pro pb-2 text-xs font-bold uppercase tracking-wider text-brand-black">
+                  <h3 className="pb-2 text-xs font-bold uppercase tracking-wider text-brand-black">
                     {group.title}
                   </h3>
                   <ul className="space-y-1.5">
