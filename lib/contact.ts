@@ -6,6 +6,10 @@ export const QUOTE_EMAIL = "sales@industrialsafetymart.com";
 export const PHONE_DISPLAY = "+91 75684 50691";
 export const PHONE_TEL = `tel:+${WHATSAPP_NUMBER}`;
 
+/** Shared Call CTA styling — use with cn() */
+export const CALL_BUTTON_CLASS =
+  "inline-flex items-center justify-center bg-[#f4b400] font-bold text-white transition-colors hover:bg-brand-black hover:text-white";
+
 export const QUOTE_WHATSAPP_MESSAGE =
   "Hello! I would like to get a quote for industrial safety products. Please share pricing and availability.";
 

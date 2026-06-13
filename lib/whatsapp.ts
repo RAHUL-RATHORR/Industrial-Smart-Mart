@@ -8,3 +8,7 @@ export function generateWhatsAppLink(message: string): string {
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 }
+
+/** Shared WhatsApp CTA styling — use with cn() */
+export const WHATSAPP_BUTTON_CLASS =
+  "inline-flex items-center justify-center bg-[#25D366] font-bold text-white transition-colors hover:bg-[#128C7E] hover:text-white";

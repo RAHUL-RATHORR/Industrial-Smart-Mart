@@ -159,7 +159,7 @@ export const categories: Category[] = [
     id: "cat-pvc-gumboots",
     name: "PVC GumBoots",
     productCount: 15,
-    image: catImg("1605810227924-f60667beb4ce"),
+    image: catImg("1621905251189-08b45d6a269e"),
     tileBg: "bg-cat-tools",
     href: "/categories/pvc-gumboots",
     subgroups: [{ title: "PVC GumBoots", items: ["Knee Length", "Ankle Length", "Food Grade", "Chemical Resistant"] }],
@@ -168,7 +168,7 @@ export const categories: Category[] = [
     id: "cat-reflective-jackets",
     name: "Reflective Jackets",
     productCount: 10,
-    image: catImg("1581092160562-40aa08e78837"),
+    image: catImg("1621905251189-08b45d6a269e"),
     tileBg: "bg-cat-electrical",
     href: "/categories/reflective-jackets",
     subgroups: [{ title: "Reflective Jackets", items: ["Orange Mesh", "Green Mesh", "Polyester", "Cotton"] }],
@@ -177,7 +177,7 @@ export const categories: Category[] = [
     id: "cat-safety-helmets",
     name: "Safety Helmets",
     productCount: 5,
-    image: catImg("1531834685032-c34bf0d84c77"),
+    image: catImg("1504307651254-35680f356dfd"),
     tileBg: "bg-cat-construction",
     href: "/categories/safety-helmets",
     subgroups: [{ title: "Safety Helmets", items: ["HDPE Helmets", "Ratchet Type", "Ventilated", "With Chin Strap"] }],
@@ -186,7 +186,7 @@ export const categories: Category[] = [
     id: "cat-safety-gloves",
     name: "Safety Gloves",
     productCount: 15,
-    image: catImg("1576871337636-b2b0c195a089"),
+    image: catImg("1504917595217-d4dc5ebe6122"),
     tileBg: "bg-cat-medical",
     href: "/categories/safety-gloves",
     subgroups: [{ title: "Safety Gloves", items: ["Leather Gloves", "Latex Coated", "Cut Resistant", "Welding Gloves"] }],
@@ -204,7 +204,7 @@ export const categories: Category[] = [
     id: "cat-disposable-ppe",
     name: "Disposable PPE Products",
     productCount: 10,
-    image: catImg("1584985562121-2692b387d6cf"),
+    image: catImg("1581092160562-40aa08e78837"),
     tileBg: "bg-cat-medical",
     href: "/categories/disposable-ppe",
     subgroups: [{ title: "Disposable PPE", items: ["Face Masks", "Shoe Covers", "Head Covers", "Aprons"] }],
@@ -213,7 +213,7 @@ export const categories: Category[] = [
     id: "cat-face-ear",
     name: "Face & Ear Protection",
     productCount: 15,
-    image: catImg("1576091160399-112f8cc25c2f"),
+    image: catImg("1531834685032-c34bf0d84c77"),
     tileBg: "bg-cat-packaging",
     href: "/categories/face-ear-protection",
     subgroups: [{ title: "Face & Ear", items: ["Safety Goggles", "Face Shields", "Ear Muffs", "Ear Plugs"] }],
@@ -246,13 +246,18 @@ export const getProductsByCategory = (categoryId: string, count?: number): Produ
     const rating = Math.round((4.5 + ((i * 3 + categoryId.length) % 5) * 0.1) * 10) / 10;
     const reviews = 12 + ((i * 47 + categoryId.length * 13) % 248);
 
+    const mrpValue = Math.round(priceValue * (1.55 + (i % 4) * 0.15));
+    const discountPct = Math.max(10, Math.round((1 - priceValue / mrpValue) * 100));
+
     return {
       id: `prod-${categoryId}-${i}`,
       name: `Premium ${catName} Item ${i + 1}`,
       description: `High quality ${catName.toLowerCase()} designed for heavy industrial usage. Comes with standard brand warranty.`,
       brand: brandName,
       image: catImage,
-      price: `₹ ${priceValue.toLocaleString()}`,
+      price: `₹${priceValue.toLocaleString("en-IN")}`,
+      mrp: `₹${mrpValue.toLocaleString("en-IN")}`,
+      discount: `${discountPct}% OFF`,
       rating,
       reviews,
     };

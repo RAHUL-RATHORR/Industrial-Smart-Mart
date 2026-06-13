@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import { Share2, Star } from "lucide-react";
-import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { generateWhatsAppLink, WHATSAPP_BUTTON_CLASS } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 import SafeImage from "@/components/SafeImage";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Product, getProductDisplayRating } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
-export default function ProductCard({ product }: { product: Product }) {
+type ProductCardProps = {
+  product: Product;
+  compact?: boolean;
+};
+
+export default function ProductCard({ product, compact = false }: ProductCardProps) {
   const { rating, reviews } = getProductDisplayRating(product);
   const productUrl = `/products/${product.id}`;
   const inquiryMessage = `Hello, I am interested in this product: ${product.name} (Brand: ${product.brand}).`;
@@ -50,7 +56,8 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </Link>
 
-      <div className="flex min-h-0 flex-1 flex-col p-3 sm:p-4">
+      <div className={cn("flex min-h-0 flex-1 flex-col", compact ? "p-2.5" : "p-3 sm:p-4")}>
+        {!compact && (
         <div className="mb-2 flex items-center gap-2">
           <span className="badge-brand gap-0.5 px-2 py-0.5 text-[10px] leading-none sm:text-xs">
             {rating}
@@ -58,23 +65,47 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
           <span className="text-[10px] text-muted-foreground sm:text-xs">({reviews})</span>
         </div>
+        )}
 
+        {!compact && (
         <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground sm:text-xs">
           {product.brand}
         </p>
+        )}
 
-        <Link href={productUrl} className="mb-3 block flex-1 min-h-[2.5rem] sm:min-h-[2.75rem]">
-          <h3 className="line-clamp-3 text-xs font-bold leading-relaxed text-brand-black transition-colors group-hover/card:text-brand-yellow sm:line-clamp-2 sm:text-sm dark:text-white">
+        <Link
+          href={productUrl}
+          className={cn("block", compact ? "mb-1.5" : "mb-2")}
+        >
+          <h3
+            className={cn(
+              "font-bold leading-snug text-brand-black transition-colors group-hover/card:text-brand-yellow dark:text-white",
+              compact ? "line-clamp-2 text-[11px]" : "line-clamp-2 text-xs sm:text-sm"
+            )}
+          >
             {product.name}
           </h3>
         </Link>
 
+        {product.price && (
+          <div className={cn("flex flex-wrap items-baseline gap-x-1 gap-y-0.5", compact ? "mb-0" : "mb-3")}>
+            <span className={cn("font-black text-brand-black", compact ? "text-xs" : "text-sm sm:text-base")}>{product.price}</span>
+            {product.mrp && (
+              <span className="text-[10px] text-muted-foreground line-through sm:text-xs">{product.mrp}</span>
+            )}
+            {product.discount && (
+              <span className="text-[10px] font-bold text-brand-sale sm:text-xs">{product.discount}</span>
+            )}
+          </div>
+        )}
+
+        {!compact && (
         <div className="mt-auto flex gap-2 sm:gap-2.5 pt-1">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-brand-outline min-w-0 flex-1 gap-1.5 rounded-lg px-2.5 py-2.5 text-[10px] leading-none sm:px-3 sm:py-2.5 sm:text-xs"
+            className={cn(WHATSAPP_BUTTON_CLASS, "min-w-0 flex-1 gap-1.5 rounded-lg px-2.5 py-2.5 text-[10px] leading-none sm:px-3 sm:py-2.5 sm:text-xs")}
           >
             <WhatsAppIcon className="h-4 w-4 shrink-0" />
             <span className="truncate">Inquiry Now</span>
@@ -89,6 +120,7 @@ export default function ProductCard({ product }: { product: Product }) {
             <Share2 className="h-3.5 w-3.5" />
           </button>
         </div>
+        )}
       </div>
     </motion.div>
   );

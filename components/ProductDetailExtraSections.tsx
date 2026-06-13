@@ -23,7 +23,8 @@ import {
   ProductFaq,
   ProductReview,
 } from "@/lib/products";
-import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { generateWhatsAppLink, WHATSAPP_BUTTON_CLASS } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 interface ProductDetailExtraSectionsProps {
   product: Product;
@@ -101,7 +102,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
                       href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share price and availability.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-brand w-full gap-1 text-[10px] sm:text-xs py-1.5 rounded"
+                      className={cn(WHATSAPP_BUTTON_CLASS, "w-full gap-1 rounded py-1.5 text-[10px] sm:text-xs")}
                     >
                       <MessageCircle className="h-3 w-3" />
                       WhatsApp Inquiry
@@ -154,7 +155,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
               href={generateWhatsAppLink(`I want to write a review for ${product.name}`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-brand-outline px-4 py-2 text-sm rounded-lg"
+              className={cn(WHATSAPP_BUTTON_CLASS, "rounded-lg px-4 py-2 text-sm")}
             >
               WRITE A REVIEW
             </a>
@@ -216,7 +217,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
             href={generateWhatsAppLink(`I have a question about ${product.name}`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-brand-outline px-4 py-2 text-sm rounded-lg text-center shrink-0"
+            className={cn(WHATSAPP_BUTTON_CLASS, "shrink-0 rounded-lg px-4 py-2 text-center text-sm")}
           >
             ASK NOW
           </a>

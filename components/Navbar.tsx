@@ -27,20 +27,20 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-pro bg-background/98 shadow-pro-sm backdrop-blur supports-backdrop-filter:bg-background/80">
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-        <div className="flex h-14 md:h-16 items-center justify-between gap-2">
+        <div className="flex h-14 md:h-[4.25rem] items-center justify-between gap-3">
           {/* Logo */}
           <div className="flex shrink-0 items-center min-w-0">
-            <SiteLogo imageClassName="h-8 w-auto sm:h-10 md:h-11" />
+            <SiteLogo imageClassName="h-8 w-auto sm:h-10 md:h-12" />
           </div>
 
           {/* Search Bar (Desktop) */}
-          <div className="hidden min-w-0 max-w-lg flex-1 mx-3 lg:mx-5 md:block">
+          <div className="hidden min-w-0 max-w-xl flex-1 mx-4 lg:mx-6 md:block">
             <SearchBar onSearch={() => setIsMobileMenuOpen(false)} />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-4 shrink-0">
-            <nav className="flex items-center gap-4 text-xs lg:text-sm font-semibold text-black dark:text-white">
+          <div className="hidden md:flex md:items-center md:gap-5 shrink-0">
+            <nav className="flex items-center gap-5 text-sm font-medium text-brand-black dark:text-white">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -53,7 +53,7 @@ export default function Navbar() {
             </nav>
               <Link
                 href="/get-quote"
-                className={cn(buttonVariants({ variant: "brand" }), "rounded-full px-4 py-1.5 text-xs lg:text-sm font-bold")}
+                className={cn(buttonVariants({ variant: "brand" }), "rounded-full px-5 py-2 text-sm font-semibold")}
               >
                 Get Quote
               </Link>

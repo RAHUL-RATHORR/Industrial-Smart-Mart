@@ -22,7 +22,6 @@ import {
   heroBanners,
   industrialBrands,
   promoBanners,
-  recentlyViewedItems,
   whyChooseUs,
   type Product,
 } from "@/lib/data";
@@ -52,6 +51,7 @@ const categorySections = categories;
 
 export default function HomePage() {
   const [heroIndex, setHeroIndex] = useState(0);
+  const [isHeroPaused, setIsHeroPaused] = useState(false);
 
   const nextHero = useCallback(() => {
     setHeroIndex((i) => (i + 1) % heroBanners.length);
@@ -62,17 +62,22 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    if (isHeroPaused) return;
     const timer = setInterval(nextHero, 6000);
     return () => clearInterval(timer);
-  }, [nextHero]);
+  }, [nextHero, isHeroPaused]);
 
   const activeHero = heroBanners[heroIndex];
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full overflow-hidden bg-muted">
-        <div className="container mx-auto px-0 md:px-3 lg:px-4 py-0 md:pt-2 md:pb-0">
-          <div className="relative aspect-[3/2] min-h-[210px] w-full overflow-hidden sm:aspect-[16/7] sm:min-h-[240px] md:rounded-xl lg:aspect-auto lg:h-[280px] xl:h-[300px]">
+      <section
+        className="relative w-full overflow-hidden bg-muted lg:bg-white"
+        onMouseEnter={() => setIsHeroPaused(true)}
+        onMouseLeave={() => setIsHeroPaused(false)}
+      >
+        <div className="container mx-auto px-0 md:px-3 lg:px-4 py-0 md:pt-1 md:pb-0 lg:pt-1 lg:pb-0">
+          <div className="relative aspect-[3/2] min-h-[210px] w-full overflow-hidden sm:aspect-[16/7] sm:min-h-[240px] md:rounded-xl lg:aspect-auto lg:h-[300px] lg:rounded-2xl xl:h-[320px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeHero.id}
@@ -120,14 +125,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container mx-auto hidden px-4 sm:px-5 lg:px-6 py-3 lg:block lg:py-3">
+      <section className="container mx-auto hidden px-4 sm:px-5 lg:px-6 py-3 lg:block lg:py-4">
         {/* Desktop: 4 promo cards — slider ke turant niche */}
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-4">
           {promoBanners.map((promo) => (
             <Link
               key={promo.id}
               href={promo.link}
-              className="group card-pro relative h-[130px] overflow-hidden transition-shadow xl:h-[139px]"
+              className="group card-pro relative h-[150px] overflow-hidden rounded-xl transition-shadow xl:h-[155px]"
             >
               <SafeImage
                 src={promo.image}
@@ -141,40 +146,28 @@ export default function HomePage() {
 
       <CategoryNav visibility="mobile" />
 
-      <section className="w-full bg-section py-4 md:py-6">
+      <section className="w-full bg-section py-6 md:py-8 lg:py-10">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-black md:text-xl">Recently Viewed</h2>
-            <Link href="/categories" className="text-sm font-semibold text-brand-yellow hover:underline">
+          <div className="mb-5 flex items-center justify-between">
+            <h2 className="section-title">Recently Viewed</h2>
+            <Link href="/products" className="text-sm font-semibold text-brand-yellow hover:underline">
               View all
             </Link>
           </div>
           <div className="flex gap-3 overflow-x-auto hide-scrollbar touch-pan-x [-webkit-overflow-scrolling:touch]">
-            {recentlyViewedItems.map((item) => (
-              <Link
-                key={item.id}
-                href="/categories"
-                className="card-pro group w-[140px] flex-shrink-0 p-3 transition-all sm:w-[160px]"
-              >
-                <div className="relative mb-2 aspect-square overflow-hidden rounded-lg bg-surface-subtle">
-                  <SafeImage
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <p className="mb-1 line-clamp-2 text-xs font-semibold">{item.title}</p>
-                <p className="text-[10px] text-muted-foreground">{item.count} products</p>
-              </Link>
+            {bestsellers.slice(0, 5).map((product) => (
+              <div key={product.id} className="w-[148px] flex-shrink-0 sm:w-[168px]">
+                <ProductCard product={product} compact />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-white py-6 md:py-8">
+      <section className="w-full bg-white py-6 md:py-8 lg:py-10">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-          <div className="mb-5 flex items-center justify-between md:mb-7">
-            <h2 className="text-xl font-black md:text-2xl">Bestsellers</h2>
+          <div className="mb-5 flex items-center justify-between lg:mb-6">
+            <h2 className="section-title">Bestsellers</h2>
             <Link href="/products" className="text-sm font-semibold text-brand-yellow hover:underline">
               Shop all
             </Link>
@@ -188,11 +181,11 @@ export default function HomePage() {
         return (
           <section
             key={category.id}
-            className={cn("w-full py-7 md:py-9", category.tileBg)}
+            className={cn("w-full py-6 md:py-8 lg:py-10", category.tileBg)}
           >
             <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-              <div className="mb-5 flex items-center justify-between md:mb-7">
-                <h2 className="text-lg font-black md:text-2xl">{category.name}</h2>
+              <div className="mb-5 flex items-center justify-between lg:mb-6">
+                <h2 className="section-title">{category.name}</h2>
                 <Link
                   href={category.href}
                   className="text-sm font-semibold text-brand-yellow hover:underline"
@@ -206,9 +199,9 @@ export default function HomePage() {
         );
       })}
 
-      <section className="w-full overflow-hidden border-y border-pro bg-section py-8 md:py-12">
-        <div className="container mx-auto px-4 sm:px-5 lg:px-6 mb-6">
-          <h2 className="text-center text-lg md:text-xl font-black">Trusted Brands</h2>
+      <section className="w-full overflow-hidden border-y border-pro bg-section py-8 md:py-10 lg:py-12">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-6 mb-6 lg:mb-8">
+          <h2 className="section-title text-center">Trusted Brands</h2>
         </div>
         <div className="relative flex overflow-hidden">
           <div className="flex animate-marquee gap-8 md:gap-12 whitespace-nowrap">
@@ -228,28 +221,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="w-full bg-page py-10 md:py-14">
+      <section className="w-full bg-page py-8 md:py-10 lg:py-14">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-        <h2 className="mb-8 text-center text-xl font-black md:mb-10 md:text-2xl">
-          Why Choose Industrial Safety Mart
-        </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {whyChooseUs.map((item) => {
-            const Icon = iconMap[item.icon as keyof typeof iconMap] ?? Package;
-            return (
-              <div
-                key={item.title}
-                className="card-pro flex flex-col items-center text-center rounded-2xl p-6 transition-all"
-              >
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-yellow/15 text-brand-yellow">
-                  <Icon className="h-7 w-7" />
+          <h2 className="section-title mx-auto mb-8 max-w-3xl text-center lg:mb-10">
+            Why Choose Industrial Safety Mart
+          </h2>
+          <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+            {whyChooseUs.map((item) => {
+              const Icon = iconMap[item.icon as keyof typeof iconMap] ?? Package;
+              return (
+                <div
+                  key={item.title}
+                  className="card-pro flex flex-col items-center rounded-2xl p-6 text-center transition-all"
+                >
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-yellow/15 text-brand-yellow">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="mb-2 text-sm font-bold md:text-base">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground md:text-sm">{item.desc}</p>
                 </div>
-                <h3 className="font-bold text-sm md:text-base mb-2">{item.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>

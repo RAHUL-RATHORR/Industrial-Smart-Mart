@@ -20,25 +20,17 @@ function formatPhoneDisplay(number: string) {
 type TrustIconVariant = "wallet" | "truck" | "payment" | "protection";
 
 function TrustIcon({ variant }: { variant: TrustIconVariant }) {
-  const iconClass = "h-11 w-11";
+  const iconClass = "h-10 w-10";
   const stroke = 1.35;
 
   switch (variant) {
     case "wallet":
-      return (
-        <div className="mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
-          <Wallet className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />
-        </div>
-      );
+      return <Wallet className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
     case "truck":
-      return (
-        <div className="mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
-          <Truck className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />
-        </div>
-      );
+      return <Truck className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
     case "payment":
       return (
-        <div className="relative mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
+        <div className="relative">
           <CreditCard className={`${iconClass} text-brand-black`} strokeWidth={stroke} />
           <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow ring-2 ring-white">
             <ShieldCheck className="h-3 w-3 text-brand-black" strokeWidth={2.5} />
@@ -47,7 +39,7 @@ function TrustIcon({ variant }: { variant: TrustIconVariant }) {
       );
     case "protection":
       return (
-        <div className="relative mb-3 flex h-12 w-12 items-center justify-center" aria-hidden="true">
+        <div className="relative">
           <HandHelping className={`${iconClass} text-brand-black`} strokeWidth={stroke} />
           <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow ring-2 ring-white">
             <ShieldCheck className="h-3 w-3 text-brand-black" strokeWidth={2.5} />
@@ -63,8 +55,7 @@ const trustFeatures = [
   {
     icon: "wallet" as const,
     title: "Great Value",
-    description:
-      "Most popular brands with widest range of selection at best prices.",
+    description: "Most popular brands with widest range of selection at best prices.",
   },
   {
     icon: "truck" as const,
@@ -74,14 +65,12 @@ const trustFeatures = [
   {
     icon: "payment" as const,
     title: "Secure Payment",
-    description:
-      "Partnered with India's most popular and secure payment solutions.",
+    description: "Partnered with India's most popular and secure payment solutions.",
   },
   {
     icon: "protection" as const,
     title: "Buyer Protection",
-    description:
-      "Committed to buyer interests to provide a smooth shopping experience.",
+    description: "Committed to buyer interests to provide a smooth shopping experience.",
   },
 ];
 
@@ -90,39 +79,33 @@ export default function FooterTrustBar() {
   const whatsappUrl = generateWhatsAppLink("Hello! I need help from Industrial Safety Mart.");
 
   return (
-    <div className="card-pro bg-white text-brand-black py-8 md:py-10 px-4 sm:px-6 mb-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-0 lg:divide-x lg:divide-gray-200">
+    <div className="rounded-2xl border border-pro bg-white px-4 py-7 shadow-pro sm:px-6 md:py-8">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
         {trustFeatures.map(({ icon, title, description }) => (
-          <div
-            key={title}
-            className="flex flex-col items-center text-center px-2 lg:px-6 first:lg:pl-0"
-          >
-            <TrustIcon variant={icon} />
-            <h3 className="text-sm font-bold text-brand-black mb-2">{title}</h3>
-            <p className="text-xs text-gray-600 leading-relaxed max-w-[220px]">{description}</p>
+          <div key={title} className="flex flex-col items-center text-center">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center">
+              <TrustIcon variant={icon} />
+            </div>
+            <h3 className="mb-1.5 text-sm font-bold text-brand-black">{title}</h3>
+            <p className="max-w-[210px] text-xs leading-relaxed text-gray-600">{description}</p>
           </div>
         ))}
 
-        <div className="flex flex-col items-center text-center px-2 lg:px-6 last:lg:pr-0">
+        <div className="flex flex-col items-center text-center">
           <div className="relative mb-3 flex h-12 w-12 items-center justify-center">
-            <Headphones className="h-11 w-11 text-brand-black" strokeWidth={1.35} aria-hidden="true" />
-            <span className="absolute top-1 left-1 h-3 w-3 rounded-full bg-brand-yellow" aria-hidden="true" />
-            <span className="absolute top-1 right-1 h-3 w-3 rounded-full bg-brand-yellow" aria-hidden="true" />
+            <Headphones className="h-10 w-10 text-brand-black" strokeWidth={1.35} aria-hidden="true" />
           </div>
-          <h3 className="text-sm font-bold text-brand-black mb-2">365 Days Help Desk</h3>
+          <h3 className="mb-1.5 text-sm font-bold text-brand-black">365 Days Help Desk</h3>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-black hover:text-brand-yellow transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-black transition-colors hover:text-brand-yellow"
           >
-            <MessageCircle className="h-5 w-5 text-brand-yellow shrink-0" />
+            <MessageCircle className="h-4 w-4 shrink-0 text-brand-yellow" />
             {phoneDisplay}
           </a>
-          <Link
-            href="/contact"
-            className="text-xs text-gray-600 hover:text-brand-black mt-2 transition-colors"
-          >
+          <Link href="/contact" className="mt-1.5 text-xs text-gray-600 transition-colors hover:text-brand-black">
             Contact support
           </Link>
         </div>

@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default:
           "bg-brand-yellow text-brand-black shadow-pro-sm hover:bg-brand-black hover:text-white [a]:hover:bg-brand-black [a]:hover:text-white",
         brand:
-          "bg-brand-yellow text-brand-black shadow-pro-sm hover:bg-brand-black hover:text-white [a]:hover:bg-brand-black [a]:hover:text-white",
+          "bg-brand-yellow text-white shadow-pro-sm hover:bg-brand-black hover:text-white [a]:hover:bg-brand-black [a]:hover:text-white",
         brandOutline:
           "border-2 border-brand-yellow bg-white text-brand-black hover:bg-brand-yellow/10 shadow-pro-sm",
         outline:

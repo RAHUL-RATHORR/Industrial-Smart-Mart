@@ -25,17 +25,17 @@ export default function HeroOfferSlide({ banner }: { banner: HeroOfferBanner }) 
       </div>
 
       {/* Title + CTA — arrows ke andar safe padding */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-end px-10 pb-8 sm:justify-center sm:pb-0 sm:pl-14 sm:pr-36 lg:pl-12 lg:pr-40">
+      <div className="absolute inset-0 z-10 flex flex-col justify-end px-10 pb-8 sm:justify-center sm:pb-0 sm:pl-16 sm:pr-36 lg:pl-14 lg:pr-44">
         <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.2em] text-brand-yellow sm:text-[10px]">
           Limited time offer
         </p>
-        <h2 className="max-w-[200px] text-lg font-black uppercase leading-tight text-white sm:max-w-md sm:text-2xl lg:text-3xl">
+        <h2 className="max-w-[200px] text-lg font-bold uppercase leading-tight tracking-tight text-white sm:max-w-md sm:text-2xl lg:max-w-lg lg:text-4xl">
           {banner.title}
         </h2>
-        <p className="mt-1 max-w-[180px] text-[11px] leading-snug text-white/85 sm:max-w-sm sm:text-sm lg:text-xs">
+        <p className="mt-1.5 max-w-[180px] text-[11px] leading-relaxed text-white/90 sm:max-w-sm sm:text-sm lg:max-w-md lg:text-base">
           {banner.tagline}
         </p>
-        <span className="mt-2.5 inline-flex w-fit items-center gap-1.5 rounded-md bg-brand-yellow px-3 py-1.5 text-[11px] font-bold uppercase text-brand-black sm:mt-3 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-xs">
+        <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-lg bg-brand-yellow px-3.5 py-2 text-[11px] font-semibold uppercase text-brand-black sm:mt-3.5 sm:gap-2 sm:px-4 sm:py-2 sm:text-xs">
           {banner.cta}
           <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </span>

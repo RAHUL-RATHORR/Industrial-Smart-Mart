@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { Phone } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,7 @@ type ContactChannelIconProps = {
 
 export default function ContactChannelIcon({ channelId, className }: ContactChannelIconProps) {
   const iconClass = cn("h-8 w-8", className);
+  const instagramGradientId = useId();
 
   switch (channelId) {
     case "contact":
@@ -17,13 +19,13 @@ export default function ContactChannelIcon({ channelId, className }: ContactChan
       return (
         <svg viewBox="0 0 24 24" className={iconClass} aria-hidden="true">
           <defs>
-            <linearGradient id="insta" x1="0%" y1="100%" x2="100%" y2="0%">
+            <linearGradient id={instagramGradientId} x1="0%" y1="100%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#F58529" />
               <stop offset="50%" stopColor="#DD2A7B" />
               <stop offset="100%" stopColor="#8134AF" />
             </linearGradient>
           </defs>
-          <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#insta)" />
+          <rect x="2" y="2" width="20" height="20" rx="6" fill={`url(#${instagramGradientId})`} />
           <circle cx="12" cy="12" r="4.5" fill="none" stroke="#fff" strokeWidth="1.8" />
           <circle cx="17.4" cy="6.6" r="1.2" fill="#fff" />
         </svg>
@@ -65,6 +67,16 @@ export default function ContactChannelIcon({ channelId, className }: ContactChan
           <path fill="#4285F4" d="M12 2C8.7 2 6 4.7 6 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.3-2.7-6-6-6z" />
           <circle cx="12" cy="8" r="2.2" fill="#fff" />
           <path fill="#34A853" d="M4 20h16v2H4z" opacity="0.25" />
+        </svg>
+      );
+    case "twitter":
+      return (
+        <svg viewBox="0 0 24 24" className={iconClass} aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="#1DA1F2" />
+          <path
+            fill="#fff"
+            d="M19.2 8.1c-.5.2-1 .4-1.5.5.6-.4 1-1 1.2-1.7-.6.3-1.2.6-1.8.7-.5-.6-1.3-1-2.1-1-1.6 0-2.9 1.3-2.9 2.9 0 .2 0 .5.1.7-2.4-.1-4.6-1.3-6-3.2-.3.4-.4.9-.4 1.4 0 1 .5 1.9 1.3 2.4-.5 0-.9-.1-1.3-.4v.1c0 1.4 1 2.6 2.3 2.9-.2.1-.5.1-.8.1-.2 0-.4 0-.6-.1.4 1.1 1.4 1.9 2.7 1.9-1 0.8-2.2 1.2-3.5 1.2-.2 0-.4 0-.6 0 1.2.8 2.7 1.2 4.2 1.2 5.1 0 7.9-4.2 7.9-7.9v-.4c.5-.4 1-.8 1.4-1.3z"
+          />
         </svg>
       );
     case "linkedin":

@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle, Phone, X } from "lucide-react";
-import { generateWhatsAppLink, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { CALL_BUTTON_CLASS } from "@/lib/contact";
+import { generateWhatsAppLink, WHATSAPP_BUTTON_CLASS, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "ism-welcome-popup-dismissed";
 
@@ -84,7 +86,7 @@ export default function WelcomePopup() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href={telLink}
-                  className="btn-brand flex-1 gap-2 rounded-xl px-5 py-3 text-sm"
+                  className={cn(CALL_BUTTON_CLASS, "flex-1 gap-2 rounded-xl px-5 py-3 text-sm")}
                 >
                   <Phone className="h-4 w-4" />
                   Call Us
@@ -93,7 +95,7 @@ export default function WelcomePopup() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-brand-outline flex-1 gap-2 rounded-xl px-5 py-3 text-sm"
+                  className={cn(WHATSAPP_BUTTON_CLASS, "flex-1 gap-2 rounded-xl px-5 py-3 text-sm")}
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp

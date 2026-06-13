@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CategoryNav from "@/components/CategoryNav";
@@ -24,14 +25,20 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col font-sans min-w-0">
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className={`${inter.className} min-h-full flex flex-col font-sans min-w-0 leading-relaxed`}>
         <Navbar />
         <CategoryNav visibility="desktop" />
         <main className="flex-1 min-w-0 w-full">{children}</main>

@@ -2,7 +2,9 @@
 
 import { Phone } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-import { generateWhatsAppLink, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { CALL_BUTTON_CLASS } from "@/lib/contact";
+import { generateWhatsAppLink, WHATSAPP_BUTTON_CLASS, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 export default function FloatingWhatsApp() {
   const whatsappUrl = generateWhatsAppLink("Hello! I have an inquiry from Industrial Safety Mart.");
@@ -14,7 +16,7 @@ export default function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-brand gap-2 rounded-full px-3 py-2 text-xs shadow-pro-float sm:px-4 sm:py-2.5 sm:text-sm"
+        className={cn(WHATSAPP_BUTTON_CLASS, "gap-2 rounded-full px-3 py-2 text-xs shadow-pro-float sm:px-4 sm:py-2.5 sm:text-sm")}
         title="Chat with us on WhatsApp"
       >
         <WhatsAppIcon className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
@@ -22,7 +24,7 @@ export default function FloatingWhatsApp() {
       </a>
       <a
         href={telLink}
-        className="btn-brand-dark gap-2 px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm"
+        className={cn(CALL_BUTTON_CLASS, "gap-2 rounded-full px-3 py-2 text-xs shadow-pro-float sm:px-4 sm:py-2.5 sm:text-sm")}
         title="Call us"
       >
         <Phone className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />

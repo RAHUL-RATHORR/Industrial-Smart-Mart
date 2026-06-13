@@ -16,7 +16,8 @@ import ProductImageMagnifier from "@/components/ProductImageMagnifier";
 import SafeImage from "@/components/SafeImage";
 import { Product, getProductDisplayRating } from "@/lib/data";
 import { ProductDetailExtras } from "@/lib/products";
-import { generateWhatsAppLink, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { CALL_BUTTON_CLASS } from "@/lib/contact";
+import { generateWhatsAppLink, WHATSAPP_BUTTON_CLASS, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import ProductDetailExtraSections from "@/components/ProductDetailExtraSections";
 import { cn } from "@/lib/utils";
 
@@ -180,13 +181,13 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-brand w-full gap-2 py-3 text-sm"
+                className={cn(WHATSAPP_BUTTON_CLASS, "w-full gap-2 rounded-lg py-3 text-sm")}
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Inquiry
               </a>
 
-              <a href={telLink} className="btn-brand-dark w-full gap-2 py-3 text-sm">
+              <a href={telLink} className={cn(CALL_BUTTON_CLASS, "w-full gap-2 rounded-lg py-3 text-sm")}>
                 <Phone className="h-4 w-4" />
                 Call Now
               </a>

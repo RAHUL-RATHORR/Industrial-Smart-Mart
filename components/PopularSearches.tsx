@@ -1,49 +1,41 @@
 import Link from "next/link";
-import { leftColumnGroups, rightColumnGroups, PopularSearchGroup } from "@/lib/popular-searches";
+import { popularSearchGroups } from "@/lib/popular-searches";
 
-function SearchGroup({ group }: { group: PopularSearchGroup }) {
+function SearchGroupCard({ category, items }: { category: string; items: string[] }) {
   return (
-    <div>
-      <h3 className="text-xs font-bold uppercase tracking-wide text-brand-black mb-2">
-        {group.category}
-      </h3>
-      <p className="text-xs leading-6 text-gray-600">
-        {group.items.map((item, index) => (
-          <span key={item}>
-            {index > 0 && <span className="text-gray-400"> | </span>}
-            <Link
-              href={`/products?q=${encodeURIComponent(item)}`}
-              className="hover:text-brand-yellow hover:underline transition-colors"
-            >
-              {item}
-            </Link>
-          </span>
+    <div className="search-group-card flex h-full flex-col rounded-2xl border border-pro bg-white p-4 shadow-pro-sm transition-all hover:border-brand-yellow/35 hover:shadow-pro">
+      <div className="mb-3 inline-flex w-fit items-center rounded-md bg-brand-black px-2.5 py-1">
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow">
+          {category}
+        </h3>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item) => (
+          <Link
+            key={item}
+            href={`/products?q=${encodeURIComponent(item)}`}
+            className="search-pill rounded-full border border-pro bg-section px-3 py-1.5 text-[11px] font-medium text-gray-700 transition-colors hover:border-brand-yellow hover:bg-brand-yellow/10 hover:text-brand-black"
+          >
+            {item}
+          </Link>
         ))}
-      </p>
-    </div>
-  );
-}
-
-function SearchColumn({ groups }: { groups: PopularSearchGroup[] }) {
-  return (
-    <div className="space-y-6">
-      {groups.map((group) => (
-        <SearchGroup key={group.category} group={group} />
-      ))}
+      </div>
     </div>
   );
 }
 
 export default function PopularSearches() {
   return (
-    <section className="border-t border-b bg-muted/30 py-10 md:py-12">
+    <section className="border-t border-pro bg-page py-10 md:py-12">
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-        <h2 className="text-lg md:text-xl font-bold text-brand-black mb-8">
-          Popular searches on Industrial Safety Mart
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-          <SearchColumn groups={leftColumnGroups} />
-          <SearchColumn groups={rightColumnGroups} />
+        <div className="mb-8">
+          <h2 className="section-title">Popular searches on Industrial Safety Mart</h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {popularSearchGroups.map((group) => (
+            <SearchGroupCard key={group.category} category={group.category} items={group.items} />
+          ))}
         </div>
       </div>
     </section>

@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { LayoutGrid } from "lucide-react";
+import { ArrowRight, LayoutGrid } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { categories } from "@/lib/data";
-import SafeImage from "@/components/SafeImage";
+import CategoryNavIcon from "@/components/CategoryNavIcon";
 import { cn } from "@/lib/utils";
 
 type CategoryNavProps = {
@@ -27,8 +28,8 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
   return (
     <div
       className={cn(
-        "relative w-full bg-white z-30",
-        isMobile ? "border-b border-pro" : "border-b border-pro shadow-pro-sm",
+        "relative w-full bg-[#fafafa] z-30",
+        isMobile ? "border-b border-border shadow-pro-top" : "border-b border-border shadow-pro-bar",
         visibilityClass
       )}
       onMouseLeave={() => setActiveCategory(null)}
@@ -48,7 +49,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             "w-full",
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
-              : "grid grid-cols-5 gap-x-1 gap-y-2 py-0 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1"
+              : "grid grid-cols-5 gap-x-1 gap-y-2 py-0 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1.5 lg:pt-0 lg:pb-1"
           )}
         >
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
@@ -56,7 +57,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
               key={category.id}
               className={cn(
                 "relative min-w-0",
-                !isMobile && "lg:flex-1 lg:max-w-[5.5rem] xl:max-w-[6.5rem]",
+                !isMobile && "lg:flex-1 lg:max-w-[6.5rem] xl:max-w-[7rem]",
                 !isMobile && activeCategory === category.id ? "text-brand-yellow" : ""
               )}
               onMouseEnter={() => !isMobile && setActiveCategory(category.id)}
@@ -65,7 +66,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 href={category.href}
                 className={cn(
                   "flex flex-col items-center group transition-colors",
-                  isMobile ? "gap-2.5" : "gap-0.5 p-1 lg:p-1.5 rounded-lg border-b-2",
+                  isMobile ? "gap-2.5" : "gap-1 p-0.5 lg:px-1 lg:pt-0 lg:pb-0.5 rounded-lg border-b-2",
                   !isMobile &&
                     (activeCategory === category.id
                       ? "border-brand-yellow bg-muted/30"
@@ -73,43 +74,27 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 )}
               >
                 {isMobile ? (
-                  <div
-                    className={cn(
-                      "relative w-full aspect-[5/4] overflow-hidden rounded-2xl border border-white/60 shadow-pro-sm",
-                      category.tileBg
-                    )}
-                  >
-                    <SafeImage
-                      src={category.image}
-                      alt={category.name}
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  </div>
+                  <CategoryNavIcon
+                    categoryId={category.id}
+                    className="aspect-[5/4] w-full"
+                  />
                 ) : (
-                  <div
-                    className={cn(
-                      "flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-pro shadow-pro-sm sm:h-12 sm:w-12 lg:h-14 lg:w-14",
-                      category.tileBg
-                    )}
-                  >
-                    <SafeImage
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <CategoryNavIcon
+                    categoryId={category.id}
+                    className="h-[3.25rem] w-[3.25rem] shrink-0 sm:h-14 sm:w-14 lg:h-[3.75rem] lg:w-[3.75rem]"
+                  />
                 )}
 
                 <span
                   className={cn(
-                    "font-medium text-center leading-snug line-clamp-2 transition-colors",
+                    "font-medium text-center leading-tight line-clamp-2 transition-colors",
                     isMobile
                       ? "text-[11px] text-brand-black px-1"
-                      : "text-[9px] sm:text-[10px] lg:text-[11px] font-bold",
+                      : "text-[11px] lg:text-xs font-semibold",
                     !isMobile &&
                       (activeCategory === category.id
                         ? "text-brand-yellow"
-                        : "text-[var(--onyx-black,#333)] group-hover:text-brand-yellow")
+                        : "text-[#4a4a4a] group-hover:text-brand-yellow")
                   )}
                 >
                   {category.name}
@@ -134,31 +119,54 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
       </div>
 
       {activeData?.subgroups && !isMobile && (
-        <div className="absolute left-0 right-0 top-full z-50 hidden border-t border-pro bg-white shadow-pro lg:block">
-          <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-6">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-              {activeData.subgroups.map((group) => (
-                <div key={group.title} className="flex flex-col space-y-2 min-w-0">
-                  <h3 className="pb-2 text-xs font-bold uppercase tracking-wider text-brand-black">
-                    {group.title}
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {group.items.map((item) => (
-                      <li key={item}>
-                        <Link
-                          href={`${activeData.href}?q=${encodeURIComponent(item)}`}
-                          className="text-xs text-muted-foreground hover:text-brand-yellow transition-colors block"
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+        <AnimatePresence>
+          {activeCategory && (
+            <motion.div
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.18 }}
+              className="absolute left-0 right-0 top-full z-50 hidden border-t border-border bg-white shadow-pro-float lg:block"
+            >
+              <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-5">
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
+                  <div>
+                    <h3 className="text-sm font-black text-brand-black">{activeData.name}</h3>
+                    <p className="text-xs text-muted-foreground">{activeData.productCount} products available</p>
+                  </div>
+                  <Link
+                    href={activeData.href}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-brand-yellow hover:underline"
+                  >
+                    View all {activeData.name}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                  {activeData.subgroups.map((group) => (
+                    <div key={group.title} className="flex min-w-0 flex-col space-y-2">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-brand-black">
+                        {group.title}
+                      </h4>
+                      <ul className="space-y-1">
+                        {group.items.map((item) => (
+                          <li key={item}>
+                            <Link
+                              href={`${activeData.href}?q=${encodeURIComponent(item)}`}
+                              className="block rounded-md px-2 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
+                            >
+                              {item}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       )}
     </div>
   );
