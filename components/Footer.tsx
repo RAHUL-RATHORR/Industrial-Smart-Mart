@@ -74,33 +74,35 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <FooterHeading>Quick Links</FooterHeading>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="transition-colors hover:text-brand-black">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-0 sm:col-span-2 lg:contents">
+            <div className="min-w-0">
+              <FooterHeading>Quick Links</FooterHeading>
+              <ul className="space-y-2.5 text-sm text-muted-foreground">
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="transition-colors hover:text-brand-black">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="min-w-0">
+              <FooterHeading>Top Categories</FooterHeading>
+              <ul className="space-y-2.5 text-sm text-muted-foreground">
+                {categories.slice(0, 5).map((category) => (
+                  <li key={category.id}>
+                    <Link href={category.href} className="transition-colors hover:text-brand-black">
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <FooterHeading>Top Categories</FooterHeading>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              {categories.slice(0, 5).map((category) => (
-                <li key={category.id}>
-                  <Link href={category.href} className="transition-colors hover:text-brand-black">
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <FooterHeading>Contact Us</FooterHeading>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex gap-3">

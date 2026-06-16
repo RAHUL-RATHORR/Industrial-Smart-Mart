@@ -67,10 +67,10 @@ function AccordionBlock({ title, open, onToggle, children }: AccordionBlockProps
 }
 
 export default function SeoSection() {
-  const [openId, setOpenId] = useState<string>("categories");
+  const [openId, setOpenId] = useState<string | null>("categories");
 
   const toggle = (id: string) => {
-    setOpenId(id);
+    setOpenId((current) => (current === id ? null : id));
   };
 
   return (
