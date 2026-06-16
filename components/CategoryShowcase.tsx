@@ -11,7 +11,7 @@ type CategoryShowcaseProps = {
 
 export default function CategoryShowcase({ category, products }: CategoryShowcaseProps) {
   const brands = getCategoryBrands(category.id);
-  const showcaseProducts = products.slice(0, 3);
+  const showcaseProducts = products.slice(0, 4);
 
   return (
     <div className="overflow-hidden rounded-2xl border border-[#e8e4dc] bg-white shadow-[0_2px_8px_rgba(26,26,26,0.06),0_8px_20px_rgba(26,26,26,0.08)]">
@@ -58,7 +58,7 @@ export default function CategoryShowcase({ category, products }: CategoryShowcas
               View all products
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-4">
             {showcaseProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

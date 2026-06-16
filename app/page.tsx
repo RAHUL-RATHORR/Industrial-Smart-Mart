@@ -177,7 +177,7 @@ export default function HomePage() {
       </section>
 
       {categorySections.map((category) => {
-        const products = getProductsByCategory(category.id, 3);
+        const products = getProductsByCategory(category.id, 4);
         return (
           <section
             key={category.id}
