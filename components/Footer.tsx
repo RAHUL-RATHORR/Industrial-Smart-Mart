@@ -23,7 +23,12 @@ const quickLinks = [
 ];
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="mb-4 text-sm font-bold text-brand-black">{children}</h3>;
+  return (
+    <div className="mb-4">
+      <h3 className="text-sm font-bold text-brand-black">{children}</h3>
+      <span className="mt-2 block h-0.5 w-10 rounded-full bg-[#f4b400]" aria-hidden="true" />
+    </div>
+  );
 }
 
 export default function Footer() {

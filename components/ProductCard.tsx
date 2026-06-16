@@ -43,7 +43,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
   return (
     <motion.div
       whileHover={{ y: -4 }}
-      className="group/card card-pro relative flex h-full flex-col transition-all"
+      className="product-card group/card relative flex h-full flex-col overflow-hidden"
     >
       <Link
         href={productUrl}
@@ -79,7 +79,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         >
           <h3
             className={cn(
-              "font-bold leading-snug text-brand-black transition-colors group-hover/card:text-brand-yellow dark:text-white",
+              "product-card-title font-bold leading-snug",
               compact ? "line-clamp-2 text-[11px]" : "line-clamp-2 text-xs sm:text-sm"
             )}
           >
@@ -108,7 +108,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
             className={cn(WHATSAPP_BUTTON_CLASS, "min-w-0 flex-1 gap-1.5 rounded-lg px-2.5 py-2.5 text-[10px] leading-none sm:px-3 sm:py-2.5 sm:text-xs")}
           >
             <WhatsAppIcon className="h-4 w-4 shrink-0" />
-            <span className="truncate">Inquiry Now</span>
+            <span className="truncate">Get Best Quote</span>
           </a>
 
           <button

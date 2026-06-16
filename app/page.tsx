@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import CategoryNav from "@/components/CategoryNav";
+import CategoryShowcase from "@/components/CategoryShowcase";
 import HeroOfferSlide from "@/components/HeroOfferSlide";
 import ProductCard from "@/components/ProductCard";
 import SafeImage from "@/components/SafeImage";
@@ -25,6 +26,7 @@ import {
   whyChooseUs,
   type Product,
 } from "@/lib/data";
+import { SECTION_TITLE_CLASS } from "@/lib/sections";
 import { cn } from "@/lib/utils";
 
 const DESKTOP_PRODUCT_COUNT = 5;
@@ -76,8 +78,7 @@ export default function HomePage() {
         onMouseEnter={() => setIsHeroPaused(true)}
         onMouseLeave={() => setIsHeroPaused(false)}
       >
-        <div className="container mx-auto px-0 md:px-3 lg:px-4 py-0 md:pt-1 md:pb-0 lg:pt-1 lg:pb-0">
-          <div className="relative aspect-[3/2] min-h-[210px] w-full overflow-hidden sm:aspect-[16/7] sm:min-h-[240px] md:rounded-xl lg:aspect-auto lg:h-[300px] lg:rounded-2xl xl:h-[320px]">
+        <div className="relative aspect-[3/2] min-h-[210px] w-full overflow-hidden sm:aspect-[16/7] sm:min-h-[240px] lg:aspect-auto lg:h-[300px] xl:h-[320px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeHero.id}
@@ -121,7 +122,6 @@ export default function HomePage() {
                 />
               ))}
             </div>
-          </div>
         </div>
       </section>
 
@@ -149,7 +149,7 @@ export default function HomePage() {
       <section className="w-full bg-section py-6 md:py-8 lg:py-10">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
           <div className="mb-5 flex items-center justify-between">
-            <h2 className="section-title">Recently Viewed</h2>
+            <h2 className={SECTION_TITLE_CLASS}>Recently Viewed</h2>
             <Link href="/products" className="text-sm font-semibold text-brand-yellow hover:underline">
               View all
             </Link>
@@ -167,7 +167,7 @@ export default function HomePage() {
       <section className="w-full bg-white py-6 md:py-8 lg:py-10">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
           <div className="mb-5 flex items-center justify-between lg:mb-6">
-            <h2 className="section-title">Bestsellers</h2>
+            <h2 className={SECTION_TITLE_CLASS}>Bestsellers</h2>
             <Link href="/products" className="text-sm font-semibold text-brand-yellow hover:underline">
               Shop all
             </Link>
@@ -177,7 +177,7 @@ export default function HomePage() {
       </section>
 
       {categorySections.map((category) => {
-        const products = getProductsByCategory(category.id, MOBILE_PRODUCT_COUNT);
+        const products = getProductsByCategory(category.id, 3);
         return (
           <section
             key={category.id}
@@ -185,7 +185,7 @@ export default function HomePage() {
           >
             <div className="container mx-auto px-4 sm:px-5 lg:px-6">
               <div className="mb-5 flex items-center justify-between lg:mb-6">
-                <h2 className="section-title">{category.name}</h2>
+                <h2 className={SECTION_TITLE_CLASS}>{category.name}</h2>
                 <Link
                   href={category.href}
                   className="text-sm font-semibold text-brand-yellow hover:underline"
@@ -193,15 +193,15 @@ export default function HomePage() {
                   View category
                 </Link>
               </div>
-              <div className={PRODUCT_GRID}>{renderHomeProducts(products)}</div>
+              <CategoryShowcase category={category} products={products} />
             </div>
           </section>
         );
       })}
 
       <section className="w-full overflow-hidden border-y border-pro bg-section py-8 md:py-10 lg:py-12">
-        <div className="container mx-auto px-4 sm:px-5 lg:px-6 mb-6 lg:mb-8">
-          <h2 className="section-title text-center">Trusted Brands</h2>
+        <div className="container mx-auto mb-6 px-4 text-center sm:px-5 lg:mb-8 lg:px-6">
+          <h2 className={cn(SECTION_TITLE_CLASS, "mx-auto w-fit")}>Trusted Brands</h2>
         </div>
         <div className="relative flex overflow-hidden">
           <div className="flex animate-marquee gap-8 md:gap-12 whitespace-nowrap">
@@ -223,9 +223,11 @@ export default function HomePage() {
 
       <section className="w-full bg-page py-8 md:py-10 lg:py-14">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-          <h2 className="section-title mx-auto mb-8 max-w-3xl text-center lg:mb-10">
-            Why Choose Industrial Safety Mart
-          </h2>
+          <div className="mb-8 text-center lg:mb-10">
+            <h2 className={cn(SECTION_TITLE_CLASS, "mx-auto w-fit")}>
+              Why Choose Industrial Safety Mart
+            </h2>
+          </div>
           <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
             {whyChooseUs.map((item) => {
               const Icon = iconMap[item.icon as keyof typeof iconMap] ?? Package;

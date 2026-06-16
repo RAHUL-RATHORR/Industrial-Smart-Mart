@@ -234,6 +234,31 @@
     border-color: color-mix(in srgb, var(--brand-yellow) 35%, var(--brand-border));
   }
 
+  .product-card {
+    border: 1px solid #f4b400;
+    border-radius: 0.75rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-card);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .product-card:hover {
+    border-color: var(--brand-border);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .product-card-title {
+    color: #f4b400;
+    transition: color 0.2s ease;
+  }
+
+  .product-card:hover .product-card-title {
+    color: var(--brand-black);
+  }
+
   .btn-brand {
     display: inline-flex;
     align-items: center;
@@ -326,20 +351,6 @@
 
   .bg-brand-sale {
     background-color: var(--brand-sale);
-  }
-
-  .section-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    color: var(--brand-black);
-  }
-
-  @media (width >= 1024px) {
-    .section-title {
-      font-size: 1.5rem;
-    }
   }
 
   .container {

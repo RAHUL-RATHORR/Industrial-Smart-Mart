@@ -49,7 +49,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             "w-full",
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
-              : "grid grid-cols-5 gap-x-1 gap-y-2 py-0 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1.5 lg:pt-0 lg:pb-1"
+              : "grid grid-cols-5 gap-x-1 gap-y-2 py-0 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1 lg:py-0.5"
           )}
         >
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
@@ -66,11 +66,11 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 href={category.href}
                 className={cn(
                   "flex flex-col items-center group transition-colors",
-                  isMobile ? "gap-2.5" : "gap-1 p-0.5 lg:px-1 lg:pt-0 lg:pb-0.5 rounded-lg border-b-2",
+                  isMobile ? "gap-2.5" : "gap-0.5 p-0 lg:px-0.5 lg:pt-0 lg:pb-0 border-b-2",
                   !isMobile &&
                     (activeCategory === category.id
-                      ? "border-brand-yellow bg-muted/30"
-                      : "border-transparent hover:border-brand-yellow hover:bg-muted/30")
+                      ? "border-brand-yellow"
+                      : "border-transparent hover:border-brand-yellow")
                 )}
               >
                 {isMobile ? (
@@ -81,7 +81,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 ) : (
                   <CategoryNavIcon
                     categoryId={category.id}
-                    className="h-[3.25rem] w-[3.25rem] shrink-0 sm:h-14 sm:w-14 lg:h-[3.75rem] lg:w-[3.75rem]"
+                    className="h-10 w-10 shrink-0 sm:h-11 sm:w-11 lg:h-12 lg:w-12"
                   />
                 )}
 
@@ -90,7 +90,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                     "font-medium text-center leading-tight line-clamp-2 transition-colors",
                     isMobile
                       ? "text-[11px] text-brand-black px-1"
-                      : "text-[11px] lg:text-xs font-semibold",
+                      : "text-xs lg:text-sm font-semibold leading-snug",
                     !isMobile &&
                       (activeCategory === category.id
                         ? "text-brand-yellow"

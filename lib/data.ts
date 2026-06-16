@@ -274,6 +274,41 @@ export const industrialBrands = [
   { name: "Prenav", logo: "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Prenav&font=roboto" },
 ];
 
+export type IndustrialBrand = (typeof industrialBrands)[number];
+
+export function getCategoryBrands(categoryId: string, count = 4): IndustrialBrand[] {
+  const index = Math.max(
+    0,
+    categories.findIndex((category) => category.id === categoryId)
+  );
+  return Array.from({ length: count }, (_, i) => industrialBrands[(index + i) % industrialBrands.length]);
+}
+
+export type CategoryRelatedItem = {
+  title: string;
+  href: string;
+  image: string;
+};
+
+export function getCategoryRelatedItems(category: Category, count = 4): CategoryRelatedItem[] {
+  const items =
+    category.subgroups?.flatMap((group) => group.items.map((item) => ({ item, group: group.title }))) ?? [];
+
+  if (items.length === 0) {
+    return Array.from({ length: count }, (_, i) => ({
+      title: category.name,
+      href: category.href,
+      image: category.image,
+    }));
+  }
+
+  return items.slice(0, count).map(({ item }, i) => ({
+    title: item,
+    href: `${category.href}?q=${encodeURIComponent(item)}`,
+    image: category.image,
+  }));
+}
+
 export const bestsellers: Product[] = [
   {
     id: "bs-1",
