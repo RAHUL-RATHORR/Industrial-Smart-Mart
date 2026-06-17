@@ -66,19 +66,18 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
             <li
               key={category.id}
-              className="relative isolate min-w-0 w-full overflow-hidden"
+              className={cn(
+                "relative isolate min-w-0 w-full",
+                isMobile ? "overflow-hidden" : "overflow-visible"
+              )}
               onMouseEnter={() => !isMobile && setActiveCategory(category.id)}
             >
               <Link
                 href={category.href}
                 title={category.name}
                 className={cn(
-                  "flex w-full min-w-0 max-w-full flex-col items-center overflow-hidden group transition-colors",
-                  isMobile ? "gap-2.5" : "gap-1 border-b px-0.5 pb-0.5",
-                  !isMobile &&
-                    (activeCategory === category.id
-                      ? "border-brand-yellow"
-                      : "border-transparent hover:border-brand-yellow")
+                  "flex w-full min-w-0 max-w-full flex-col items-center group transition-all",
+                  isMobile ? "gap-2.5 overflow-hidden" : "gap-1 px-0.5 py-0.5"
                 )}
               >
                 {isMobile ? (
@@ -87,19 +86,30 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                     className="aspect-[5/4] w-full"
                   />
                 ) : (
-                  <CategoryNavIcon
-                    categoryId={category.id}
-                    className="h-10 w-10 shrink-0 sm:h-11 sm:w-11 lg:h-12 lg:w-12"
-                  />
+                  <div className="relative flex h-12 w-12 items-center justify-center sm:h-11 sm:w-11 lg:h-14 lg:w-14">
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "absolute inset-x-0 top-0 bottom-1 rounded-2xl bg-gradient-to-b from-[#f4b400]/28 via-[#f4b400]/10 to-transparent transition-all duration-200 ease-out",
+                        activeCategory === category.id
+                          ? "scale-100 opacity-100"
+                          : "scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+                      )}
+                    />
+                    <CategoryNavIcon
+                      categoryId={category.id}
+                      className="relative z-10 h-9 w-9 shrink-0 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
+                    />
+                  </div>
                 )}
 
                 <span
                   className={cn(
-                    "block w-full max-w-full text-center transition-all",
+                    "text-center transition-all",
                     isMobile
-                      ? "text-[11px] font-medium text-brand-black px-1 leading-tight line-clamp-2"
-                      : "truncate whitespace-nowrap text-[10px] sm:text-[11px] lg:text-xs font-semibold leading-none text-[#4a4a4a] group-hover:font-bold",
-                    !isMobile && activeCategory === category.id && "font-bold"
+                      ? "block w-full max-w-full text-[11px] font-medium text-brand-black px-1 leading-tight line-clamp-2"
+                      : "inline-block w-fit max-w-full whitespace-nowrap border-b border-transparent pb-0.5 text-[10px] sm:text-[11px] lg:text-xs font-semibold leading-none text-[#4a4a4a] group-hover:font-bold group-hover:border-[#f4b400] group-hover:text-[#1a1a1a]",
+                    !isMobile && activeCategory === category.id && "font-bold border-[#f4b400] text-[#1a1a1a]"
                   )}
                 >
                   {getCategoryNavLabel(category.id, category.name)}
