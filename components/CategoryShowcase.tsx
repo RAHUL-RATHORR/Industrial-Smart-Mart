@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import SafeImage from "@/components/SafeImage";
-import { Category, Product, getCategoryBrands } from "@/lib/data";
+import { useCatalog } from "@/contexts/CatalogContext";
+import type { Category, Product } from "@/lib/data";
 
 type CategoryShowcaseProps = {
   category: Category;
@@ -10,6 +13,7 @@ type CategoryShowcaseProps = {
 };
 
 export default function CategoryShowcase({ category, products }: CategoryShowcaseProps) {
+  const { getCategoryBrands } = useCatalog();
   const brands = getCategoryBrands(category.id);
   const showcaseProducts = products.slice(0, 4);
 
@@ -28,37 +32,30 @@ export default function CategoryShowcase({ category, products }: CategoryShowcas
               <Link
                 key={brand.name}
                 href={`/products?q=${encodeURIComponent(brand.name)}`}
-                className="group flex flex-col items-center gap-2 rounded-xl border border-[#e8e4dc]/60 bg-white p-3 text-center transition-all hover:border-[#f4b400] hover:shadow-sm lg:flex-row lg:items-center lg:gap-3 lg:p-2.5 lg:text-left"
+                className="flex h-14 items-center justify-center rounded-lg border border-[#e8e4dc] bg-white p-2 transition hover:border-[#f4b400] md:h-16"
               >
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#eee] bg-[#fafafa] p-2 lg:h-12 lg:w-12">
-                  <SafeImage
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </span>
-                <span className="text-xs font-semibold leading-tight text-[#333] group-hover:text-[#f4b400] lg:text-sm">
-                  {brand.name}
-                </span>
-                <ChevronRight className="hidden h-4 w-4 shrink-0 text-[#f4b400] lg:ml-auto lg:block" />
+                <SafeImage
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-h-full max-w-full object-contain"
+                />
               </Link>
             ))}
           </div>
         </aside>
 
         <div className="p-4 md:p-5 lg:col-span-9 xl:col-span-9">
-          <div className="mb-4 flex items-center justify-between gap-2">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#666] md:text-xs">
-              Featured Products
-            </p>
+          <div className="mb-4 flex items-center justify-between">
+            <p className="text-sm font-semibold text-[#1a1a1a]">Featured Products</p>
             <Link
               href={category.href}
-              className="text-xs font-semibold text-[#f4b400] hover:underline md:text-sm"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[#f4b400] hover:underline md:text-sm"
             >
-              View all products
+              View all
+              <ChevronRight className="size-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-4">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {showcaseProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

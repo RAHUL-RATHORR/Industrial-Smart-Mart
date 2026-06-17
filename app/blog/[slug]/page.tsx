@@ -2,19 +2,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Calendar, ChevronRight, Clock, User } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
-import { blogPosts } from "@/lib/blog";
+import { getBlogPostBySlug, getBlogPosts } from "@/lib/blog.server";
 
 type BlogDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return getBlogPosts().map((post) => ({ slug: post.slug }));
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((item) => item.slug === slug);
+  const post = getBlogPostBySlug(slug);
 
   if (!post) notFound();
 

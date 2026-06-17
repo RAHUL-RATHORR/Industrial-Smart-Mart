@@ -16,13 +16,10 @@ import CategoryShowcase from "@/components/CategoryShowcase";
 import HeroOfferSlide from "@/components/HeroOfferSlide";
 import ProductCard from "@/components/ProductCard";
 import SafeImage from "@/components/SafeImage";
+import { useCatalog, useBestsellers } from "@/contexts/CatalogContext";
 import {
-  bestsellers,
-  categories,
-  getProductsByCategory,
-  heroBanners,
-  industrialBrands,
-  promoBanners,
+  heroBanners as staticHeroBanners,
+  promoBanners as staticPromoBanners,
   whyChooseUs,
   type Product,
 } from "@/lib/data";
@@ -49,19 +46,20 @@ const iconMap = {
   Award,
 } as const;
 
-const categorySections = categories;
-
 export default function HomePage() {
+  const { categories, brands, getProductsByCategory, heroBanners, promoBanners } = useCatalog();
+  const bestsellers = useBestsellers();
+  const categorySections = categories;
   const [heroIndex, setHeroIndex] = useState(0);
   const [isHeroPaused, setIsHeroPaused] = useState(false);
 
   const nextHero = useCallback(() => {
-    setHeroIndex((i) => (i + 1) % heroBanners.length);
-  }, []);
+    setHeroIndex((i) => (i + 1) % Math.max(heroBanners.length, 1));
+  }, [heroBanners.length]);
 
   const prevHero = useCallback(() => {
-    setHeroIndex((i) => (i - 1 + heroBanners.length) % heroBanners.length);
-  }, []);
+    setHeroIndex((i) => (i - 1 + Math.max(heroBanners.length, 1)) % Math.max(heroBanners.length, 1));
+  }, [heroBanners.length]);
 
   useEffect(() => {
     if (isHeroPaused) return;
@@ -69,7 +67,7 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, [nextHero, isHeroPaused]);
 
-  const activeHero = heroBanners[heroIndex];
+  const activeHero = heroBanners[heroIndex] ?? staticHeroBanners[0];
 
   return (
     <div className="flex flex-col">
@@ -205,7 +203,7 @@ export default function HomePage() {
         </div>
         <div className="relative flex overflow-hidden">
           <div className="flex animate-marquee gap-8 md:gap-12 whitespace-nowrap">
-            {[...industrialBrands, ...industrialBrands].map((brand, i) => (
+            {[...brands, ...brands].map((brand, i) => (
               <div
                 key={`${brand.name}-${i}`}
                 className="flex-shrink-0 flex items-center justify-center h-16 w-32 md:h-20 md:w-40 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all"

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, LayoutGrid } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { categories } from "@/lib/data";
+import { useCatalog } from "@/contexts/CatalogContext";
 import CategoryNavIcon from "@/components/CategoryNavIcon";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +13,18 @@ type CategoryNavProps = {
   visibility?: "all" | "desktop" | "mobile";
 };
 
+const CATEGORY_NAV_LABELS: Record<string, string> = {
+  "cat-welding": "Welding Machine",
+  "cat-disposable-ppe": "Disposable PPE",
+  "cat-face-ear": "Face & Ear Safety",
+};
+
+function getCategoryNavLabel(categoryId: string, name: string) {
+  return CATEGORY_NAV_LABELS[categoryId] ?? name;
+}
+
 export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
+  const { categories } = useCatalog();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const activeData = categories.find((category) => category.id === activeCategory);
   const isMobile = visibility === "mobile";
@@ -49,24 +60,21 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             "w-full",
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
-              : "grid grid-cols-5 gap-x-1 gap-y-2 py-0 sm:grid-cols-6 md:grid-cols-9 lg:flex lg:items-start lg:justify-between lg:gap-1 lg:py-0.5"
+              : "grid grid-cols-5 gap-x-3 gap-y-1 py-1 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6"
           )}
         >
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
             <li
               key={category.id}
-              className={cn(
-                "relative min-w-0",
-                !isMobile && "lg:flex-1 lg:max-w-[6.5rem] xl:max-w-[7rem]",
-                !isMobile && activeCategory === category.id ? "text-brand-yellow" : ""
-              )}
+              className="relative isolate min-w-0 w-full overflow-hidden"
               onMouseEnter={() => !isMobile && setActiveCategory(category.id)}
             >
               <Link
                 href={category.href}
+                title={category.name}
                 className={cn(
-                  "flex flex-col items-center group transition-colors",
-                  isMobile ? "gap-2.5" : "gap-0.5 p-0 lg:px-0.5 lg:pt-0 lg:pb-0 border-b-2",
+                  "flex w-full min-w-0 max-w-full flex-col items-center overflow-hidden group transition-colors",
+                  isMobile ? "gap-2.5" : "gap-1 border-b px-0.5 pb-0.5",
                   !isMobile &&
                     (activeCategory === category.id
                       ? "border-brand-yellow"
@@ -87,17 +95,14 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
 
                 <span
                   className={cn(
-                    "font-medium text-center leading-tight line-clamp-2 transition-colors",
+                    "block w-full max-w-full text-center transition-all",
                     isMobile
-                      ? "text-[11px] text-brand-black px-1"
-                      : "text-xs lg:text-sm font-semibold leading-snug",
-                    !isMobile &&
-                      (activeCategory === category.id
-                        ? "text-brand-yellow"
-                        : "text-[#4a4a4a] group-hover:text-brand-yellow")
+                      ? "text-[11px] font-medium text-brand-black px-1 leading-tight line-clamp-2"
+                      : "truncate whitespace-nowrap text-[10px] sm:text-[11px] lg:text-xs font-semibold leading-none text-[#4a4a4a] group-hover:font-bold",
+                    !isMobile && activeCategory === category.id && "font-bold"
                   )}
                 >
-                  {category.name}
+                  {getCategoryNavLabel(category.id, category.name)}
                 </span>
               </Link>
             </li>

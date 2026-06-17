@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight, Mail, MessageCircle, Phone, Truck } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import { buttonVariants } from "@/components/ui/button";
 import {
   PHONE_DISPLAY,
@@ -16,6 +17,7 @@ import { cn } from "@/lib/utils";
 export default function GetQuotePage() {
   return (
     <div className="bg-muted/20 min-h-screen">
+      <PageHeroBanner pageId="get-quote" />
       <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-10 md:py-14">
         <nav className="mb-5 flex flex-wrap items-center gap-1 text-xs text-muted-foreground sm:text-sm">
           <Link href="/" className="hover:text-brand-yellow">
@@ -24,13 +26,6 @@ export default function GetQuotePage() {
           <ChevronRight className="h-3 w-3" />
           <span className="text-brand-black">Get Quote</span>
         </nav>
-
-        <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-3xl font-black text-brand-black md:text-4xl">Get a Quote</h1>
-          <p className="mt-3 text-sm text-muted-foreground md:text-base">
-            Send your product query via WhatsApp or email. Our team will share pricing, availability, and bulk discounts.
-          </p>
-        </div>
 
         <div className="mx-auto mt-8 grid max-w-3xl gap-4">
           <a

@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import ContactChannelIcon from "@/components/ContactChannelIcon";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -13,14 +14,8 @@ import {
 export default function ContactPage() {
   return (
     <div className="bg-muted/20 min-h-screen">
+      <PageHeroBanner pageId="contact" />
       <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-10 md:py-14">
-        <div className="mb-8 text-center md:mb-10">
-          <h1 className="text-3xl font-black text-brand-black md:text-4xl">Contact Us</h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Reach us on your preferred platform. We respond quickly for quotes, bulk orders, and product support.
-          </p>
-        </div>
-
         <div className="mx-auto mb-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
           <a href={PHONE_TEL} className="card-pro flex flex-col items-center bg-white p-5 text-center transition-all hover:border-brand-yellow/50">
             <Phone className="mb-3 h-8 w-8 text-brand-yellow" />

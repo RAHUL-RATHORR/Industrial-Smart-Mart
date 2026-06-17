@@ -1,10 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import ContactChannelIcon from "@/components/ContactChannelIcon";
 import SiteLogo from "@/components/SiteLogo";
 import FooterTrustBar from "@/components/FooterTrustBar";
 import { buttonVariants } from "@/components/ui/button";
-import { categories } from "@/lib/data";
+import { useCatalog } from "@/contexts/CatalogContext";
 import { cn } from "@/lib/utils";
 
 const socialLinks = [
@@ -32,6 +34,7 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 }
 
 export default function Footer() {
+  const { categories } = useCatalog();
   return (
     <footer className="mt-auto border-t border-pro bg-page">
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">

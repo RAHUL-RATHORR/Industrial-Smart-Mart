@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ProductDetailView from "@/components/ProductDetailView";
-import { getProductById, getProductDetailExtras } from "@/lib/products";
+import { getProductById, getProductDetailExtras } from "@/lib/products.server";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;

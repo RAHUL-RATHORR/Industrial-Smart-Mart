@@ -9,7 +9,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { categories } from "@/lib/data";
+import { useCatalog } from "@/contexts/CatalogContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -21,6 +21,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { categories } = useCatalog();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 

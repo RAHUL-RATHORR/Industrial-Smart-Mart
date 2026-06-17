@@ -215,8 +215,7 @@ export function getProductDetailExtras(product: Product): ProductDetailExtras {
 
   return {
     images: [product.image, altImage],
-    videoUrl:
-      "https://cdn.coverr.co/videos/coverr-worker-wearing-a-hard-hat-9765/1080p.mp4",
+    videoUrl: "https://cdn.coverr.co/videos/coverr-worker-wearing-a-hard-hat-9765/1080p.mp4",
     videoPoster: product.image,
     features: [
       "Built with industrial-grade materials for long-lasting performance.",
@@ -233,3 +232,5 @@ export function getProductDetailExtras(product: Product): ProductDetailExtras {
     longDescription: `${product.name} is designed for professional industrial use. ${product.description} It offers dependable performance, easy maintenance, and compatibility with standard safety and quality norms. Suitable for SMEs, manufacturing units, and corporate procurement teams looking for cost-effective supply with PAN India delivery support.`,
   };
 }
+
+export type { Product };

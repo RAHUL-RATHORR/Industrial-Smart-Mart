@@ -1,19 +1,16 @@
 import Link from "next/link";
 import { Calendar, Clock, User } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
-import { blogPosts } from "@/lib/blog";
+import PageHeroBanner from "@/components/PageHeroBanner";
+import { getBlogPosts } from "@/lib/blog.server";
 
 export default function BlogPage() {
+  const blogPosts = getBlogPosts();
+
   return (
     <div className="bg-muted/20 min-h-screen">
+      <PageHeroBanner pageId="blog" />
       <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-10 md:py-14">
-        <div className="mb-8 text-center md:mb-10">
-          <h1 className="text-3xl font-black text-brand-black md:text-4xl">Industrial Blog</h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Safety tips, procurement guides, and product insights for factories, contractors, and corporate buyers.
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {blogPosts.map((post) => (
             <article key={post.id} className="card-pro group overflow-hidden bg-white transition-all">

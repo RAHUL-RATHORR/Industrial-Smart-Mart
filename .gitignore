@@ -41,6 +41,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# runtime catalog data (auto-seeded on first run)
+/data/catalog.json
+/public/catalog.json
+
 node_modules
 .next
 out
