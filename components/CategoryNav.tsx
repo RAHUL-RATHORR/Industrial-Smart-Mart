@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, LayoutGrid } from "lucide-react";
+import { LayoutGrid } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCatalog } from "@/contexts/CatalogContext";
 import CategoryNavIcon from "@/components/CategoryNavIcon";
+import type { SubCategoryGroup } from "@/lib/data";
+import { getDropdownItemsForSection } from "@/lib/category-dropdown-items";
 import { cn } from "@/lib/utils";
 
 type CategoryNavProps = {
@@ -23,11 +25,49 @@ function getCategoryNavLabel(categoryId: string, name: string) {
   return CATEGORY_NAV_LABELS[categoryId] ?? name;
 }
 
+function getDropdownSections(subgroups: SubCategoryGroup[]) {
+  return subgroups.flatMap((group) => group.items);
+}
+
+function distributeDropdownSections<T>(sections: T[], columnCount = 5): T[][] {
+  const columns = Array.from({ length: columnCount }, () => [] as T[]);
+  sections.forEach((section, index) => {
+    columns[index % columnCount].push(section);
+  });
+  return columns;
+}
+
+const DESKTOP_COMPACT_SCROLL_OFFSET = 96;
+const DESKTOP_EXPAND_SCROLL_OFFSET = 48;
+
 export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
   const { categories } = useCatalog();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [isCompact, setIsCompact] = useState(false);
   const activeData = categories.find((category) => category.id === activeCategory);
   const isMobile = visibility === "mobile";
+
+  useEffect(() => {
+    if (isMobile) return;
+
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+
+      setIsCompact((prev) => {
+        if (scrollY > DESKTOP_COMPACT_SCROLL_OFFSET) return true;
+        if (scrollY < DESKTOP_EXPAND_SCROLL_OFFSET) return false;
+        return prev;
+      });
+
+      if (scrollY > DESKTOP_COMPACT_SCROLL_OFFSET) {
+        setActiveCategory(null);
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isMobile]);
 
   const visibilityClass =
     visibility === "desktop"
@@ -40,6 +80,8 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
     <div
       className={cn(
         "relative w-full bg-[#fafafa] z-30",
+        !isMobile && "sticky top-[3.75rem] md:top-[4.5rem]",
+        !isMobile && !isCompact && "min-h-[5.25rem] lg:min-h-[5.75rem]",
         isMobile ? "border-b border-border shadow-pro-top" : "border-b border-border shadow-pro-bar",
         visibilityClass
       )}
@@ -57,10 +99,13 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
 
         <ul
           className={cn(
-            "w-full",
+            "w-full transition-[padding] duration-300 ease-in-out",
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
-              : "grid grid-cols-5 gap-x-3 gap-y-1 py-1 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6"
+              : cn(
+                  "grid grid-cols-5 gap-x-3 gap-y-1 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6",
+                  isCompact ? "py-1.5" : "py-2"
+                )
           )}
         >
           {(isMobile ? categories.slice(0, 5) : categories).map((category) => (
@@ -76,8 +121,8 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 href={category.href}
                 title={category.name}
                 className={cn(
-                  "flex w-full min-w-0 max-w-full flex-col items-center group transition-all",
-                  isMobile ? "gap-2.5 overflow-hidden" : "gap-1 px-0.5 py-0.5"
+                  "flex w-full min-w-0 max-w-full flex-col items-center group transition-all duration-300 ease-in-out",
+                  isMobile ? "gap-2.5 overflow-hidden" : isCompact ? "gap-0 px-0.5 py-0.5" : "gap-1.5 px-0.5 py-1"
                 )}
               >
                 {isMobile ? (
@@ -86,7 +131,14 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                     className="aspect-[5/4] w-full"
                   />
                 ) : (
-                  <div className="relative flex h-12 w-12 items-center justify-center sm:h-11 sm:w-11 lg:h-14 lg:w-14">
+                  <div
+                    className={cn(
+                      "relative mx-auto flex shrink-0 items-center justify-center overflow-hidden transition-[height,opacity,transform] duration-300 ease-in-out",
+                      isCompact
+                        ? "h-0 w-12 opacity-0 -translate-y-1 pointer-events-none"
+                        : "h-12 w-12 opacity-100 translate-y-0 sm:h-11 sm:w-11 lg:h-14 lg:w-14"
+                    )}
+                  >
                     <span
                       aria-hidden
                       className={cn(
@@ -141,40 +193,34 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.18 }}
-              className="absolute left-0 right-0 top-full z-50 hidden border-t border-border bg-white shadow-pro-float lg:block"
+              className="absolute left-0 right-0 top-full z-50 hidden border-t border-border bg-[#f7f7f7] shadow-pro-float lg:block"
             >
-              <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-5">
-                <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
-                  <div>
-                    <h3 className="text-sm font-black text-brand-black">{activeData.name}</h3>
-                    <p className="text-xs text-muted-foreground">{activeData.productCount} products available</p>
-                  </div>
-                  <Link
-                    href={activeData.href}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-brand-yellow hover:underline"
-                  >
-                    View all {activeData.name}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                  {activeData.subgroups.map((group) => (
-                    <div key={group.title} className="flex min-w-0 flex-col space-y-2">
-                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-brand-black">
-                        {group.title}
-                      </h4>
-                      <ul className="space-y-1">
-                        {group.items.map((item) => (
-                          <li key={item}>
-                            <Link
-                              href={`${activeData.href}?q=${encodeURIComponent(item)}`}
-                              className="block rounded-md px-2 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
-                            >
-                              {item}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+              <div className="container mx-auto px-4 sm:px-5 lg:px-6 py-6">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-0 md:grid-cols-3 lg:grid-cols-5">
+                  {distributeDropdownSections(getDropdownSections(activeData.subgroups)).map((columnSections, columnIndex) => (
+                    <div key={columnIndex} className="flex min-w-0 flex-col gap-6">
+                      {columnSections.map((section) => (
+                        <div key={section} className="min-w-0">
+                          <Link
+                            href={`${activeData.href}?q=${encodeURIComponent(section)}`}
+                            className="mb-2 block text-xs font-bold leading-snug text-[#1a1a1a] transition-colors hover:text-brand-yellow"
+                          >
+                            {section}
+                          </Link>
+                          <ul className="space-y-1.5">
+                            {getDropdownItemsForSection(activeData.id, section).map((item) => (
+                              <li key={`${section}-${item}`}>
+                                <Link
+                                  href={`${activeData.href}?q=${encodeURIComponent(section)}`}
+                                  className="block text-xs font-normal text-muted-foreground transition-colors hover:text-brand-black"
+                                >
+                                  {item}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>
