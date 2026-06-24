@@ -8,6 +8,7 @@ import { useCatalog } from "@/contexts/CatalogContext";
 import CategoryNavIcon from "@/components/CategoryNavIcon";
 import type { SubCategoryGroup } from "@/lib/data";
 import { getDropdownItemsForSection } from "@/lib/category-dropdown-items";
+import { getDropdownProductId } from "@/lib/dropdown-products";
 import { cn } from "@/lib/utils";
 
 type CategoryNavProps = {
@@ -201,18 +202,21 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                     <div key={columnIndex} className="flex min-w-0 flex-col gap-6">
                       {columnSections.map((section) => (
                         <div key={section} className="min-w-0">
-                          <Link
-                            href={`${activeData.href}?q=${encodeURIComponent(section)}`}
-                            className="mb-2 block text-xs font-bold leading-snug text-[#1a1a1a] transition-colors hover:text-brand-yellow"
-                          >
-                            {section}
-                          </Link>
+                          <div className="mb-2.5">
+                            <Link
+                              href={`${activeData.href}?q=${encodeURIComponent(section)}`}
+                              className="block text-xs font-bold leading-snug text-[#1a1a1a] transition-colors hover:text-brand-yellow"
+                            >
+                              {section}
+                            </Link>
+                            <span className="mt-1.5 block h-0.5 w-8 rounded-full bg-[#f4b400]" aria-hidden="true" />
+                          </div>
                           <ul className="space-y-1.5">
                             {getDropdownItemsForSection(activeData.id, section).map((item) => (
                               <li key={`${section}-${item}`}>
                                 <Link
-                                  href={`${activeData.href}?q=${encodeURIComponent(section)}`}
-                                  className="block text-xs font-normal text-muted-foreground transition-colors hover:text-brand-black"
+                                  href={`/products/${getDropdownProductId(activeData.id, section, item)}`}
+                                  className="block rounded-sm text-xs font-normal text-[#666666] transition-colors hover:font-semibold hover:text-black"
                                 >
                                   {item}
                                 </Link>

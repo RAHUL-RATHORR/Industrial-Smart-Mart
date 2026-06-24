@@ -9,6 +9,7 @@ import {
 import { blogPosts } from "@/lib/blog";
 import type { Catalog, CatalogBrand, CatalogProduct, PageBanner } from "./types";
 import { PAGE_BANNER_IDS } from "./types";
+import { buildDropdownProducts } from "@/lib/dropdown-products";
 
 const pageBannerImages: Record<string, string> = {
   blog: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1400&h=500&auto=format&fit=crop",
@@ -82,7 +83,7 @@ export function buildSeedCatalog(): Catalog {
   ];
 
   const uniqueProducts = new Map<string, CatalogProduct>();
-  for (const product of products) {
+  for (const product of [...products, ...buildDropdownProducts()]) {
     uniqueProducts.set(product.id, product);
   }
 

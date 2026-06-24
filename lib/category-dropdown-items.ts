@@ -1,4 +1,4 @@
-const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
+export const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
   "cat-safety-shoes": {
     "Steel Toe Shoes": [
       "Liberty Warrior 101",
@@ -27,6 +27,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Liberty SBB 202 Gumboot",
       "Neosafe Industrial Gumboot",
       "Hunter Safety Gumboot",
+    ],
+    "Composite Toe Shoes": [
+      "Karam Composite Toe CT-01",
+      "Liberty Composite Safety Shoe",
+      "Hillson Lite Composite Toe",
+      "Allen Cooper Composite Pro",
+      "Bata Composite Safety Shoe",
     ],
   },
   "cat-pvc-gumboots": {
@@ -58,6 +65,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Acme Hazmat Gumboot",
       "Neosafe Chemical Boot",
     ],
+    "Steel Toe Gumboots": [
+      "Mallmoon Steel Toe PVC Gumboot",
+      "Hunter Steel Toe Safety Boot",
+      "Acme Steel Toe Gumboot ST-01",
+      "Liberty Steel Toe PVC Boot",
+      "Neosafe Steel Toe Gumboot",
+    ],
   },
   "cat-reflective-jackets": {
     "Orange Mesh": [
@@ -87,6 +101,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Cotton Jacket",
       "Neosafe Cotton Safety Vest",
       "Hillson Cotton Reflective",
+    ],
+    "Survey Jackets": [
+      "Survey Reflective Jacket SR-01",
+      "3M Survey Safety Vest",
+      "Karam Survey Jacket Pro",
+      "Mallmoon Survey Reflective Vest",
+      "Neosafe Survey Jacket",
     ],
   },
   "cat-safety-helmets": {
@@ -118,6 +139,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Chin Strap Helmet",
       "Venus Chin Strap Helmet",
     ],
+    "ABS Helmets": [
+      "Karam ABS Safety Helmet AB-01",
+      "3M ABS Industrial Helmet",
+      "Mallmoon ABS Helmet Pro",
+      "Neosafe ABS Safety Helmet",
+      "Venus ABS Helmet",
+    ],
   },
   "cat-safety-gloves": {
     "Leather Gloves": [
@@ -147,6 +175,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Welding Gauntlet",
       "Allen Cooper Welding Gloves",
       "Neosafe Welding Gloves",
+    ],
+    "Nitrile Coated": [
+      "Nitrile Coated Grip Gloves NG-01",
+      "Karam Nitrile Palm Gloves",
+      "3M Nitrile Coated Gloves",
+      "Mallmoon Nitrile Work Gloves",
+      "Honeywell Nitrile Gloves",
     ],
   },
   "cat-welding": {
@@ -178,6 +213,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Welding Helmet",
       "Welding Glove Set",
     ],
+    "TIG Welders": [
+      "TIG 200A Welding Machine",
+      "Ador TIG 250 Welder",
+      "Esab TIG 400i",
+      "Rilon TIG 200G",
+      "Miller TIG Welder",
+    ],
   },
   "cat-disposable-ppe": {
     "Face Masks": [
@@ -207,6 +249,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Safety Apron",
       "Karam Disposable Apron",
       "Neosafe PP Apron",
+    ],
+    Coveralls: [
+      "Disposable Coverall CC-01",
+      "PP Coverall White Pack",
+      "Mallmoon Protective Coverall",
+      "Karam Disposable Coverall",
+      "Neosafe Coverall Suit",
     ],
   },
   "cat-face-ear": {
@@ -238,6 +287,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Disposable Ear Plugs",
       "Moldex Ear Plugs",
     ],
+    Respirators: [
+      "Half Face Respirator RF-01",
+      "3M Respirator Mask 6200",
+      "Karam Safety Respirator",
+      "Mallmoon Dust Respirator",
+      "Honeywell Respirator",
+    ],
   },
   "cat-road-safety": {
     "Traffic Cones": [
@@ -267,6 +323,13 @@ const CATEGORY_DROPDOWN_ITEMS: Record<string, Record<string, string[]>> = {
       "Mallmoon Retro Reflective Strip",
       "Karam Reflective Band",
       "Neosafe Reflective Strip",
+    ],
+    "Road Signs": [
+      "Caution Road Sign RS-01",
+      "Reflective Speed Limit Sign",
+      "Mallmoon Warning Road Sign",
+      "Karam Traffic Sign Board",
+      "Neosafe Road Safety Sign",
     ],
   },
 };

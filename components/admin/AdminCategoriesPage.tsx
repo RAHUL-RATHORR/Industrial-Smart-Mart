@@ -9,6 +9,8 @@ import { AdminField, adminCardClass, adminInputClass } from "@/components/admin/
 const TILE_OPTIONS = [
   "bg-cat-safety",
   "bg-cat-tools",
+  "bg-cat-hivis",
+  "bg-cat-welding",
   "bg-cat-electrical",
   "bg-cat-construction",
   "bg-cat-medical",

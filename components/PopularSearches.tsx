@@ -5,8 +5,8 @@ import { SECTION_TITLE_CLASS } from "@/lib/sections";
 function SearchGroupCard({ category, items }: { category: string; items: string[] }) {
   return (
     <div className="search-group-card flex h-full flex-col rounded-2xl border border-pro bg-white p-4 shadow-pro-sm transition-all hover:border-brand-yellow/35 hover:shadow-pro">
-      <div className="mb-3 inline-flex w-fit items-center rounded-md bg-brand-black px-2.5 py-1">
-        <h3 className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow">
+      <div className="mb-3 inline-flex w-fit items-center rounded-md border border-brand-yellow/30 bg-brand-yellow/10 px-2.5 py-1">
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-brand-black">
           {category}
         </h3>
       </div>

@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { Pencil, Plus, Trash2 } from "lucide-react";
-import type { Category, Product } from "@/lib/data";
+import type { Category } from "@/lib/data";
 import type { CatalogProduct } from "@/lib/catalog/types";
 import { Button } from "@/components/ui/button";
 import { AdminField, adminCardClass, adminInputClass } from "@/components/admin/AdminForm";

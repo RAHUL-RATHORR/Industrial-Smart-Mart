@@ -2,6 +2,7 @@ import "server-only";
 
 import type { Product } from "./data";
 import { readCatalog } from "./catalog/store";
+import { mergeCatalogProducts } from "./dropdown-products";
 import {
   getAllProducts as getStaticProducts,
   getProductById as getStaticProductById,
@@ -11,8 +12,9 @@ import {
 export function getAllProducts(): Product[] {
   const catalog = readCatalog();
   if (catalog.products.length > 0) {
+    const merged = mergeCatalogProducts(catalog.products);
     const unique = new Map<string, Product>();
-    for (const product of catalog.products) {
+    for (const product of merged) {
       unique.set(product.id, product);
     }
     return Array.from(unique.values());

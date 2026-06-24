@@ -55,16 +55,18 @@
   --color-page: #fafaf8;
   --color-section: #f3f2ef;
   --color-surface-subtle: #f5f5f4;
-  --color-cat-electrical: #e8f2fa;
-  --color-cat-tools: #fdf3e6;
+  --color-cat-safety: #fff4d6;
+  --color-cat-tools: #edf4ea;
+  --color-cat-electrical: #e4f0fb;
+  --color-cat-construction: #e6ebf2;
+  --color-cat-medical: #e5f5ef;
+  --color-cat-packaging: #eeeaf8;
+  --color-cat-express: #fff3e0;
+  --color-cat-hivis: #ffefd9;
+  --color-cat-welding: #fff0e8;
   --color-cat-office: #f5f0e8;
   --color-cat-agri: #eaf5eb;
-  --color-cat-medical: #e5f5f2;
-  --color-cat-safety: #fff9e6;
-  --color-cat-construction: #eef1f5;
   --color-cat-automotive: #edf0f5;
-  --color-cat-packaging: #f2ecf8;
-  --color-cat-express: #fff6d6;
   
   --animate-marquee: marquee 25s linear infinite;
 
@@ -335,6 +337,18 @@
     border: 1px solid color-mix(in srgb, var(--brand-yellow) 28%, var(--brand-border));
     background-color: var(--brand-yellow-soft);
     color: var(--brand-black);
+  }
+
+  .section-title-bar {
+    background: linear-gradient(
+      to right,
+      rgb(255 248 225 / 100%) 0%,
+      rgb(255 248 225 / 100%) 52%,
+      rgb(255 248 225 / 85%) 68%,
+      rgb(255 248 225 / 55%) 84%,
+      rgb(255 248 225 / 25%) 94%,
+      rgb(255 248 225 / 0%) 100%
+    );
   }
 
   .bg-page {

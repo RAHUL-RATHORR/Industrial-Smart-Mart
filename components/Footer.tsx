@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import ContactChannelIcon from "@/components/ContactChannelIcon";
+import ContactNewsletter from "@/components/ContactNewsletter";
 import SiteLogo from "@/components/SiteLogo";
 import FooterTrustBar from "@/components/FooterTrustBar";
 import { buttonVariants } from "@/components/ui/button";
@@ -125,6 +126,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            <ContactNewsletter variant="footer" />
           </div>
         </div>
       </div>

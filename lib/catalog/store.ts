@@ -12,6 +12,7 @@ import type {
   PageBanner,
   PromoBanner,
 } from "./types";
+import { mergeCatalogProducts } from "@/lib/dropdown-products";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const CATALOG_PATH = path.join(DATA_DIR, "catalog.json");
@@ -52,6 +53,10 @@ export function readCatalog(): Catalog {
 
   const raw = JSON.parse(fs.readFileSync(CATALOG_PATH, "utf-8")) as Partial<Catalog>;
   const catalog = normalizeCatalog(raw);
+  const mergedCatalog = {
+    ...catalog,
+    products: mergeCatalogProducts(catalog.products),
+  };
 
   if (
     !raw.heroBanners?.length ||
@@ -59,10 +64,10 @@ export function readCatalog(): Catalog {
     !raw.pageBanners?.length ||
     !raw.blogPosts?.length
   ) {
-    writeCatalog(catalog);
+    writeCatalog(mergedCatalog);
   }
 
-  return catalog;
+  return mergedCatalog;
 }
 
 export function writeCatalog(catalog: Catalog) {
