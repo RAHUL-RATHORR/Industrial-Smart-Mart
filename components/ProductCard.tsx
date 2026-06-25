@@ -68,7 +68,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         )}
 
         {!compact && (
-        <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground sm:text-xs">
+        <p className="mb-1 line-clamp-1 text-[9px] font-semibold uppercase tracking-wide text-muted-foreground sm:text-[10px]">
           {product.brand}
         </p>
         )}
@@ -79,8 +79,8 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         >
           <h3
             className={cn(
-              "product-card-title font-bold leading-snug text-brand-black",
-              compact ? "line-clamp-2 text-[11px]" : "line-clamp-2 text-xs sm:text-sm"
+              "product-card-title line-clamp-1 font-bold leading-tight text-brand-black",
+              compact ? "text-[10px]" : "text-[10px] sm:text-[11px]"
             )}
           >
             {product.name}
@@ -103,10 +103,10 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(WHATSAPP_BUTTON_CLASS, "min-w-0 flex-1 gap-1.5 rounded-lg px-2.5 py-2.5 text-[10px] leading-none sm:px-3 sm:py-2.5 sm:text-xs")}
+            className={cn(WHATSAPP_BUTTON_CLASS, "min-w-0 flex-1 gap-1 rounded-lg px-2 py-2 text-[9px] leading-none sm:px-2.5 sm:py-2.5 sm:text-[10px]")}
           >
-            <WhatsAppIcon className="h-4 w-4 shrink-0" />
-            <span className="truncate">Get Best Quote</span>
+            <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
+            <span className="whitespace-nowrap">Get Best Quote</span>
           </a>
 
           <button

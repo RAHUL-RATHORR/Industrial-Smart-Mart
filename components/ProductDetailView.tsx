@@ -105,7 +105,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                       <SafeImage
                         src={item.src}
                         alt={`${product.name} view ${index + 1}`}
-                        className="h-full w-full object-contain"
+                        className="h-full w-full object-cover"
                       />
                     ) : (
                       <>
@@ -133,7 +133,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                       poster={currentMedia.poster}
                       controls
                       playsInline
-                      className="h-full w-full object-contain"
+                      className="h-full w-full object-cover"
                     >
                       Your browser does not support product videos.
                     </video>

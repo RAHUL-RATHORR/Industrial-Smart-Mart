@@ -9,3 +9,19 @@ export function getImageFallback(currentSrc: string): string {
   if (currentSrc === PLACEHOLDER_IMAGE) return PLACEHOLDER_IMAGE;
   return PLACEHOLDER_IMAGE;
 }
+
+export function upgradeUnsplashUrl(src: string, width = 1600, quality = 85) {
+  try {
+    if (src.includes("images.unsplash.com")) {
+      const url = new URL(src);
+      url.searchParams.set("w", String(width));
+      url.searchParams.set("q", String(quality));
+      url.searchParams.set("auto", "format");
+      url.searchParams.set("fit", "max");
+      return url.toString();
+    }
+  } catch {
+    // ignore invalid URLs
+  }
+  return src;
+}

@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import SafeImage from "@/components/SafeImage";
+import { upgradeUnsplashUrl } from "@/lib/images";
 import { cn } from "@/lib/utils";
 
 const LENS_SIZE = 120;
 const ZOOM_PANEL_WIDTH_SCALE = 1.65;
-const ZOOM_PANEL_HEIGHT_SCALE = 1;
 
 type ImageBounds = {
   displayW: number;
@@ -21,7 +21,11 @@ type ProductImageMagnifierProps = {
   className?: string;
 };
 
-function getContainedImageBounds(
+function getZoomImageSrc(src: string) {
+  return upgradeUnsplashUrl(src, 2400, 90);
+}
+
+function getCoverImageBounds(
   containerW: number,
   containerH: number,
   naturalW: number,
@@ -31,35 +35,22 @@ function getContainedImageBounds(
     return { displayW: containerW, displayH: containerH, offsetX: 0, offsetY: 0 };
   }
 
-  const containerRatio = containerW / containerH;
-  const imageRatio = naturalW / naturalH;
-
-  if (imageRatio > containerRatio) {
-    const displayW = containerW;
-    const displayH = containerW / imageRatio;
-    return { displayW, displayH, offsetX: 0, offsetY: (containerH - displayH) / 2 };
-  }
-
-  const displayH = containerH;
-  const displayW = containerH * imageRatio;
-  return { displayW, displayH, offsetX: (containerW - displayW) / 2, offsetY: 0 };
-}
-
-function clampLens(
-  x: number,
-  y: number,
-  bounds: ImageBounds,
-  containerW: number,
-  containerH: number
-) {
-  const minX = bounds.offsetX;
-  const minY = bounds.offsetY;
-  const maxX = Math.min(containerW - LENS_SIZE, bounds.offsetX + bounds.displayW - LENS_SIZE);
-  const maxY = Math.min(containerH - LENS_SIZE, bounds.offsetY + bounds.displayH - LENS_SIZE);
+  const scale = Math.max(containerW / naturalW, containerH / naturalH);
+  const displayW = naturalW * scale;
+  const displayH = naturalH * scale;
 
   return {
-    x: Math.min(maxX, Math.max(minX, x)),
-    y: Math.min(maxY, Math.max(minY, y)),
+    displayW,
+    displayH,
+    offsetX: (containerW - displayW) / 2,
+    offsetY: (containerH - displayH) / 2,
+  };
+}
+
+function clampLens(x: number, y: number, containerW: number, containerH: number) {
+  return {
+    x: Math.min(containerW - LENS_SIZE, Math.max(0, x)),
+    y: Math.min(containerH - LENS_SIZE, Math.max(0, y)),
   };
 }
 
@@ -69,134 +60,153 @@ export default function ProductImageMagnifier({
   className,
 }: ProductImageMagnifierProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const zoomRef = useRef<HTMLDivElement>(null);
+  const lensRef = useRef<HTMLDivElement>(null);
+  const zoomImgRef = useRef<HTMLImageElement>(null);
+  const frameRef = useRef<number>();
+  const pendingRef = useRef<{ x: number; y: number } | null>(null);
+  const naturalRef = useRef({ width: 0, height: 0 });
+  const layoutRef = useRef({ containerW: 0, containerH: 0, zoomW: 0, zoomH: 0 });
+
   const [isActive, setIsActive] = useState(false);
-  const [dims, setDims] = useState({ width: 0, height: 0 });
-  const [zoomDims, setZoomDims] = useState({ width: 0, height: 0 });
-  const [naturalSize, setNaturalSize] = useState({ width: 0, height: 0 });
-  const [lens, setLens] = useState({ x: 0, y: 0 });
+  const [zoomSrc, setZoomSrc] = useState(() => getZoomImageSrc(src));
+  const [layout, setLayout] = useState({ containerW: 0, containerH: 0, zoomW: 0, zoomH: 0 });
+
+  useEffect(() => {
+    const hiRes = getZoomImageSrc(src);
+    setZoomSrc(hiRes);
+    const preload = new Image();
+    preload.src = hiRes;
+  }, [src]);
 
   useEffect(() => {
     const container = containerRef.current;
-    const zoom = zoomRef.current;
     if (!container) return;
 
-    const updateDims = () => {
-      setDims({ width: container.clientWidth, height: container.clientHeight });
-      if (zoom) {
-        setZoomDims({ width: zoom.clientWidth, height: zoom.clientHeight });
-      }
+    const measure = () => {
+      const containerW = container.clientWidth;
+      const containerH = container.clientHeight;
+      const zoomW = containerW * ZOOM_PANEL_WIDTH_SCALE;
+      const zoomH = containerH;
+      layoutRef.current = { containerW, containerH, zoomW, zoomH };
+      setLayout({ containerW, containerH, zoomW, zoomH });
     };
 
-    updateDims();
-    const observer = new ResizeObserver(updateDims);
+    measure();
+    const observer = new ResizeObserver(measure);
     observer.observe(container);
-    if (zoom) observer.observe(zoom);
     return () => observer.disconnect();
-  }, [isActive]);
+  }, []);
 
-  const bounds = getContainedImageBounds(
-    dims.width,
-    dims.height,
-    naturalSize.width,
-    naturalSize.height
-  );
+  const applyLens = useCallback((clientX: number, clientY: number) => {
+    const container = containerRef.current;
+    const lens = lensRef.current;
+    const zoomImg = zoomImgRef.current;
+    if (!container || !lens || !zoomImg) return;
 
-  const updateLens = useCallback(
+    const rect = container.getBoundingClientRect();
+    const bounds = getCoverImageBounds(
+      rect.width,
+      rect.height,
+      naturalRef.current.width,
+      naturalRef.current.height
+    );
+
+    const rawX = clientX - rect.left - LENS_SIZE / 2;
+    const rawY = clientY - rect.top - LENS_SIZE / 2;
+    const { x, y } = clampLens(rawX, rawY, rect.width, rect.height);
+
+    const { zoomW, zoomH } = layoutRef.current;
+    const panelW = zoomW || rect.width * ZOOM_PANEL_WIDTH_SCALE;
+    const panelH = zoomH || rect.height;
+    const scaleX = panelW / LENS_SIZE;
+    const scaleY = panelH / LENS_SIZE;
+
+    lens.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+    zoomImg.style.width = `${bounds.displayW * scaleX}px`;
+    zoomImg.style.height = `${bounds.displayH * scaleY}px`;
+    zoomImg.style.transform = `translate3d(${-(x - bounds.offsetX) * scaleX}px, ${-(y - bounds.offsetY) * scaleY}px, 0)`;
+  }, []);
+
+  const scheduleLensUpdate = useCallback(
     (clientX: number, clientY: number) => {
-      const el = containerRef.current;
-      if (!el) return;
+      pendingRef.current = { x: clientX, y: clientY };
+      if (frameRef.current !== undefined) return;
 
-      const rect = el.getBoundingClientRect();
-      const currentBounds = getContainedImageBounds(
-        rect.width,
-        rect.height,
-        naturalSize.width,
-        naturalSize.height
-      );
-
-      const rawX = clientX - rect.left - LENS_SIZE / 2;
-      const rawY = clientY - rect.top - LENS_SIZE / 2;
-      const nextLens = clampLens(rawX, rawY, currentBounds, rect.width, rect.height);
-
-      setLens(nextLens);
-      setDims({ width: rect.width, height: rect.height });
+      frameRef.current = requestAnimationFrame(() => {
+        frameRef.current = undefined;
+        const pending = pendingRef.current;
+        if (pending) applyLens(pending.x, pending.y);
+      });
     },
-    [naturalSize.height, naturalSize.width]
+    [applyLens]
   );
 
-  const zoomRatioX =
-    zoomDims.width > 0 ? zoomDims.width / LENS_SIZE : dims.width / LENS_SIZE;
-  const zoomRatioY =
-    zoomDims.height > 0 ? zoomDims.height / LENS_SIZE : dims.height / LENS_SIZE;
-
-  const zoomPanelWidth = dims.width > 0 ? dims.width * ZOOM_PANEL_WIDTH_SCALE : 0;
-  const zoomPanelHeight = dims.height > 0 ? dims.height * ZOOM_PANEL_HEIGHT_SCALE : 0;
-
-  const zoomBackgroundStyle =
-    isActive && bounds.displayW > 0
-      ? {
-          backgroundImage: `url("${src}")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: `${bounds.displayW * zoomRatioX}px ${bounds.displayH * zoomRatioY}px`,
-          backgroundPosition: `${-(lens.x - bounds.offsetX) * zoomRatioX}px ${-(lens.y - bounds.offsetY) * zoomRatioY}px`,
-        }
-      : undefined;
+  useEffect(
+    () => () => {
+      if (frameRef.current !== undefined) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    },
+    []
+  );
 
   return (
     <div className={cn("relative w-full", className)}>
       <div
         ref={containerRef}
-        className="relative aspect-square w-full overflow-hidden rounded-xl border border-pro bg-white lg:cursor-crosshair"
-        onMouseEnter={(e) => {
+        className="relative aspect-square w-full overflow-hidden rounded-xl border border-pro bg-muted/30 lg:cursor-crosshair"
+        onMouseEnter={(event) => {
           setIsActive(true);
-          updateLens(e.clientX, e.clientY);
+          scheduleLensUpdate(event.clientX, event.clientY);
         }}
         onMouseLeave={() => setIsActive(false)}
-        onMouseMove={(e) => updateLens(e.clientX, e.clientY)}
+        onMouseMove={(event) => scheduleLensUpdate(event.clientX, event.clientY)}
       >
         <SafeImage
           src={src}
           alt={alt}
-          className="absolute inset-0 h-full w-full object-contain select-none"
+          className="absolute inset-0 h-full w-full object-cover select-none"
           draggable={false}
-          onLoad={(e) => {
-            const img = e.currentTarget;
-            setNaturalSize({ width: img.naturalWidth, height: img.naturalHeight });
+          onLoad={(event) => {
+            const img = event.currentTarget;
+            naturalRef.current = { width: img.naturalWidth, height: img.naturalHeight };
           }}
         />
 
-        {isActive && dims.width > 0 && (
-          <div
-            className="pointer-events-none absolute hidden border-2 border-brand-yellow/80 bg-brand-yellow/10 shadow-sm lg:block"
-            style={{
-              width: LENS_SIZE,
-              height: LENS_SIZE,
-              left: lens.x,
-              top: lens.y,
-            }}
-            aria-hidden
-          />
-        )}
+        <div
+          ref={lensRef}
+          className={cn(
+            "pointer-events-none absolute left-0 top-0 hidden border-2 border-brand-yellow/80 bg-brand-yellow/10 shadow-sm will-change-transform lg:block",
+            !isActive && "opacity-0"
+          )}
+          style={{ width: LENS_SIZE, height: LENS_SIZE }}
+          aria-hidden
+        />
       </div>
 
       <div
-        ref={zoomRef}
         className={cn(
-          "pointer-events-none absolute z-10 hidden overflow-hidden rounded-xl border border-pro bg-white shadow-pro-lg transition-opacity duration-150 lg:block",
-          isActive ? "opacity-100" : "opacity-0"
+          "pointer-events-none absolute z-10 hidden overflow-hidden rounded-xl border border-pro bg-white shadow-pro-lg lg:block",
+          isActive ? "visible opacity-100" : "invisible opacity-0"
         )}
         style={{
           left: "calc(100% + 1rem)",
           top: 0,
-          width: zoomPanelWidth > 0 ? zoomPanelWidth : "100%",
-          height: zoomPanelHeight > 0 ? zoomPanelHeight : "100%",
-          ...zoomBackgroundStyle,
+          width: layout.zoomW > 0 ? layout.zoomW : "100%",
+          height: layout.zoomH > 0 ? layout.zoomH : "100%",
         }}
         aria-hidden={!isActive}
-        role="img"
-        aria-label={isActive ? `${alt} zoomed` : undefined}
-      />
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          ref={zoomImgRef}
+          src={zoomSrc}
+          alt=""
+          draggable={false}
+          className="absolute left-0 top-0 max-w-none select-none will-change-transform"
+        />
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { bestsellers, categories, featuredProducts, getProductsByCategory, Product } from "./data";
+import { upgradeUnsplashUrl } from "./images";
 
 export function getAllProducts(): Product[] {
   const categoryProducts = categories.flatMap((category) => getProductsByCategory(category.id, 6));
@@ -196,10 +197,14 @@ export function getProductDetailExtras(product: Product): ProductDetailExtras {
     "1504917595217-d4dc5ebe6122",
     "1576091160399-112f8cc25c2f",
   ];
-  const altImage = `https://images.unsplash.com/photo-${extraShots[seed % extraShots.length]}?q=80&w=800&auto=format&fit=crop`;
+  const altImage = upgradeUnsplashUrl(
+    `https://images.unsplash.com/photo-${extraShots[seed % extraShots.length]}?q=80&w=800&auto=format&fit=crop`,
+    1600,
+    85
+  );
 
   return {
-    images: [product.image, altImage],
+    images: [upgradeUnsplashUrl(product.image, 1600, 85), altImage],
     videoUrl: "https://cdn.coverr.co/videos/coverr-worker-wearing-a-hard-hat-9765/1080p.mp4",
     videoPoster: product.image,
     features: [
