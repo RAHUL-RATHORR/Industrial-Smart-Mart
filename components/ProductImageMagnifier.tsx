@@ -62,7 +62,7 @@ export default function ProductImageMagnifier({
   const containerRef = useRef<HTMLDivElement>(null);
   const lensRef = useRef<HTMLDivElement>(null);
   const zoomImgRef = useRef<HTMLImageElement>(null);
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number | undefined>(undefined);
   const pendingRef = useRef<{ x: number; y: number } | null>(null);
   const naturalRef = useRef({ width: 0, height: 0 });
   const layoutRef = useRef({ containerW: 0, containerH: 0, zoomW: 0, zoomH: 0 });
