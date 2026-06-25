@@ -6,9 +6,7 @@ import ContactChannelIcon from "@/components/ContactChannelIcon";
 import ContactNewsletter from "@/components/ContactNewsletter";
 import SiteLogo from "@/components/SiteLogo";
 import FooterTrustBar from "@/components/FooterTrustBar";
-import { buttonVariants } from "@/components/ui/button";
 import { useCatalog } from "@/contexts/CatalogContext";
-import { cn } from "@/lib/utils";
 
 const socialLinks = [
   { label: "Facebook", id: "facebook", href: "#" },
@@ -41,21 +39,6 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         <div className="pb-8 pt-6 md:pb-10 md:pt-8">
           <FooterTrustBar />
-        </div>
-
-        <div className="mb-8 flex flex-col items-start justify-between gap-4 rounded-2xl bg-brand-black px-5 py-5 sm:flex-row sm:items-center md:px-7 md:py-6">
-          <div>
-            <p className="text-base font-bold text-white md:text-lg">Get Quote for Bulk Orders</p>
-            <p className="mt-1 text-sm text-white/70">
-              PAN India delivery · Genuine products · Fast WhatsApp response
-            </p>
-          </div>
-          <Link
-            href="/get-quote"
-            className={cn(buttonVariants({ variant: "brand" }), "shrink-0 rounded-lg px-6 py-2.5 text-sm font-bold")}
-          >
-            Get Quote
-          </Link>
         </div>
 
         <div className="grid grid-cols-1 gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 lg:pb-12">

@@ -99,7 +99,7 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
                       <p className="text-[11px] font-medium line-clamp-2 mt-2 hover:text-brand-yellow">{item.name}</p>
                     </Link>
                     <a
-                      href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share price and availability.`)}
+                      href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share availability and quotation.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(WHATSAPP_BUTTON_CLASS, "w-full gap-1 rounded py-1.5 text-[10px] sm:text-xs")}

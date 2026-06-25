@@ -80,7 +80,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
   return (
     <div
       className={cn(
-        "relative w-full bg-[#fafafa] z-30",
+        "relative w-full bg-white z-30",
         !isMobile && "sticky top-[3.75rem] md:top-[4.5rem]",
         !isMobile && !isCompact && "min-h-[5.25rem] lg:min-h-[5.75rem]",
         isMobile ? "border-b border-border shadow-pro-top" : "border-b border-border shadow-pro-bar",
@@ -105,7 +105,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
               : cn(
                   "grid grid-cols-5 gap-x-3 gap-y-1 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6",
-                  isCompact ? "py-1.5" : "py-2"
+                  isCompact ? "py-1.5" : "py-1.5"
                 )
           )}
         >
@@ -123,7 +123,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 title={category.name}
                 className={cn(
                   "flex w-full min-w-0 max-w-full flex-col items-center group transition-all duration-300 ease-in-out",
-                  isMobile ? "gap-2.5 overflow-hidden" : isCompact ? "gap-0 px-0.5 py-0.5" : "gap-1.5 px-0.5 py-1"
+                  isMobile ? "gap-2.5 overflow-hidden" : isCompact ? "gap-0 px-0.5 py-0" : "gap-0.5 px-0.5 py-0"
                 )}
               >
                 {isMobile ? (
@@ -137,7 +137,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                       "relative mx-auto flex shrink-0 items-center justify-center overflow-hidden transition-[height,opacity,transform] duration-300 ease-in-out",
                       isCompact
                         ? "h-0 w-12 opacity-0 -translate-y-1 pointer-events-none"
-                        : "h-12 w-12 opacity-100 translate-y-0 sm:h-11 sm:w-11 lg:h-14 lg:w-14"
+                        : "h-12 w-12 opacity-100 translate-y-0 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
                     )}
                   >
                     <span
@@ -151,7 +151,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                     />
                     <CategoryNavIcon
                       categoryId={category.id}
-                      className="relative z-10 h-9 w-9 shrink-0 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
+                      className="relative z-10 h-full w-full shrink-0"
                     />
                   </div>
                 )}

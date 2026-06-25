@@ -70,9 +70,9 @@ export default function HomePage() {
   const activeHero = heroBanners[heroIndex] ?? staticHeroBanners[0];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
       <section
-        className="relative w-full overflow-hidden bg-muted lg:bg-white"
+        className="relative w-full overflow-hidden bg-white"
         onMouseEnter={() => setIsHeroPaused(true)}
         onMouseLeave={() => setIsHeroPaused(false)}
       >
@@ -144,7 +144,7 @@ export default function HomePage() {
 
       <CategoryNav visibility="mobile" />
 
-      <section className="w-full bg-section py-6 md:py-8 lg:py-10">
+      <section className="w-full bg-white py-6 md:py-8 lg:py-10">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
           <div className="mb-5 flex items-center justify-between">
             <h2 className={SECTION_TITLE_CLASS}>Recently Viewed</h2>
@@ -179,7 +179,7 @@ export default function HomePage() {
         return (
           <section
             key={category.id}
-            className={cn("w-full py-6 md:py-8 lg:py-10", category.tileBg)}
+            className="w-full bg-white py-6 md:py-8 lg:py-10"
           >
             <div className="container mx-auto px-4 sm:px-5 lg:px-6">
               <div className="mb-5 flex items-center justify-between lg:mb-6">
@@ -197,7 +197,7 @@ export default function HomePage() {
         );
       })}
 
-      <section className="w-full overflow-hidden border-y border-pro bg-section py-8 md:py-10 lg:py-12">
+      <section className="w-full overflow-hidden border-y border-pro bg-white py-8 md:py-10 lg:py-12">
         <div className="container mx-auto mb-6 px-4 text-center sm:px-5 lg:mb-8 lg:px-6">
           <h2 className={cn(SECTION_TITLE_CLASS, "mx-auto w-fit")}>Trusted Brands</h2>
         </div>
@@ -219,7 +219,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="w-full bg-page py-8 md:py-10 lg:py-14">
+      <section className="w-full bg-white py-8 md:py-10 lg:py-14">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
           <div className="mb-8 text-center lg:mb-10">
             <h2 className={cn(SECTION_TITLE_CLASS, "mx-auto w-fit")}>

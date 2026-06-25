@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { popularSearchGroups } from "@/lib/popular-searches";
 import { SECTION_TITLE_CLASS } from "@/lib/sections";
+import { cn } from "@/lib/utils";
 
 function SearchGroupCard({ category, items }: { category: string; items: string[] }) {
   return (
@@ -25,9 +26,9 @@ function SearchGroupCard({ category, items }: { category: string; items: string[
   );
 }
 
-export default function PopularSearches() {
+export default function PopularSearches({ className }: { className?: string }) {
   return (
-    <section className="border-t border-pro bg-page py-10 md:py-12">
+    <section className={cn("border-t border-pro bg-page py-10 md:py-12", className)}>
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         <div className="mb-8">
           <h2 className={SECTION_TITLE_CLASS}>Popular searches on Industrial Safety Mart</h2>

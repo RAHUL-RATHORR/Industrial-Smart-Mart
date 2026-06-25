@@ -55,18 +55,18 @@
   --color-page: #fafaf8;
   --color-section: #f3f2ef;
   --color-surface-subtle: #f5f5f4;
-  --color-cat-safety: #fff4d6;
-  --color-cat-tools: #edf4ea;
-  --color-cat-electrical: #e4f0fb;
-  --color-cat-construction: #e6ebf2;
-  --color-cat-medical: #e5f5ef;
-  --color-cat-packaging: #eeeaf8;
-  --color-cat-express: #fff3e0;
-  --color-cat-hivis: #ffefd9;
-  --color-cat-welding: #fff0e8;
-  --color-cat-office: #f5f0e8;
-  --color-cat-agri: #eaf5eb;
-  --color-cat-automotive: #edf0f5;
+  --color-cat-safety: #faf8f3;
+  --color-cat-tools: #f4f8f5;
+  --color-cat-electrical: #f1f6fb;
+  --color-cat-construction: #eef2f6;
+  --color-cat-medical: #f0f7f4;
+  --color-cat-packaging: #f6f4fa;
+  --color-cat-express: #faf7f2;
+  --color-cat-hivis: #fbf7ef;
+  --color-cat-welding: #faf6f2;
+  --color-cat-office: #f8f7f4;
+  --color-cat-agri: #f3f8f5;
+  --color-cat-automotive: #f2f5f9;
   
   --animate-marquee: marquee 25s linear infinite;
 
@@ -253,12 +253,13 @@
   }
 
   .product-card-title {
-    color: #f4b400;
+    color: var(--brand-black) !important;
     transition: color 0.2s ease;
   }
 
-  .product-card:hover .product-card-title {
-    color: var(--brand-black);
+  .product-card:hover .product-card-title,
+  .product-card a:hover .product-card-title {
+    color: var(--brand-black) !important;
   }
 
   .btn-brand {

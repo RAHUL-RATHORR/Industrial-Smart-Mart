@@ -75,11 +75,11 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
 
         <Link
           href={productUrl}
-          className={cn("block", compact ? "mb-1.5" : "mb-2")}
+          className={cn("block text-brand-black hover:text-brand-black", compact ? "mb-1.5" : "mb-2")}
         >
           <h3
             className={cn(
-              "product-card-title font-bold leading-snug",
+              "product-card-title font-bold leading-snug text-brand-black",
               compact ? "line-clamp-2 text-[11px]" : "line-clamp-2 text-xs sm:text-sm"
             )}
           >
@@ -87,17 +87,15 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
           </h3>
         </Link>
 
-        {product.price && (
-          <div className={cn("flex flex-wrap items-baseline gap-x-1 gap-y-0.5", compact ? "mb-0" : "mb-3")}>
-            <span className={cn("font-black text-brand-black", compact ? "text-xs" : "text-sm sm:text-base")}>{product.price}</span>
-            {product.mrp && (
-              <span className="text-[10px] text-muted-foreground line-through sm:text-xs">{product.mrp}</span>
-            )}
-            {product.discount && (
-              <span className="text-[10px] font-bold text-brand-sale sm:text-xs">{product.discount}</span>
-            )}
+        {compact ? (
+          <div className="mt-auto flex items-center gap-1.5">
+            <span className="badge-brand gap-0.5 px-1.5 py-0.5 text-[10px] leading-none">
+              {rating}
+              <Star className="h-2.5 w-2.5 fill-current" />
+            </span>
+            <span className="text-[10px] text-muted-foreground">({reviews})</span>
           </div>
-        )}
+        ) : null}
 
         {!compact && (
         <div className="mt-auto flex gap-2 sm:gap-2.5 pt-1">

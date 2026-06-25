@@ -4,14 +4,15 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CategoryNav from "@/components/CategoryNav";
 import Footer from "@/components/Footer";
-import SeoSection from "@/components/SeoSection";
 import PopularSearches from "@/components/PopularSearches";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import WelcomePopup from "@/components/WelcomePopup";
+import { cn } from "@/lib/utils";
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin");
+  const isHome = pathname === "/";
 
   if (isAdmin) {
     return <>{children}</>;
@@ -21,9 +22,8 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
     <>
       <Navbar />
       <CategoryNav visibility="desktop" />
-      <main className="flex-1 min-w-0 w-full">{children}</main>
-      <SeoSection />
-      <PopularSearches />
+      <main className={cn("flex-1 min-w-0 w-full", isHome && "bg-white")}>{children}</main>
+      <PopularSearches className={isHome ? "bg-white" : undefined} />
       <Footer />
       <FloatingWhatsApp />
       <WelcomePopup />

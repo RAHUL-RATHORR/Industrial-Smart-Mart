@@ -64,16 +64,10 @@ function extractBrand(name: string) {
   return name.split(" ")[0] ?? "Industrial";
 }
 
-function buildPricing(id: string) {
+function buildProductMeta(id: string) {
   const seed = hashString(id);
-  const priceValue = 699 + (seed % 8900);
-  const mrpValue = Math.round(priceValue * (1.45 + (seed % 4) * 0.12));
-  const discountPct = Math.max(12, Math.round((1 - priceValue / mrpValue) * 100));
 
   return {
-    price: `₹${priceValue.toLocaleString("en-IN")}`,
-    mrp: `₹${mrpValue.toLocaleString("en-IN")}`,
-    discount: `${discountPct}% OFF`,
     rating: Math.round((4.5 + (seed % 5) * 0.1) * 10) / 10,
     reviews: 18 + (seed % 220),
   };
@@ -94,7 +88,7 @@ export function buildDropdownProducts(): CatalogProduct[] {
       items.forEach((name, index) => {
         const id = getDropdownProductId(categoryId, section, name);
         const brand = extractBrand(name);
-        const pricing = buildPricing(id);
+        const meta = buildProductMeta(id);
         const imageId = PRODUCT_IMAGES[(hashString(id) + index) % PRODUCT_IMAGES.length];
 
         products.push({
@@ -104,7 +98,7 @@ export function buildDropdownProducts(): CatalogProduct[] {
           categoryId,
           image: `https://images.unsplash.com/photo-${imageId}?q=80&w=500&auto=format&fit=crop`,
           description: `${name} is a trusted ${section.toLowerCase()} option in our ${categoryName.toLowerCase()} range. Built for daily industrial use with reliable safety performance.`,
-          ...pricing,
+          ...meta,
         });
       });
     }

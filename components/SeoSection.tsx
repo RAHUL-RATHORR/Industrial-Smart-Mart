@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 function SeoLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -47,9 +48,9 @@ function BenefitCard({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function SeoSection() {
+export default function SeoSection({ className }: { className?: string }) {
   return (
-    <section className="border-t border-pro bg-gradient-to-b from-section to-page py-10 md:py-14">
+    <section className={cn("border-t border-pro bg-gradient-to-b from-section to-page py-10 md:py-14", className)}>
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         <div className="mb-8 overflow-hidden rounded-2xl border border-pro bg-brand-black p-6 md:p-8">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-yellow/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-yellow">

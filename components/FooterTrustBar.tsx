@@ -1,9 +1,9 @@
 import Link from "next/link";
 import {
-  CreditCard,
   HandHelping,
   Headphones,
   MessageCircle,
+  Package,
   ShieldCheck,
   Truck,
   Wallet,
@@ -17,7 +17,7 @@ function formatPhoneDisplay(number: string) {
   return `+${number}`;
 }
 
-type TrustIconVariant = "wallet" | "truck" | "payment" | "protection";
+type TrustIconVariant = "wallet" | "truck" | "bulk" | "protection";
 
 function TrustIcon({ variant }: { variant: TrustIconVariant }) {
   const iconClass = "h-10 w-10";
@@ -28,15 +28,8 @@ function TrustIcon({ variant }: { variant: TrustIconVariant }) {
       return <Wallet className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
     case "truck":
       return <Truck className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
-    case "payment":
-      return (
-        <div className="relative">
-          <CreditCard className={`${iconClass} text-brand-black`} strokeWidth={stroke} />
-          <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow ring-2 ring-white">
-            <ShieldCheck className="h-3 w-3 text-brand-black" strokeWidth={2.5} />
-          </span>
-        </div>
-      );
+    case "bulk":
+      return <Package className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
     case "protection":
       return (
         <div className="relative">
@@ -63,9 +56,10 @@ const trustFeatures = [
     description: "Over 20,000 pincodes serviceable across India.",
   },
   {
-    icon: "payment" as const,
-    title: "Secure Payment",
-    description: "Partnered with India's most popular and secure payment solutions.",
+    icon: "bulk" as const,
+    title: "Bulk Orders",
+    description: "Special pricing and fast WhatsApp quotes for wholesale and corporate buyers.",
+    href: "/get-quote",
   },
   {
     icon: "protection" as const,
@@ -81,12 +75,18 @@ export default function FooterTrustBar() {
   return (
     <div className="rounded-2xl border border-pro bg-white px-4 py-7 shadow-pro sm:px-6 md:py-8">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-        {trustFeatures.map(({ icon, title, description }) => (
+        {trustFeatures.map(({ icon, title, description, href }) => (
           <div key={title} className="flex flex-col items-center text-center">
             <div className="mb-3 flex h-12 w-12 items-center justify-center">
               <TrustIcon variant={icon} />
             </div>
-            <h3 className="mb-1.5 text-sm font-bold text-brand-black">{title}</h3>
+            {href ? (
+              <Link href={href} className="mb-1.5 text-sm font-bold text-brand-black transition-colors hover:text-brand-yellow">
+                {title}
+              </Link>
+            ) : (
+              <h3 className="mb-1.5 text-sm font-bold text-brand-black">{title}</h3>
+            )}
             <p className="max-w-[210px] text-xs leading-relaxed text-gray-600">{description}</p>
           </div>
         ))}

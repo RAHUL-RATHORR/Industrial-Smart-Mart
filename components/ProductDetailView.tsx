@@ -166,7 +166,7 @@ export default function ProductDetailView({ product, extras }: ProductDetailView
                   Sign Up & Save — Get extra GST benefits on business orders.
                 </div>
                 <div className="surface-brand px-3 py-2 text-xs sm:text-sm">
-                  Coupons & Offers — Ask on WhatsApp for latest bulk discount codes.
+                  Coupons & Offers — Ask on WhatsApp for latest bulk order benefits.
                 </div>
                 <div className="surface-brand px-3 py-2 text-xs sm:text-sm">
                   ISM Business — Dedicated support for corporate procurement.

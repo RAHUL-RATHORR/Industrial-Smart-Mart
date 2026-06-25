@@ -29,11 +29,6 @@ export function searchProducts(query?: string): Product[] {
   );
 }
 
-export interface BulkTier {
-  qty: number;
-  price: string;
-}
-
 export interface ProductSpec {
   label: string;
   value: string;
@@ -45,7 +40,6 @@ export interface ProductDetailExtras {
   videoPoster: string;
   features: string[];
   specs: ProductSpec[];
-  bulkTiers: BulkTier[];
   insights: string[];
   longDescription: string;
 }
@@ -185,16 +179,7 @@ export function getInterestedItems(product: Product): InterestedItem[] {
 }
 
 export function getProductDetailExtras(product: Product): ProductDetailExtras {
-  const basePrice = parseInt(product.price?.replace(/[^\d]/g, "") || "2500", 10);
   const seed = product.id.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
-
-  const bulkTiers: BulkTier[] = [
-    { qty: 2, price: `₹${Math.round(basePrice * 0.97).toLocaleString("en-IN")}` },
-    { qty: 3, price: `₹${Math.round(basePrice * 0.95).toLocaleString("en-IN")}` },
-    { qty: 4, price: `₹${Math.round(basePrice * 0.93).toLocaleString("en-IN")}` },
-    { qty: 5, price: `₹${Math.round(basePrice * 0.91).toLocaleString("en-IN")}` },
-    { qty: 10, price: `₹${Math.round(basePrice * 0.88).toLocaleString("en-IN")}` },
-  ];
 
   const specs: ProductSpec[] = [
     { label: "Brand", value: product.brand },
@@ -224,7 +209,6 @@ export function getProductDetailExtras(product: Product): ProductDetailExtras {
       product.description,
     ],
     specs,
-    bulkTiers,
     insights: [
       `${(seed % 40) + 20}% of buyers in this category choose ${product.brand} for reliability.`,
       "Bulk orders above 10 units qualify for additional GST invoice benefits.",

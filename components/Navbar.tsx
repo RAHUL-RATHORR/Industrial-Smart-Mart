@@ -26,7 +26,7 @@ export default function Navbar() {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-pro bg-background/98 shadow-pro-sm backdrop-blur supports-backdrop-filter:bg-background/80">
+    <header className="sticky top-0 z-40 w-full border-b border-pro bg-white shadow-pro-sm">
       <div className="h-1 w-full bg-[#f4b400]" aria-hidden="true" />
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
         <div className="flex h-14 md:h-[4.25rem] items-center justify-between gap-3">
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="hover:text-brand-yellow transition-colors"
+                  className="transition-all hover:font-bold hover:text-brand-black"
                 >
                   {link.name}
                 </Link>
@@ -120,14 +120,14 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-pro bg-background border-t md:hidden"
+            className="border-pro bg-white border-t md:hidden"
           >
             <div className="space-y-1 px-4 pb-3 pt-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-black dark:text-white hover:bg-muted hover:text-black dark:hover:text-white"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-black transition-all hover:bg-muted hover:font-bold hover:text-black dark:text-white dark:hover:text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}

@@ -160,7 +160,7 @@ export const categories: Category[] = [
     name: "PVC GumBoots",
     productCount: 15,
     image: catImg("1621905251189-08b45d6a269e"),
-    tileBg: "bg-cat-tools",
+    tileBg: "bg-cat-agri",
     href: "/categories/pvc-gumboots",
     subgroups: [{ title: "PVC GumBoots", items: ["Knee Length", "Ankle Length", "Food Grade", "Chemical Resistant", "Steel Toe Gumboots"] }],
   },
@@ -205,7 +205,7 @@ export const categories: Category[] = [
     name: "Disposable PPE Products",
     productCount: 10,
     image: catImg("1581092160562-40aa08e78837"),
-    tileBg: "bg-cat-medical",
+    tileBg: "bg-cat-packaging",
     href: "/categories/disposable-ppe",
     subgroups: [{ title: "Disposable PPE", items: ["Face Masks", "Shoe Covers", "Head Covers", "Aprons", "Coveralls"] }],
   },
@@ -223,7 +223,7 @@ export const categories: Category[] = [
     name: "Road Safety",
     productCount: 5,
     image: catImg("1558618666-fcd25c85cd64"),
-    tileBg: "bg-cat-express",
+    tileBg: "bg-cat-automotive",
     href: "/categories/road-safety",
     subgroups: [{ title: "Road Safety", items: ["Traffic Cones", "Warning Tapes", "Barricades", "Reflective Strips", "Road Signs"] }],
   },
@@ -239,15 +239,10 @@ export const getProductsByCategory = (categoryId: string, count?: number): Produ
   const brands = ["SafeHawk", "Accord", "Safegrip", "Agreson", "Prenav", "Karam", "3M", "Allen Cooper"];
 
   return Array.from({ length: itemCount }).map((_, i) => {
-    // Generate a pseudo-random price
-    const priceValue = 500 + ((i * 1234) % 9500);
     const brandName = brands[(i + categoryId.length) % brands.length];
 
     const rating = Math.round((4.5 + ((i * 3 + categoryId.length) % 5) * 0.1) * 10) / 10;
     const reviews = 12 + ((i * 47 + categoryId.length * 13) % 248);
-
-    const mrpValue = Math.round(priceValue * (1.55 + (i % 4) * 0.15));
-    const discountPct = Math.max(10, Math.round((1 - priceValue / mrpValue) * 100));
 
     return {
       id: `prod-${categoryId}-${i}`,
@@ -255,9 +250,6 @@ export const getProductsByCategory = (categoryId: string, count?: number): Produ
       description: `High quality ${catName.toLowerCase()} designed for heavy industrial usage. Comes with standard brand warranty.`,
       brand: brandName,
       image: catImage,
-      price: `₹${priceValue.toLocaleString("en-IN")}`,
-      mrp: `₹${mrpValue.toLocaleString("en-IN")}`,
-      discount: `${discountPct}% OFF`,
       rating,
       reviews,
     };
@@ -316,9 +308,6 @@ export const bestsellers: Product[] = [
     description: "High speed pedestal fan with adjustable height.",
     brand: "Zokasa",
     image: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400", // Generic image
-    price: "₹1,419",
-    mrp: "₹3,599",
-    discount: "60% OFF",
     rating: 4.8,
     reviews: 15
   },
@@ -328,9 +317,6 @@ export const bestsellers: Product[] = [
     description: "Fire retardant PVC insulated wire.",
     brand: "FAB",
     image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400",
-    price: "₹469",
-    mrp: "₹1,600",
-    discount: "70% OFF",
     rating: 4.7,
     reviews: 244
   },
@@ -340,9 +326,6 @@ export const bestsellers: Product[] = [
     description: "Heavy duty cordless impact wrench.",
     brand: "XLNT",
     image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400",
-    price: "₹2,699",
-    mrp: "₹5,999",
-    discount: "55% OFF",
     rating: 4.8,
     reviews: 13
   },
@@ -352,9 +335,6 @@ export const bestsellers: Product[] = [
     description: "Energy efficient BLDC ceiling fan with remote.",
     brand: "Activa",
     image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=400",
-    price: "₹2,069",
-    mrp: "₹4,990",
-    discount: "58% OFF",
     rating: 4.7,
     reviews: 111
   },
@@ -364,9 +344,6 @@ export const bestsellers: Product[] = [
     description: "Manual milking machine for small farms.",
     brand: "Aplus",
     image: "https://images.unsplash.com/photo-1592982537447-6f2963162b77?q=80&w=800&h=300&auto=format&fit=crop",
-    price: "₹5,784",
-    mrp: "₹10,000",
-    discount: "42% OFF",
     rating: 4.7,
     reviews: 55
   },
@@ -376,9 +353,6 @@ export const bestsellers: Product[] = [
     description: "Double density sole with anti-slip grip for factory use.",
     brand: "SafeHawk",
     image: catImg("1542291026-7eec264c27ff"),
-    price: "₹1,899",
-    mrp: "₹3,499",
-    discount: "46% OFF",
     rating: 4.9,
     reviews: 87
   },

@@ -13,9 +13,6 @@ const emptyForm = {
   brand: "",
   image: "",
   categoryId: "",
-  price: "",
-  mrp: "",
-  discount: "",
 };
 
 export default function AdminProductsPage() {
@@ -60,12 +57,7 @@ export default function AdminProductsPage() {
     setSaving(true);
     setMessage("");
 
-    const payload = {
-      ...form,
-      price: form.price || undefined,
-      mrp: form.mrp || undefined,
-      discount: form.discount || undefined,
-    };
+    const payload = { ...form };
 
     const response = await fetch(
       editingId ? `/api/admin/products/${editingId}` : "/api/admin/products",
@@ -103,9 +95,6 @@ export default function AdminProductsPage() {
       brand: product.brand,
       image: product.image,
       categoryId: product.categoryId,
-      price: product.price ?? "",
-      mrp: product.mrp ?? "",
-      discount: product.discount ?? "",
     });
   }
 
@@ -169,33 +158,6 @@ export default function AdminProductsPage() {
           />
         </AdminField>
 
-        <AdminField label="Price">
-          <input
-            className={adminInputClass}
-            value={form.price}
-            onChange={(event) => setForm((prev) => ({ ...prev, price: event.target.value }))}
-            placeholder="₹1,999"
-          />
-        </AdminField>
-
-        <AdminField label="MRP">
-          <input
-            className={adminInputClass}
-            value={form.mrp}
-            onChange={(event) => setForm((prev) => ({ ...prev, mrp: event.target.value }))}
-            placeholder="₹3,499"
-          />
-        </AdminField>
-
-        <AdminField label="Discount">
-          <input
-            className={adminInputClass}
-            value={form.discount}
-            onChange={(event) => setForm((prev) => ({ ...prev, discount: event.target.value }))}
-            placeholder="40% OFF"
-          />
-        </AdminField>
-
         <AdminField label="Description" className="md:col-span-2">
           <textarea
             className={`${adminInputClass} min-h-24`}
@@ -230,7 +192,6 @@ export default function AdminProductsPage() {
                   <th className="py-2 pr-4">Product</th>
                   <th className="py-2 pr-4">Brand</th>
                   <th className="py-2 pr-4">Category</th>
-                  <th className="py-2 pr-4">Price</th>
                   <th className="py-2">Actions</th>
                 </tr>
               </thead>
@@ -245,7 +206,6 @@ export default function AdminProductsPage() {
                     </td>
                     <td className="py-3 pr-4">{product.brand}</td>
                     <td className="py-3 pr-4">{getCategoryName(product.categoryId)}</td>
-                    <td className="py-3 pr-4">{product.price ?? "—"}</td>
                     <td className="py-3">
                       <div className="flex gap-2">
                         <Button size="sm" variant="outline" onClick={() => startEdit(product)}>
