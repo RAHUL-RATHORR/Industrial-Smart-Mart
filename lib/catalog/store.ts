@@ -18,14 +18,48 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const CATALOG_PATH = path.join(DATA_DIR, "catalog.json");
 const PUBLIC_CATALOG_PATH = path.join(process.cwd(), "public", "catalog.json");
 
+let cachedCatalog: Catalog | null = null;
+
 function ensureDataDir() {
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
 }
 
+function canWriteCatalogFiles() {
+  if (process.env.VERCEL === "1") return false;
+
+  try {
+    ensureDataDir();
+    const probe = path.join(DATA_DIR, ".catalog-write-probe");
+    fs.writeFileSync(probe, "ok", "utf-8");
+    fs.unlinkSync(probe);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function writePublicMirror(catalog: Catalog) {
+  if (!canWriteCatalogFiles()) return;
   fs.writeFileSync(PUBLIC_CATALOG_PATH, JSON.stringify(catalog, null, 2), "utf-8");
+}
+
+function loadCatalogFromFile(filePath: string): Partial<Catalog> | null {
+  try {
+    if (!fs.existsSync(filePath)) return null;
+    return JSON.parse(fs.readFileSync(filePath, "utf-8")) as Partial<Catalog>;
+  } catch {
+    return null;
+  }
+}
+
+function buildMergedCatalog(raw?: Partial<Catalog> | null): Catalog {
+  const catalog = normalizeCatalog(raw ?? {});
+  return {
+    ...catalog,
+    products: mergeCatalogProducts(catalog.products),
+  };
 }
 
 function normalizeCatalog(raw: Partial<Catalog>): Catalog {
@@ -42,35 +76,36 @@ function normalizeCatalog(raw: Partial<Catalog>): Catalog {
 }
 
 export function readCatalog(): Catalog {
-  ensureDataDir();
+  if (cachedCatalog) return cachedCatalog;
 
-  if (!fs.existsSync(CATALOG_PATH)) {
-    const seed = buildSeedCatalog();
-    fs.writeFileSync(CATALOG_PATH, JSON.stringify(seed, null, 2), "utf-8");
-    writePublicMirror(seed);
-    return seed;
-  }
+  const raw =
+    loadCatalogFromFile(CATALOG_PATH) ?? loadCatalogFromFile(PUBLIC_CATALOG_PATH);
 
-  const raw = JSON.parse(fs.readFileSync(CATALOG_PATH, "utf-8")) as Partial<Catalog>;
-  const catalog = normalizeCatalog(raw);
-  const mergedCatalog = {
-    ...catalog,
-    products: mergeCatalogProducts(catalog.products),
-  };
+  const mergedCatalog = buildMergedCatalog(raw);
 
-  if (
-    !raw.heroBanners?.length ||
-    !raw.promoBanners?.length ||
-    !raw.pageBanners?.length ||
-    !raw.blogPosts?.length
+  if (!raw && canWriteCatalogFiles()) {
+    fs.writeFileSync(CATALOG_PATH, JSON.stringify(mergedCatalog, null, 2), "utf-8");
+    writePublicMirror(mergedCatalog);
+  } else if (
+    raw &&
+    canWriteCatalogFiles() &&
+    (!raw.heroBanners?.length ||
+      !raw.promoBanners?.length ||
+      !raw.pageBanners?.length ||
+      !raw.blogPosts?.length)
   ) {
     writeCatalog(mergedCatalog);
+    return mergedCatalog;
   }
 
+  cachedCatalog = mergedCatalog;
   return mergedCatalog;
 }
 
 export function writeCatalog(catalog: Catalog) {
+  cachedCatalog = catalog;
+  if (!canWriteCatalogFiles()) return;
+
   ensureDataDir();
   fs.writeFileSync(CATALOG_PATH, JSON.stringify(catalog, null, 2), "utf-8");
   writePublicMirror(catalog);

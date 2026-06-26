@@ -1,0 +1,3271 @@
+{
+  "brands": [
+    {
+      "id": "brand-1",
+      "name": "SafeHawk",
+      "logo": "https://placehold.co/240x100/fdf6e3/1a1a1a?text=SafeHawk&font=roboto",
+      "categoryIds": [
+        "cat-safety-shoes",
+        "cat-pvc-gumboots"
+      ]
+    },
+    {
+      "id": "brand-2",
+      "name": "Accord",
+      "logo": "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Accord&font=roboto",
+      "categoryIds": [
+        "cat-pvc-gumboots",
+        "cat-reflective-jackets"
+      ]
+    },
+    {
+      "id": "brand-3",
+      "name": "Safegrip",
+      "logo": "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Safegrip&font=roboto",
+      "categoryIds": [
+        "cat-reflective-jackets",
+        "cat-safety-helmets"
+      ]
+    },
+    {
+      "id": "brand-4",
+      "name": "Agreson",
+      "logo": "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Agreson&font=roboto",
+      "categoryIds": [
+        "cat-safety-helmets",
+        "cat-safety-gloves"
+      ]
+    },
+    {
+      "id": "brand-5",
+      "name": "Prenav",
+      "logo": "https://placehold.co/240x100/fdf6e3/1a1a1a?text=Prenav&font=roboto",
+      "categoryIds": [
+        "cat-safety-gloves",
+        "cat-welding"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-safety-shoes",
+      "name": "Safety Shoes",
+      "productCount": 20,
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-safety",
+      "href": "/categories/safety-shoes",
+      "subgroups": [
+        {
+          "title": "Safety Shoes",
+          "items": [
+            "Steel Toe Shoes",
+            "PU Sole Shoes",
+            "Double Density",
+            "Gumboots",
+            "Composite Toe Shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-pvc-gumboots",
+      "name": "PVC GumBoots",
+      "productCount": 15,
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-agri",
+      "href": "/categories/pvc-gumboots",
+      "subgroups": [
+        {
+          "title": "PVC GumBoots",
+          "items": [
+            "Knee Length",
+            "Ankle Length",
+            "Food Grade",
+            "Chemical Resistant",
+            "Steel Toe Gumboots"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-reflective-jackets",
+      "name": "Reflective Jackets",
+      "productCount": 10,
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-hivis",
+      "href": "/categories/reflective-jackets",
+      "subgroups": [
+        {
+          "title": "Reflective Jackets",
+          "items": [
+            "Orange Mesh",
+            "Green Mesh",
+            "Polyester",
+            "Cotton",
+            "Survey Jackets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-safety-helmets",
+      "name": "Safety Helmets",
+      "productCount": 5,
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-construction",
+      "href": "/categories/safety-helmets",
+      "subgroups": [
+        {
+          "title": "Safety Helmets",
+          "items": [
+            "HDPE Helmets",
+            "Ratchet Type",
+            "Ventilated",
+            "With Chin Strap",
+            "ABS Helmets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-safety-gloves",
+      "name": "Safety Gloves",
+      "productCount": 15,
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-medical",
+      "href": "/categories/safety-gloves",
+      "subgroups": [
+        {
+          "title": "Safety Gloves",
+          "items": [
+            "Leather Gloves",
+            "Latex Coated",
+            "Cut Resistant",
+            "Welding Gloves",
+            "Nitrile Coated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-welding",
+      "name": "Welding Machine & Accessories",
+      "productCount": 30,
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-welding",
+      "href": "/categories/welding",
+      "subgroups": [
+        {
+          "title": "Welding",
+          "items": [
+            "ARC Machines",
+            "MIG Welders",
+            "Welding Rods",
+            "Helmets & Gloves",
+            "TIG Welders"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-disposable-ppe",
+      "name": "Disposable PPE Products",
+      "productCount": 10,
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-packaging",
+      "href": "/categories/disposable-ppe",
+      "subgroups": [
+        {
+          "title": "Disposable PPE",
+          "items": [
+            "Face Masks",
+            "Shoe Covers",
+            "Head Covers",
+            "Aprons",
+            "Coveralls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-face-ear",
+      "name": "Face & Ear Protection",
+      "productCount": 15,
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-electrical",
+      "href": "/categories/face-ear-protection",
+      "subgroups": [
+        {
+          "title": "Face & Ear",
+          "items": [
+            "Safety Goggles",
+            "Face Shields",
+            "Ear Muffs",
+            "Ear Plugs",
+            "Respirators"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-road-safety",
+      "name": "Road Safety",
+      "productCount": 5,
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "tileBg": "bg-cat-automotive",
+      "href": "/categories/road-safety",
+      "subgroups": [
+        {
+          "title": "Road Safety",
+          "items": [
+            "Traffic Cones",
+            "Warning Tapes",
+            "Barricades",
+            "Reflective Strips",
+            "Road Signs"
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "bs-1",
+      "name": "Zokasa Rio Pro 50W 2400rpm 1 Star Black Pedestal Fan",
+      "description": "High speed pedestal fan with adjustable height.",
+      "brand": "Zokasa",
+      "image": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400",
+      "rating": 4.8,
+      "reviews": 15,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "bs-2",
+      "name": "FAB 1 Sqmm Single Core Red FR PVC Cable",
+      "description": "Fire retardant PVC insulated wire.",
+      "brand": "FAB",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400",
+      "rating": 4.7,
+      "reviews": 244,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "bs-3",
+      "name": "XLNT 0-2300rpm 21V 450Nm Alloy Steel Cordless Wrench",
+      "description": "Heavy duty cordless impact wrench.",
+      "brand": "XLNT",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=400",
+      "rating": 4.8,
+      "reviews": 13,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "bs-4",
+      "name": "Activa Gracia 28W 390rpm 3 Blade Silver Ceiling Fan",
+      "description": "Energy efficient BLDC ceiling fan with remote.",
+      "brand": "Activa",
+      "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=400",
+      "rating": 4.7,
+      "reviews": 111,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "bs-5",
+      "name": "Aplus 12 Litre Hand Operating Milking Machine",
+      "description": "Manual milking machine for small farms.",
+      "brand": "Aplus",
+      "image": "https://images.unsplash.com/photo-1592982537447-6f2963162b77?q=80&w=800&h=300&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 55,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "bs-6",
+      "name": "SafeHawk Steel Toe Industrial Safety Shoes",
+      "description": "Double density sole with anti-slip grip for factory use.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 87,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-safety-shoes-0",
+      "name": "Premium Safety Shoes Item 1",
+      "description": "High quality safety shoes designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 220,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-safety-shoes-1",
+      "name": "Premium Safety Shoes Item 2",
+      "description": "High quality safety shoes designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Accord",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 19,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-safety-shoes-2",
+      "name": "Premium Safety Shoes Item 3",
+      "description": "High quality safety shoes designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 66,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-safety-shoes-3",
+      "name": "Premium Safety Shoes Item 4",
+      "description": "High quality safety shoes designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 113,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-safety-shoes-4",
+      "name": "Premium Safety Shoes Item 5",
+      "description": "High quality safety shoes designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 160,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-safety-shoes-5",
+      "name": "Premium Safety Shoes Item 6",
+      "description": "High quality safety shoes designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 207,
+      "categoryId": "cat-safety-shoes"
+    },
+    {
+      "id": "prod-cat-pvc-gumboots-0",
+      "name": "Premium PVC GumBoots Item 1",
+      "description": "High quality pvc gumboots designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 220,
+      "categoryId": "cat-pvc-gumboots"
+    },
+    {
+      "id": "prod-cat-pvc-gumboots-1",
+      "name": "Premium PVC GumBoots Item 2",
+      "description": "High quality pvc gumboots designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Accord",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 19,
+      "categoryId": "cat-pvc-gumboots"
+    },
+    {
+      "id": "prod-cat-pvc-gumboots-2",
+      "name": "Premium PVC GumBoots Item 3",
+      "description": "High quality pvc gumboots designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 66,
+      "categoryId": "cat-pvc-gumboots"
+    },
+    {
+      "id": "prod-cat-pvc-gumboots-3",
+      "name": "Premium PVC GumBoots Item 4",
+      "description": "High quality pvc gumboots designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 113,
+      "categoryId": "cat-pvc-gumboots"
+    },
+    {
+      "id": "prod-cat-pvc-gumboots-4",
+      "name": "Premium PVC GumBoots Item 5",
+      "description": "High quality pvc gumboots designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 160,
+      "categoryId": "cat-pvc-gumboots"
+    },
+    {
+      "id": "prod-cat-pvc-gumboots-5",
+      "name": "Premium PVC GumBoots Item 6",
+      "description": "High quality pvc gumboots designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 207,
+      "categoryId": "cat-pvc-gumboots"
+    },
+    {
+      "id": "prod-cat-reflective-jackets-0",
+      "name": "Premium Reflective Jackets Item 1",
+      "description": "High quality reflective jackets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "3M",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 50,
+      "categoryId": "cat-reflective-jackets"
+    },
+    {
+      "id": "prod-cat-reflective-jackets-1",
+      "name": "Premium Reflective Jackets Item 2",
+      "description": "High quality reflective jackets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Allen Cooper",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 97,
+      "categoryId": "cat-reflective-jackets"
+    },
+    {
+      "id": "prod-cat-reflective-jackets-2",
+      "name": "Premium Reflective Jackets Item 3",
+      "description": "High quality reflective jackets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 144,
+      "categoryId": "cat-reflective-jackets"
+    },
+    {
+      "id": "prod-cat-reflective-jackets-3",
+      "name": "Premium Reflective Jackets Item 4",
+      "description": "High quality reflective jackets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Accord",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 191,
+      "categoryId": "cat-reflective-jackets"
+    },
+    {
+      "id": "prod-cat-reflective-jackets-4",
+      "name": "Premium Reflective Jackets Item 5",
+      "description": "High quality reflective jackets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 238,
+      "categoryId": "cat-reflective-jackets"
+    },
+    {
+      "id": "prod-cat-reflective-jackets-5",
+      "name": "Premium Reflective Jackets Item 6",
+      "description": "High quality reflective jackets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 37,
+      "categoryId": "cat-reflective-jackets"
+    },
+    {
+      "id": "prod-cat-safety-helmets-0",
+      "name": "Premium Safety Helmets Item 1",
+      "description": "High quality safety helmets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 246,
+      "categoryId": "cat-safety-helmets"
+    },
+    {
+      "id": "prod-cat-safety-helmets-1",
+      "name": "Premium Safety Helmets Item 2",
+      "description": "High quality safety helmets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 45,
+      "categoryId": "cat-safety-helmets"
+    },
+    {
+      "id": "prod-cat-safety-helmets-2",
+      "name": "Premium Safety Helmets Item 3",
+      "description": "High quality safety helmets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 92,
+      "categoryId": "cat-safety-helmets"
+    },
+    {
+      "id": "prod-cat-safety-helmets-3",
+      "name": "Premium Safety Helmets Item 4",
+      "description": "High quality safety helmets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 139,
+      "categoryId": "cat-safety-helmets"
+    },
+    {
+      "id": "prod-cat-safety-helmets-4",
+      "name": "Premium Safety Helmets Item 5",
+      "description": "High quality safety helmets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "3M",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 186,
+      "categoryId": "cat-safety-helmets"
+    },
+    {
+      "id": "prod-cat-safety-helmets-5",
+      "name": "Premium Safety Helmets Item 6",
+      "description": "High quality safety helmets designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Allen Cooper",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 233,
+      "categoryId": "cat-safety-helmets"
+    },
+    {
+      "id": "prod-cat-safety-gloves-0",
+      "name": "Premium Safety Gloves Item 1",
+      "description": "High quality safety gloves designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Accord",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 233,
+      "categoryId": "cat-safety-gloves"
+    },
+    {
+      "id": "prod-cat-safety-gloves-1",
+      "name": "Premium Safety Gloves Item 2",
+      "description": "High quality safety gloves designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 32,
+      "categoryId": "cat-safety-gloves"
+    },
+    {
+      "id": "prod-cat-safety-gloves-2",
+      "name": "Premium Safety Gloves Item 3",
+      "description": "High quality safety gloves designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 79,
+      "categoryId": "cat-safety-gloves"
+    },
+    {
+      "id": "prod-cat-safety-gloves-3",
+      "name": "Premium Safety Gloves Item 4",
+      "description": "High quality safety gloves designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 126,
+      "categoryId": "cat-safety-gloves"
+    },
+    {
+      "id": "prod-cat-safety-gloves-4",
+      "name": "Premium Safety Gloves Item 5",
+      "description": "High quality safety gloves designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 173,
+      "categoryId": "cat-safety-gloves"
+    },
+    {
+      "id": "prod-cat-safety-gloves-5",
+      "name": "Premium Safety Gloves Item 6",
+      "description": "High quality safety gloves designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "3M",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 220,
+      "categoryId": "cat-safety-gloves"
+    },
+    {
+      "id": "prod-cat-welding-0",
+      "name": "Premium Welding Machine & Accessories Item 1",
+      "description": "High quality welding machine & accessories designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 155,
+      "categoryId": "cat-welding"
+    },
+    {
+      "id": "prod-cat-welding-1",
+      "name": "Premium Welding Machine & Accessories Item 2",
+      "description": "High quality welding machine & accessories designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 202,
+      "categoryId": "cat-welding"
+    },
+    {
+      "id": "prod-cat-welding-2",
+      "name": "Premium Welding Machine & Accessories Item 3",
+      "description": "High quality welding machine & accessories designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 249,
+      "categoryId": "cat-welding"
+    },
+    {
+      "id": "prod-cat-welding-3",
+      "name": "Premium Welding Machine & Accessories Item 4",
+      "description": "High quality welding machine & accessories designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "3M",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 48,
+      "categoryId": "cat-welding"
+    },
+    {
+      "id": "prod-cat-welding-4",
+      "name": "Premium Welding Machine & Accessories Item 5",
+      "description": "High quality welding machine & accessories designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Allen Cooper",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 95,
+      "categoryId": "cat-welding"
+    },
+    {
+      "id": "prod-cat-welding-5",
+      "name": "Premium Welding Machine & Accessories Item 6",
+      "description": "High quality welding machine & accessories designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 142,
+      "categoryId": "cat-welding"
+    },
+    {
+      "id": "prod-cat-disposable-ppe-0",
+      "name": "Premium Disposable PPE Products Item 1",
+      "description": "High quality disposable ppe products designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 246,
+      "categoryId": "cat-disposable-ppe"
+    },
+    {
+      "id": "prod-cat-disposable-ppe-1",
+      "name": "Premium Disposable PPE Products Item 2",
+      "description": "High quality disposable ppe products designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 45,
+      "categoryId": "cat-disposable-ppe"
+    },
+    {
+      "id": "prod-cat-disposable-ppe-2",
+      "name": "Premium Disposable PPE Products Item 3",
+      "description": "High quality disposable ppe products designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 92,
+      "categoryId": "cat-disposable-ppe"
+    },
+    {
+      "id": "prod-cat-disposable-ppe-3",
+      "name": "Premium Disposable PPE Products Item 4",
+      "description": "High quality disposable ppe products designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 139,
+      "categoryId": "cat-disposable-ppe"
+    },
+    {
+      "id": "prod-cat-disposable-ppe-4",
+      "name": "Premium Disposable PPE Products Item 5",
+      "description": "High quality disposable ppe products designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "3M",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 186,
+      "categoryId": "cat-disposable-ppe"
+    },
+    {
+      "id": "prod-cat-disposable-ppe-5",
+      "name": "Premium Disposable PPE Products Item 6",
+      "description": "High quality disposable ppe products designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Allen Cooper",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 233,
+      "categoryId": "cat-disposable-ppe"
+    },
+    {
+      "id": "prod-cat-face-ear-0",
+      "name": "Premium Face & Ear Protection Item 1",
+      "description": "High quality face & ear protection designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 168,
+      "categoryId": "cat-face-ear"
+    },
+    {
+      "id": "prod-cat-face-ear-1",
+      "name": "Premium Face & Ear Protection Item 2",
+      "description": "High quality face & ear protection designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Karam",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 215,
+      "categoryId": "cat-face-ear"
+    },
+    {
+      "id": "prod-cat-face-ear-2",
+      "name": "Premium Face & Ear Protection Item 3",
+      "description": "High quality face & ear protection designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "3M",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 14,
+      "categoryId": "cat-face-ear"
+    },
+    {
+      "id": "prod-cat-face-ear-3",
+      "name": "Premium Face & Ear Protection Item 4",
+      "description": "High quality face & ear protection designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Allen Cooper",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 61,
+      "categoryId": "cat-face-ear"
+    },
+    {
+      "id": "prod-cat-face-ear-4",
+      "name": "Premium Face & Ear Protection Item 5",
+      "description": "High quality face & ear protection designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 108,
+      "categoryId": "cat-face-ear"
+    },
+    {
+      "id": "prod-cat-face-ear-5",
+      "name": "Premium Face & Ear Protection Item 6",
+      "description": "High quality face & ear protection designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Accord",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 155,
+      "categoryId": "cat-face-ear"
+    },
+    {
+      "id": "prod-cat-road-safety-0",
+      "name": "Premium Road Safety Item 1",
+      "description": "High quality road safety designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Allen Cooper",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 207,
+      "categoryId": "cat-road-safety"
+    },
+    {
+      "id": "prod-cat-road-safety-1",
+      "name": "Premium Road Safety Item 2",
+      "description": "High quality road safety designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "SafeHawk",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.8,
+      "reviews": 254,
+      "categoryId": "cat-road-safety"
+    },
+    {
+      "id": "prod-cat-road-safety-2",
+      "name": "Premium Road Safety Item 3",
+      "description": "High quality road safety designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Accord",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.6,
+      "reviews": 53,
+      "categoryId": "cat-road-safety"
+    },
+    {
+      "id": "prod-cat-road-safety-3",
+      "name": "Premium Road Safety Item 4",
+      "description": "High quality road safety designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Safegrip",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.9,
+      "reviews": 100,
+      "categoryId": "cat-road-safety"
+    },
+    {
+      "id": "prod-cat-road-safety-4",
+      "name": "Premium Road Safety Item 5",
+      "description": "High quality road safety designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Agreson",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.7,
+      "reviews": 147,
+      "categoryId": "cat-road-safety"
+    },
+    {
+      "id": "prod-cat-road-safety-5",
+      "name": "Premium Road Safety Item 6",
+      "description": "High quality road safety designed for heavy industrial usage. Comes with standard brand warranty.",
+      "brand": "Prenav",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "rating": 4.5,
+      "reviews": 194,
+      "categoryId": "cat-road-safety"
+    },
+    {
+      "id": "nav-cat-safety-shoes-steel-toe-shoes-liberty-warrior-101",
+      "name": "Liberty Warrior 101",
+      "brand": "Liberty",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty Warrior 101 is a trusted steel toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 169
+    },
+    {
+      "id": "nav-cat-safety-shoes-steel-toe-shoes-hillson-beston-pro",
+      "name": "Hillson Beston Pro",
+      "brand": "Hillson",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Hillson Beston Pro is a trusted steel toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 118
+    },
+    {
+      "id": "nav-cat-safety-shoes-steel-toe-shoes-karam-quipo-steel-toe",
+      "name": "Karam Quipo Steel Toe",
+      "brand": "Karam",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Quipo Steel Toe is a trusted steel toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 201
+    },
+    {
+      "id": "nav-cat-safety-shoes-steel-toe-shoes-allen-cooper-ac-1001",
+      "name": "Allen Cooper AC-1001",
+      "brand": "Allen Cooper",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Allen Cooper AC-1001 is a trusted steel toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 85
+    },
+    {
+      "id": "nav-cat-safety-shoes-steel-toe-shoes-bata-industrials-endura",
+      "name": "Bata Industrials Endura",
+      "brand": "Bata",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Bata Industrials Endura is a trusted steel toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 114
+    },
+    {
+      "id": "nav-cat-safety-shoes-pu-sole-shoes-karam-quipo-pu-sole",
+      "name": "Karam Quipo PU Sole",
+      "brand": "Karam",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Quipo PU Sole is a trusted pu sole shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 233
+    },
+    {
+      "id": "nav-cat-safety-shoes-pu-sole-shoes-hillson-nucleus-pu",
+      "name": "Hillson Nucleus PU",
+      "brand": "Hillson",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Hillson Nucleus PU is a trusted pu sole shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 97
+    },
+    {
+      "id": "nav-cat-safety-shoes-pu-sole-shoes-liberty-warrior-pu-202",
+      "name": "Liberty Warrior PU 202",
+      "brand": "Liberty",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty Warrior PU 202 is a trusted pu sole shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 29
+    },
+    {
+      "id": "nav-cat-safety-shoes-pu-sole-shoes-fausto-milan-pu",
+      "name": "Fausto Milan PU",
+      "brand": "Fausto",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Fausto Milan PU is a trusted pu sole shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 230
+    },
+    {
+      "id": "nav-cat-safety-shoes-pu-sole-shoes-acme-storm-pu-sole",
+      "name": "Acme Storm PU Sole",
+      "brand": "Acme",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Storm PU Sole is a trusted pu sole shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 212
+    },
+    {
+      "id": "nav-cat-safety-shoes-double-density-liberty-combat-dd",
+      "name": "Liberty Combat DD",
+      "brand": "Liberty",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty Combat DD is a trusted double density option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 134
+    },
+    {
+      "id": "nav-cat-safety-shoes-double-density-hillson-titan-double-density",
+      "name": "Hillson Titan Double Density",
+      "brand": "Hillson",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Hillson Titan Double Density is a trusted double density option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 118
+    },
+    {
+      "id": "nav-cat-safety-shoes-double-density-karam-fs-62-dd",
+      "name": "Karam FS-62 DD",
+      "brand": "Karam",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam FS-62 DD is a trusted double density option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 156
+    },
+    {
+      "id": "nav-cat-safety-shoes-double-density-digger-double-density-pro",
+      "name": "Digger Double Density Pro",
+      "brand": "Digger",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Digger Double Density Pro is a trusted double density option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 147
+    },
+    {
+      "id": "nav-cat-safety-shoes-double-density-tiger-lorex-dd",
+      "name": "Tiger Lorex DD",
+      "brand": "Tiger",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Tiger Lorex DD is a trusted double density option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 128
+    },
+    {
+      "id": "nav-cat-safety-shoes-gumboots-mallmoon-pvc-steel-toe-gumboot",
+      "name": "Mallmoon PVC Steel Toe Gumboot",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon PVC Steel Toe Gumboot is a trusted gumboots option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 107
+    },
+    {
+      "id": "nav-cat-safety-shoes-gumboots-acme-alpha-gumboot",
+      "name": "Acme Alpha Gumboot",
+      "brand": "Acme",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Alpha Gumboot is a trusted gumboots option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 90
+    },
+    {
+      "id": "nav-cat-safety-shoes-gumboots-liberty-sbb-202-gumboot",
+      "name": "Liberty SBB 202 Gumboot",
+      "brand": "Liberty",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty SBB 202 Gumboot is a trusted gumboots option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 193
+    },
+    {
+      "id": "nav-cat-safety-shoes-gumboots-neosafe-industrial-gumboot",
+      "name": "Neosafe Industrial Gumboot",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Industrial Gumboot is a trusted gumboots option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 119
+    },
+    {
+      "id": "nav-cat-safety-shoes-gumboots-hunter-safety-gumboot",
+      "name": "Hunter Safety Gumboot",
+      "brand": "Hunter",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Hunter Safety Gumboot is a trusted gumboots option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 94
+    },
+    {
+      "id": "nav-cat-safety-shoes-composite-toe-shoes-karam-composite-toe-ct-01",
+      "name": "Karam Composite Toe CT-01",
+      "brand": "Karam",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Composite Toe CT-01 is a trusted composite toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 120
+    },
+    {
+      "id": "nav-cat-safety-shoes-composite-toe-shoes-liberty-composite-safety-shoe",
+      "name": "Liberty Composite Safety Shoe",
+      "brand": "Liberty",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty Composite Safety Shoe is a trusted composite toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 97
+    },
+    {
+      "id": "nav-cat-safety-shoes-composite-toe-shoes-hillson-lite-composite-toe",
+      "name": "Hillson Lite Composite Toe",
+      "brand": "Hillson",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Hillson Lite Composite Toe is a trusted composite toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 21
+    },
+    {
+      "id": "nav-cat-safety-shoes-composite-toe-shoes-allen-cooper-composite-pro",
+      "name": "Allen Cooper Composite Pro",
+      "brand": "Allen Cooper",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Allen Cooper Composite Pro is a trusted composite toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 159
+    },
+    {
+      "id": "nav-cat-safety-shoes-composite-toe-shoes-bata-composite-safety-shoe",
+      "name": "Bata Composite Safety Shoe",
+      "brand": "Bata",
+      "categoryId": "cat-safety-shoes",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Bata Composite Safety Shoe is a trusted composite toe shoes option in our safety shoes range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 170
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-knee-length-mallmoon-15-inch-knee-gumboot",
+      "name": "Mallmoon 15-inch Knee Gumboot",
+      "brand": "Mallmoon",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon 15-inch Knee Gumboot is a trusted knee length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 233
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-knee-length-acme-challenger-knee-boot",
+      "name": "Acme Challenger Knee Boot",
+      "brand": "Acme",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Challenger Knee Boot is a trusted knee length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 76
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-knee-length-hunter-knee-length-pvc",
+      "name": "Hunter Knee Length PVC",
+      "brand": "Hunter",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Hunter Knee Length PVC is a trusted knee length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 197
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-knee-length-neosafe-knee-gumboot",
+      "name": "Neosafe Knee Gumboot",
+      "brand": "Neosafe",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Knee Gumboot is a trusted knee length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 49
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-knee-length-liberty-k-15-knee-boot",
+      "name": "Liberty K-15 Knee Boot",
+      "brand": "Liberty",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty K-15 Knee Boot is a trusted knee length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 21
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-ankle-length-acme-ankle-gumboot-ag-10",
+      "name": "Acme Ankle Gumboot AG-10",
+      "brand": "Acme",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Ankle Gumboot AG-10 is a trusted ankle length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 170
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-ankle-length-hunter-short-ankle-boot",
+      "name": "Hunter Short Ankle Boot",
+      "brand": "Hunter",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Hunter Short Ankle Boot is a trusted ankle length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 76
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-ankle-length-mallmoon-ankle-pvc-boot",
+      "name": "Mallmoon Ankle PVC Boot",
+      "brand": "Mallmoon",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Ankle PVC Boot is a trusted ankle length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 38
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-ankle-length-neosafe-ankle-gumboot",
+      "name": "Neosafe Ankle Gumboot",
+      "brand": "Neosafe",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Ankle Gumboot is a trusted ankle length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 236
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-ankle-length-liberty-ankle-safety-boot",
+      "name": "Liberty Ankle Safety Boot",
+      "brand": "Liberty",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty Ankle Safety Boot is a trusted ankle length option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 64
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-food-grade-food-grade-white-gumboot-fg-01",
+      "name": "Food Grade White Gumboot FG-01",
+      "brand": "Food",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Food Grade White Gumboot FG-01 is a trusted food grade option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 40
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-food-grade-mallmoon-fda-approved-boot",
+      "name": "Mallmoon FDA Approved Boot",
+      "brand": "Mallmoon",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon FDA Approved Boot is a trusted food grade option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 228
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-food-grade-hunter-food-processing-boot",
+      "name": "Hunter Food Processing Boot",
+      "brand": "Hunter",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Hunter Food Processing Boot is a trusted food grade option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 218
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-food-grade-acme-hygiene-gumboot",
+      "name": "Acme Hygiene Gumboot",
+      "brand": "Acme",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Hygiene Gumboot is a trusted food grade option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 138
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-food-grade-neosafe-food-grade-boot",
+      "name": "Neosafe Food Grade Boot",
+      "brand": "Neosafe",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Food Grade Boot is a trusted food grade option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 109
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-chemical-resistant-chemical-resistant-cr-boot",
+      "name": "Chemical Resistant CR Boot",
+      "brand": "Chemical",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Chemical Resistant CR Boot is a trusted chemical resistant option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 98
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-chemical-resistant-hunter-cr-acid-gumboot",
+      "name": "Hunter CR Acid Gumboot",
+      "brand": "Hunter",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Hunter CR Acid Gumboot is a trusted chemical resistant option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 224
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-chemical-resistant-mallmoon-chemical-pvc-boot",
+      "name": "Mallmoon Chemical PVC Boot",
+      "brand": "Mallmoon",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Chemical PVC Boot is a trusted chemical resistant option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 195
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-chemical-resistant-acme-hazmat-gumboot",
+      "name": "Acme Hazmat Gumboot",
+      "brand": "Acme",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Hazmat Gumboot is a trusted chemical resistant option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 107
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-chemical-resistant-neosafe-chemical-boot",
+      "name": "Neosafe Chemical Boot",
+      "brand": "Neosafe",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Chemical Boot is a trusted chemical resistant option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 208
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-steel-toe-gumboots-mallmoon-steel-toe-pvc-gumboot",
+      "name": "Mallmoon Steel Toe PVC Gumboot",
+      "brand": "Mallmoon",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Steel Toe PVC Gumboot is a trusted steel toe gumboots option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 48
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-steel-toe-gumboots-hunter-steel-toe-safety-boot",
+      "name": "Hunter Steel Toe Safety Boot",
+      "brand": "Hunter",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Hunter Steel Toe Safety Boot is a trusted steel toe gumboots option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 129
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-steel-toe-gumboots-acme-steel-toe-gumboot-st-01",
+      "name": "Acme Steel Toe Gumboot ST-01",
+      "brand": "Acme",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Acme Steel Toe Gumboot ST-01 is a trusted steel toe gumboots option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 153
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-steel-toe-gumboots-liberty-steel-toe-pvc-boot",
+      "name": "Liberty Steel Toe PVC Boot",
+      "brand": "Liberty",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Liberty Steel Toe PVC Boot is a trusted steel toe gumboots option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 217
+    },
+    {
+      "id": "nav-cat-pvc-gumboots-steel-toe-gumboots-neosafe-steel-toe-gumboot",
+      "name": "Neosafe Steel Toe Gumboot",
+      "brand": "Neosafe",
+      "categoryId": "cat-pvc-gumboots",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Steel Toe Gumboot is a trusted steel toe gumboots option in our pvc gumboots range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 150
+    },
+    {
+      "id": "nav-cat-reflective-jackets-orange-mesh-orange-mesh-jacket-om-01",
+      "name": "Orange Mesh Jacket OM-01",
+      "brand": "Orange",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Orange Mesh Jacket OM-01 is a trusted orange mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 133
+    },
+    {
+      "id": "nav-cat-reflective-jackets-orange-mesh-3m-orange-reflective-jacket",
+      "name": "3M Orange Reflective Jacket",
+      "brand": "3M",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Orange Reflective Jacket is a trusted orange mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 103
+    },
+    {
+      "id": "nav-cat-reflective-jackets-orange-mesh-mallmoon-orange-safety-vest",
+      "name": "Mallmoon Orange Safety Vest",
+      "brand": "Mallmoon",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Orange Safety Vest is a trusted orange mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 150
+    },
+    {
+      "id": "nav-cat-reflective-jackets-orange-mesh-karam-orange-mesh-vest",
+      "name": "Karam Orange Mesh Vest",
+      "brand": "Karam",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Orange Mesh Vest is a trusted orange mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 100
+    },
+    {
+      "id": "nav-cat-reflective-jackets-orange-mesh-neosafe-orange-jacket",
+      "name": "Neosafe Orange Jacket",
+      "brand": "Neosafe",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Orange Jacket is a trusted orange mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 218
+    },
+    {
+      "id": "nav-cat-reflective-jackets-green-mesh-green-mesh-safety-jacket",
+      "name": "Green Mesh Safety Jacket",
+      "brand": "Green",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Green Mesh Safety Jacket is a trusted green mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 135
+    },
+    {
+      "id": "nav-cat-reflective-jackets-green-mesh-karam-green-reflective-vest",
+      "name": "Karam Green Reflective Vest",
+      "brand": "Karam",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Green Reflective Vest is a trusted green mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 150
+    },
+    {
+      "id": "nav-cat-reflective-jackets-green-mesh-mallmoon-green-mesh-jacket",
+      "name": "Mallmoon Green Mesh Jacket",
+      "brand": "Mallmoon",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Green Mesh Jacket is a trusted green mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 102
+    },
+    {
+      "id": "nav-cat-reflective-jackets-green-mesh-3m-green-safety-vest",
+      "name": "3M Green Safety Vest",
+      "brand": "3M",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Green Safety Vest is a trusted green mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 171
+    },
+    {
+      "id": "nav-cat-reflective-jackets-green-mesh-neosafe-green-jacket",
+      "name": "Neosafe Green Jacket",
+      "brand": "Neosafe",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Green Jacket is a trusted green mesh option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 22
+    },
+    {
+      "id": "nav-cat-reflective-jackets-polyester-polyester-reflective-jacket-rj-p1",
+      "name": "Polyester Reflective Jacket RJ-P1",
+      "brand": "Polyester",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Polyester Reflective Jacket RJ-P1 is a trusted polyester option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 109
+    },
+    {
+      "id": "nav-cat-reflective-jackets-polyester-karam-polyester-vest",
+      "name": "Karam Polyester Vest",
+      "brand": "Karam",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Polyester Vest is a trusted polyester option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 206
+    },
+    {
+      "id": "nav-cat-reflective-jackets-polyester-mallmoon-poly-safety-jacket",
+      "name": "Mallmoon Poly Safety Jacket",
+      "brand": "Mallmoon",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Poly Safety Jacket is a trusted polyester option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 181
+    },
+    {
+      "id": "nav-cat-reflective-jackets-polyester-3m-polyester-reflective",
+      "name": "3M Polyester Reflective",
+      "brand": "3M",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Polyester Reflective is a trusted polyester option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 32
+    },
+    {
+      "id": "nav-cat-reflective-jackets-polyester-allen-cooper-poly-vest",
+      "name": "Allen Cooper Poly Vest",
+      "brand": "Allen Cooper",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Allen Cooper Poly Vest is a trusted polyester option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 178
+    },
+    {
+      "id": "nav-cat-reflective-jackets-cotton-cotton-safety-jacket-rj-c1",
+      "name": "Cotton Safety Jacket RJ-C1",
+      "brand": "Cotton",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Cotton Safety Jacket RJ-C1 is a trusted cotton option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 79
+    },
+    {
+      "id": "nav-cat-reflective-jackets-cotton-karam-cotton-reflective-vest",
+      "name": "Karam Cotton Reflective Vest",
+      "brand": "Karam",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Cotton Reflective Vest is a trusted cotton option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 167
+    },
+    {
+      "id": "nav-cat-reflective-jackets-cotton-mallmoon-cotton-jacket",
+      "name": "Mallmoon Cotton Jacket",
+      "brand": "Mallmoon",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Cotton Jacket is a trusted cotton option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 138
+    },
+    {
+      "id": "nav-cat-reflective-jackets-cotton-neosafe-cotton-safety-vest",
+      "name": "Neosafe Cotton Safety Vest",
+      "brand": "Neosafe",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Cotton Safety Vest is a trusted cotton option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 139
+    },
+    {
+      "id": "nav-cat-reflective-jackets-cotton-hillson-cotton-reflective",
+      "name": "Hillson Cotton Reflective",
+      "brand": "Hillson",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Hillson Cotton Reflective is a trusted cotton option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 27
+    },
+    {
+      "id": "nav-cat-reflective-jackets-survey-jackets-survey-reflective-jacket-sr-01",
+      "name": "Survey Reflective Jacket SR-01",
+      "brand": "Survey",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Survey Reflective Jacket SR-01 is a trusted survey jackets option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 89
+    },
+    {
+      "id": "nav-cat-reflective-jackets-survey-jackets-3m-survey-safety-vest",
+      "name": "3M Survey Safety Vest",
+      "brand": "3M",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Survey Safety Vest is a trusted survey jackets option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 224
+    },
+    {
+      "id": "nav-cat-reflective-jackets-survey-jackets-karam-survey-jacket-pro",
+      "name": "Karam Survey Jacket Pro",
+      "brand": "Karam",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Survey Jacket Pro is a trusted survey jackets option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 177
+    },
+    {
+      "id": "nav-cat-reflective-jackets-survey-jackets-mallmoon-survey-reflective-vest",
+      "name": "Mallmoon Survey Reflective Vest",
+      "brand": "Mallmoon",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Survey Reflective Vest is a trusted survey jackets option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 72
+    },
+    {
+      "id": "nav-cat-reflective-jackets-survey-jackets-neosafe-survey-jacket",
+      "name": "Neosafe Survey Jacket",
+      "brand": "Neosafe",
+      "categoryId": "cat-reflective-jackets",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Survey Jacket is a trusted survey jackets option in our reflective jackets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 123
+    },
+    {
+      "id": "nav-cat-safety-helmets-hdpe-helmets-karam-pn-521-hdpe-helmet",
+      "name": "Karam PN 521 HDPE Helmet",
+      "brand": "Karam",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam PN 521 HDPE Helmet is a trusted hdpe helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 173
+    },
+    {
+      "id": "nav-cat-safety-helmets-hdpe-helmets-mallmoon-hdpe-safety-helmet",
+      "name": "Mallmoon HDPE Safety Helmet",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon HDPE Safety Helmet is a trusted hdpe helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 156
+    },
+    {
+      "id": "nav-cat-safety-helmets-hdpe-helmets-3m-hdpe-industrial-helmet",
+      "name": "3M HDPE Industrial Helmet",
+      "brand": "3M",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "3M HDPE Industrial Helmet is a trusted hdpe helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 158
+    },
+    {
+      "id": "nav-cat-safety-helmets-hdpe-helmets-neosafe-hdpe-helmet",
+      "name": "Neosafe HDPE Helmet",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe HDPE Helmet is a trusted hdpe helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 113
+    },
+    {
+      "id": "nav-cat-safety-helmets-hdpe-helmets-allen-cooper-hdpe-helmet",
+      "name": "Allen Cooper HDPE Helmet",
+      "brand": "Allen Cooper",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Allen Cooper HDPE Helmet is a trusted hdpe helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 94
+    },
+    {
+      "id": "nav-cat-safety-helmets-ratchet-type-karam-ratchet-helmet-pn-561",
+      "name": "Karam Ratchet Helmet PN-561",
+      "brand": "Karam",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Ratchet Helmet PN-561 is a trusted ratchet type option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 152
+    },
+    {
+      "id": "nav-cat-safety-helmets-ratchet-type-3m-ratchet-adjustment-helmet",
+      "name": "3M Ratchet Adjustment Helmet",
+      "brand": "3M",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Ratchet Adjustment Helmet is a trusted ratchet type option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 177
+    },
+    {
+      "id": "nav-cat-safety-helmets-ratchet-type-mallmoon-ratchet-helmet",
+      "name": "Mallmoon Ratchet Helmet",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Ratchet Helmet is a trusted ratchet type option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 236
+    },
+    {
+      "id": "nav-cat-safety-helmets-ratchet-type-neosafe-ratchet-type-helmet",
+      "name": "Neosafe Ratchet Type Helmet",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Ratchet Type Helmet is a trusted ratchet type option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 144
+    },
+    {
+      "id": "nav-cat-safety-helmets-ratchet-type-venus-ratchet-helmet",
+      "name": "Venus Ratchet Helmet",
+      "brand": "Venus",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Venus Ratchet Helmet is a trusted ratchet type option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 82
+    },
+    {
+      "id": "nav-cat-safety-helmets-ventilated-ventilated-safety-helmet-vh-01",
+      "name": "Ventilated Safety Helmet VH-01",
+      "brand": "Ventilated",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Ventilated Safety Helmet VH-01 is a trusted ventilated option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 192
+    },
+    {
+      "id": "nav-cat-safety-helmets-ventilated-karam-ventilated-helmet",
+      "name": "Karam Ventilated Helmet",
+      "brand": "Karam",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Ventilated Helmet is a trusted ventilated option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 93
+    },
+    {
+      "id": "nav-cat-safety-helmets-ventilated-3m-vent-air-helmet",
+      "name": "3M Vent Air Helmet",
+      "brand": "3M",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Vent Air Helmet is a trusted ventilated option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 122
+    },
+    {
+      "id": "nav-cat-safety-helmets-ventilated-mallmoon-air-flow-helmet",
+      "name": "Mallmoon Air Flow Helmet",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Air Flow Helmet is a trusted ventilated option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 85
+    },
+    {
+      "id": "nav-cat-safety-helmets-ventilated-neosafe-ventilated-helmet",
+      "name": "Neosafe Ventilated Helmet",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Ventilated Helmet is a trusted ventilated option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 170
+    },
+    {
+      "id": "nav-cat-safety-helmets-with-chin-strap-chin-strap-helmet-cs-01",
+      "name": "Chin Strap Helmet CS-01",
+      "brand": "Chin",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Chin Strap Helmet CS-01 is a trusted with chin strap option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 190
+    },
+    {
+      "id": "nav-cat-safety-helmets-with-chin-strap-karam-helmet-with-chin-strap",
+      "name": "Karam Helmet with Chin Strap",
+      "brand": "Karam",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Helmet with Chin Strap is a trusted with chin strap option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 176
+    },
+    {
+      "id": "nav-cat-safety-helmets-with-chin-strap-3m-chin-strap-safety-helmet",
+      "name": "3M Chin Strap Safety Helmet",
+      "brand": "3M",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Chin Strap Safety Helmet is a trusted with chin strap option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 108
+    },
+    {
+      "id": "nav-cat-safety-helmets-with-chin-strap-mallmoon-chin-strap-helmet",
+      "name": "Mallmoon Chin Strap Helmet",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Chin Strap Helmet is a trusted with chin strap option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 25
+    },
+    {
+      "id": "nav-cat-safety-helmets-with-chin-strap-venus-chin-strap-helmet",
+      "name": "Venus Chin Strap Helmet",
+      "brand": "Venus",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Venus Chin Strap Helmet is a trusted with chin strap option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 135
+    },
+    {
+      "id": "nav-cat-safety-helmets-abs-helmets-karam-abs-safety-helmet-ab-01",
+      "name": "Karam ABS Safety Helmet AB-01",
+      "brand": "Karam",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam ABS Safety Helmet AB-01 is a trusted abs helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 23
+    },
+    {
+      "id": "nav-cat-safety-helmets-abs-helmets-3m-abs-industrial-helmet",
+      "name": "3M ABS Industrial Helmet",
+      "brand": "3M",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "3M ABS Industrial Helmet is a trusted abs helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 41
+    },
+    {
+      "id": "nav-cat-safety-helmets-abs-helmets-mallmoon-abs-helmet-pro",
+      "name": "Mallmoon ABS Helmet Pro",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon ABS Helmet Pro is a trusted abs helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 38
+    },
+    {
+      "id": "nav-cat-safety-helmets-abs-helmets-neosafe-abs-safety-helmet",
+      "name": "Neosafe ABS Safety Helmet",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe ABS Safety Helmet is a trusted abs helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 100
+    },
+    {
+      "id": "nav-cat-safety-helmets-abs-helmets-venus-abs-helmet",
+      "name": "Venus ABS Helmet",
+      "brand": "Venus",
+      "categoryId": "cat-safety-helmets",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Venus ABS Helmet is a trusted abs helmets option in our safety helmets range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 54
+    },
+    {
+      "id": "nav-cat-safety-gloves-leather-gloves-leather-driver-gloves-lg-01",
+      "name": "Leather Driver Gloves LG-01",
+      "brand": "Leather",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Leather Driver Gloves LG-01 is a trusted leather gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 189
+    },
+    {
+      "id": "nav-cat-safety-gloves-leather-gloves-karam-leather-gloves",
+      "name": "Karam Leather Gloves",
+      "brand": "Karam",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Leather Gloves is a trusted leather gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 36
+    },
+    {
+      "id": "nav-cat-safety-gloves-leather-gloves-mallmoon-leather-work-glove",
+      "name": "Mallmoon Leather Work Glove",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Leather Work Glove is a trusted leather gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 196
+    },
+    {
+      "id": "nav-cat-safety-gloves-leather-gloves-allen-cooper-leather-gloves",
+      "name": "Allen Cooper Leather Gloves",
+      "brand": "Allen Cooper",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Allen Cooper Leather Gloves is a trusted leather gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 90
+    },
+    {
+      "id": "nav-cat-safety-gloves-leather-gloves-hillson-leather-driver-gloves",
+      "name": "Hillson Leather Driver Gloves",
+      "brand": "Hillson",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Hillson Leather Driver Gloves is a trusted leather gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 236
+    },
+    {
+      "id": "nav-cat-safety-gloves-latex-coated-latex-coated-grip-gloves",
+      "name": "Latex Coated Grip Gloves",
+      "brand": "Latex",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Latex Coated Grip Gloves is a trusted latex coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 88
+    },
+    {
+      "id": "nav-cat-safety-gloves-latex-coated-karam-latex-palm-gloves",
+      "name": "Karam Latex Palm Gloves",
+      "brand": "Karam",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Latex Palm Gloves is a trusted latex coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 67
+    },
+    {
+      "id": "nav-cat-safety-gloves-latex-coated-mallmoon-latex-coated-gloves",
+      "name": "Mallmoon Latex Coated Gloves",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Latex Coated Gloves is a trusted latex coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 77
+    },
+    {
+      "id": "nav-cat-safety-gloves-latex-coated-3m-latex-grip-gloves",
+      "name": "3M Latex Grip Gloves",
+      "brand": "3M",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Latex Grip Gloves is a trusted latex coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 43
+    },
+    {
+      "id": "nav-cat-safety-gloves-latex-coated-neosafe-latex-coated-gloves",
+      "name": "Neosafe Latex Coated Gloves",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Latex Coated Gloves is a trusted latex coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 172
+    },
+    {
+      "id": "nav-cat-safety-gloves-cut-resistant-cut-resistant-level-5-gloves",
+      "name": "Cut Resistant Level 5 Gloves",
+      "brand": "Cut",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Cut Resistant Level 5 Gloves is a trusted cut resistant option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 98
+    },
+    {
+      "id": "nav-cat-safety-gloves-cut-resistant-karam-cut-proof-gloves",
+      "name": "Karam Cut Proof Gloves",
+      "brand": "Karam",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Cut Proof Gloves is a trusted cut resistant option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 137
+    },
+    {
+      "id": "nav-cat-safety-gloves-cut-resistant-3m-cut-resistant-gloves",
+      "name": "3M Cut Resistant Gloves",
+      "brand": "3M",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Cut Resistant Gloves is a trusted cut resistant option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 216
+    },
+    {
+      "id": "nav-cat-safety-gloves-cut-resistant-mallmoon-cut-safe-gloves",
+      "name": "Mallmoon Cut Safe Gloves",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Cut Safe Gloves is a trusted cut resistant option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 127
+    },
+    {
+      "id": "nav-cat-safety-gloves-cut-resistant-honeywell-cut-gloves",
+      "name": "Honeywell Cut Gloves",
+      "brand": "Honeywell",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Honeywell Cut Gloves is a trusted cut resistant option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 136
+    },
+    {
+      "id": "nav-cat-safety-gloves-welding-gloves-welding-heat-resistant-gloves",
+      "name": "Welding Heat Resistant Gloves",
+      "brand": "Welding",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Welding Heat Resistant Gloves is a trusted welding gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 130
+    },
+    {
+      "id": "nav-cat-safety-gloves-welding-gloves-karam-welding-gloves",
+      "name": "Karam Welding Gloves",
+      "brand": "Karam",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Welding Gloves is a trusted welding gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 65
+    },
+    {
+      "id": "nav-cat-safety-gloves-welding-gloves-mallmoon-welding-gauntlet",
+      "name": "Mallmoon Welding Gauntlet",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Welding Gauntlet is a trusted welding gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 175
+    },
+    {
+      "id": "nav-cat-safety-gloves-welding-gloves-allen-cooper-welding-gloves",
+      "name": "Allen Cooper Welding Gloves",
+      "brand": "Allen Cooper",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Allen Cooper Welding Gloves is a trusted welding gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 154
+    },
+    {
+      "id": "nav-cat-safety-gloves-welding-gloves-neosafe-welding-gloves",
+      "name": "Neosafe Welding Gloves",
+      "brand": "Neosafe",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Welding Gloves is a trusted welding gloves option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 163
+    },
+    {
+      "id": "nav-cat-safety-gloves-nitrile-coated-nitrile-coated-grip-gloves-ng-01",
+      "name": "Nitrile Coated Grip Gloves NG-01",
+      "brand": "Nitrile",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Nitrile Coated Grip Gloves NG-01 is a trusted nitrile coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 67
+    },
+    {
+      "id": "nav-cat-safety-gloves-nitrile-coated-karam-nitrile-palm-gloves",
+      "name": "Karam Nitrile Palm Gloves",
+      "brand": "Karam",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Nitrile Palm Gloves is a trusted nitrile coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 130
+    },
+    {
+      "id": "nav-cat-safety-gloves-nitrile-coated-3m-nitrile-coated-gloves",
+      "name": "3M Nitrile Coated Gloves",
+      "brand": "3M",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Nitrile Coated Gloves is a trusted nitrile coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 28
+    },
+    {
+      "id": "nav-cat-safety-gloves-nitrile-coated-mallmoon-nitrile-work-gloves",
+      "name": "Mallmoon Nitrile Work Gloves",
+      "brand": "Mallmoon",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Nitrile Work Gloves is a trusted nitrile coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 127
+    },
+    {
+      "id": "nav-cat-safety-gloves-nitrile-coated-honeywell-nitrile-gloves",
+      "name": "Honeywell Nitrile Gloves",
+      "brand": "Honeywell",
+      "categoryId": "cat-safety-gloves",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Honeywell Nitrile Gloves is a trusted nitrile coated option in our safety gloves range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 87
+    },
+    {
+      "id": "nav-cat-welding-arc-machines-arc-200a-welding-machine",
+      "name": "ARC 200A Welding Machine",
+      "brand": "ARC",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "ARC 200A Welding Machine is a trusted arc machines option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 70
+    },
+    {
+      "id": "nav-cat-welding-arc-machines-ador-champ-arc-250",
+      "name": "Ador Champ ARC 250",
+      "brand": "Ador",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Ador Champ ARC 250 is a trusted arc machines option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 67
+    },
+    {
+      "id": "nav-cat-welding-arc-machines-esab-buddy-arc-400",
+      "name": "Esab Buddy ARC 400",
+      "brand": "Esab",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Esab Buddy ARC 400 is a trusted arc machines option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 89
+    },
+    {
+      "id": "nav-cat-welding-arc-machines-rilon-arc-200i",
+      "name": "Rilon ARC 200i",
+      "brand": "Rilon",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Rilon ARC 200i is a trusted arc machines option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 174
+    },
+    {
+      "id": "nav-cat-welding-arc-machines-mallmoon-arc-welder-180a",
+      "name": "Mallmoon ARC Welder 180A",
+      "brand": "Mallmoon",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon ARC Welder 180A is a trusted arc machines option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 43
+    },
+    {
+      "id": "nav-cat-welding-mig-welders-mig-250-welding-machine",
+      "name": "MIG 250 Welding Machine",
+      "brand": "MIG",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "MIG 250 Welding Machine is a trusted mig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 114
+    },
+    {
+      "id": "nav-cat-welding-mig-welders-ador-mig-250",
+      "name": "Ador MIG 250",
+      "brand": "Ador",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Ador MIG 250 is a trusted mig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 111
+    },
+    {
+      "id": "nav-cat-welding-mig-welders-esab-mig-400i",
+      "name": "Esab MIG 400i",
+      "brand": "Esab",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Esab MIG 400i is a trusted mig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 177
+    },
+    {
+      "id": "nav-cat-welding-mig-welders-rilon-mig-250g",
+      "name": "Rilon MIG 250G",
+      "brand": "Rilon",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Rilon MIG 250G is a trusted mig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 59
+    },
+    {
+      "id": "nav-cat-welding-mig-welders-miller-mig-welder",
+      "name": "Miller MIG Welder",
+      "brand": "Miller",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Miller MIG Welder is a trusted mig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 71
+    },
+    {
+      "id": "nav-cat-welding-welding-rods-ms-welding-rod-3-15mm",
+      "name": "MS Welding Rod 3.15mm",
+      "brand": "MS",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "MS Welding Rod 3.15mm is a trusted welding rods option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 229
+    },
+    {
+      "id": "nav-cat-welding-welding-rods-ador-welding-electrode-e6013",
+      "name": "Ador Welding Electrode E6013",
+      "brand": "Ador",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Ador Welding Electrode E6013 is a trusted welding rods option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 79
+    },
+    {
+      "id": "nav-cat-welding-welding-rods-esab-ok-46-00-electrode",
+      "name": "Esab OK 46.00 Electrode",
+      "brand": "Esab",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Esab OK 46.00 Electrode is a trusted welding rods option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 237
+    },
+    {
+      "id": "nav-cat-welding-welding-rods-golden-bridge-welding-rod",
+      "name": "Golden Bridge Welding Rod",
+      "brand": "Golden",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Golden Bridge Welding Rod is a trusted welding rods option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 91
+    },
+    {
+      "id": "nav-cat-welding-welding-rods-hb-welding-electrode",
+      "name": "HB Welding Electrode",
+      "brand": "HB",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "HB Welding Electrode is a trusted welding rods option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 139
+    },
+    {
+      "id": "nav-cat-welding-helmets-gloves-auto-darkening-welding-helmet",
+      "name": "Auto Darkening Welding Helmet",
+      "brand": "Auto",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Auto Darkening Welding Helmet is a trusted helmets & gloves option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 75
+    },
+    {
+      "id": "nav-cat-welding-helmets-gloves-karam-welding-helmet",
+      "name": "Karam Welding Helmet",
+      "brand": "Karam",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Welding Helmet is a trusted helmets & gloves option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 163
+    },
+    {
+      "id": "nav-cat-welding-helmets-gloves-3m-speedglas-helmet",
+      "name": "3M Speedglas Helmet",
+      "brand": "3M",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Speedglas Helmet is a trusted helmets & gloves option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 119
+    },
+    {
+      "id": "nav-cat-welding-helmets-gloves-mallmoon-welding-helmet",
+      "name": "Mallmoon Welding Helmet",
+      "brand": "Mallmoon",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Welding Helmet is a trusted helmets & gloves option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 68
+    },
+    {
+      "id": "nav-cat-welding-helmets-gloves-welding-glove-set",
+      "name": "Welding Glove Set",
+      "brand": "Welding",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Welding Glove Set is a trusted helmets & gloves option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 228
+    },
+    {
+      "id": "nav-cat-welding-tig-welders-tig-200a-welding-machine",
+      "name": "TIG 200A Welding Machine",
+      "brand": "TIG",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "TIG 200A Welding Machine is a trusted tig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 39
+    },
+    {
+      "id": "nav-cat-welding-tig-welders-ador-tig-250-welder",
+      "name": "Ador TIG 250 Welder",
+      "brand": "Ador",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Ador TIG 250 Welder is a trusted tig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 110
+    },
+    {
+      "id": "nav-cat-welding-tig-welders-esab-tig-400i",
+      "name": "Esab TIG 400i",
+      "brand": "Esab",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Esab TIG 400i is a trusted tig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 94
+    },
+    {
+      "id": "nav-cat-welding-tig-welders-rilon-tig-200g",
+      "name": "Rilon TIG 200G",
+      "brand": "Rilon",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Rilon TIG 200G is a trusted tig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 223
+    },
+    {
+      "id": "nav-cat-welding-tig-welders-miller-tig-welder",
+      "name": "Miller TIG Welder",
+      "brand": "Miller",
+      "categoryId": "cat-welding",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Miller TIG Welder is a trusted tig welders option in our welding machine & accessories range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 222
+    },
+    {
+      "id": "nav-cat-disposable-ppe-face-masks-3-ply-disposable-face-mask",
+      "name": "3 Ply Disposable Face Mask",
+      "brand": "3",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "3 Ply Disposable Face Mask is a trusted face masks option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 207
+    },
+    {
+      "id": "nav-cat-disposable-ppe-face-masks-n95-respirator-mask",
+      "name": "N95 Respirator Mask",
+      "brand": "N95",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "N95 Respirator Mask is a trusted face masks option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 69
+    },
+    {
+      "id": "nav-cat-disposable-ppe-face-masks-surgical-face-mask-box",
+      "name": "Surgical Face Mask Box",
+      "brand": "Surgical",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Surgical Face Mask Box is a trusted face masks option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 105
+    },
+    {
+      "id": "nav-cat-disposable-ppe-face-masks-karam-disposable-mask",
+      "name": "Karam Disposable Mask",
+      "brand": "Karam",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Disposable Mask is a trusted face masks option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 101
+    },
+    {
+      "id": "nav-cat-disposable-ppe-face-masks-mallmoon-3-ply-mask",
+      "name": "Mallmoon 3 Ply Mask",
+      "brand": "Mallmoon",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon 3 Ply Mask is a trusted face masks option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 159
+    },
+    {
+      "id": "nav-cat-disposable-ppe-shoe-covers-disposable-shoe-cover-pack",
+      "name": "Disposable Shoe Cover Pack",
+      "brand": "Disposable",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Disposable Shoe Cover Pack is a trusted shoe covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 236
+    },
+    {
+      "id": "nav-cat-disposable-ppe-shoe-covers-pp-shoe-cover-blue",
+      "name": "PP Shoe Cover Blue",
+      "brand": "PP",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "PP Shoe Cover Blue is a trusted shoe covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 156
+    },
+    {
+      "id": "nav-cat-disposable-ppe-shoe-covers-mallmoon-shoe-cover",
+      "name": "Mallmoon Shoe Cover",
+      "brand": "Mallmoon",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Shoe Cover is a trusted shoe covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 86
+    },
+    {
+      "id": "nav-cat-disposable-ppe-shoe-covers-karam-disposable-shoe-cover",
+      "name": "Karam Disposable Shoe Cover",
+      "brand": "Karam",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Disposable Shoe Cover is a trusted shoe covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 22
+    },
+    {
+      "id": "nav-cat-disposable-ppe-shoe-covers-neosafe-shoe-cover",
+      "name": "Neosafe Shoe Cover",
+      "brand": "Neosafe",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Shoe Cover is a trusted shoe covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 194
+    },
+    {
+      "id": "nav-cat-disposable-ppe-head-covers-disposable-bouffant-cap",
+      "name": "Disposable Bouffant Cap",
+      "brand": "Disposable",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Disposable Bouffant Cap is a trusted head covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 43
+    },
+    {
+      "id": "nav-cat-disposable-ppe-head-covers-pp-head-cover-white",
+      "name": "PP Head Cover White",
+      "brand": "PP",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "PP Head Cover White is a trusted head covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 112
+    },
+    {
+      "id": "nav-cat-disposable-ppe-head-covers-mallmoon-hair-net-cap",
+      "name": "Mallmoon Hair Net Cap",
+      "brand": "Mallmoon",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Hair Net Cap is a trusted head covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 46
+    },
+    {
+      "id": "nav-cat-disposable-ppe-head-covers-karam-head-cover",
+      "name": "Karam Head Cover",
+      "brand": "Karam",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Head Cover is a trusted head covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 56
+    },
+    {
+      "id": "nav-cat-disposable-ppe-head-covers-neosafe-bouffant-cap",
+      "name": "Neosafe Bouffant Cap",
+      "brand": "Neosafe",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Bouffant Cap is a trusted head covers option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 71
+    },
+    {
+      "id": "nav-cat-disposable-ppe-aprons-disposable-pp-apron",
+      "name": "Disposable PP Apron",
+      "brand": "Disposable",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Disposable PP Apron is a trusted aprons option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 103
+    },
+    {
+      "id": "nav-cat-disposable-ppe-aprons-ldpe-disposable-apron",
+      "name": "LDPE Disposable Apron",
+      "brand": "LDPE",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "LDPE Disposable Apron is a trusted aprons option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 139
+    },
+    {
+      "id": "nav-cat-disposable-ppe-aprons-mallmoon-safety-apron",
+      "name": "Mallmoon Safety Apron",
+      "brand": "Mallmoon",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Safety Apron is a trusted aprons option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 148
+    },
+    {
+      "id": "nav-cat-disposable-ppe-aprons-karam-disposable-apron",
+      "name": "Karam Disposable Apron",
+      "brand": "Karam",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Disposable Apron is a trusted aprons option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 173
+    },
+    {
+      "id": "nav-cat-disposable-ppe-aprons-neosafe-pp-apron",
+      "name": "Neosafe PP Apron",
+      "brand": "Neosafe",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe PP Apron is a trusted aprons option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 75
+    },
+    {
+      "id": "nav-cat-disposable-ppe-coveralls-disposable-coverall-cc-01",
+      "name": "Disposable Coverall CC-01",
+      "brand": "Disposable",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Disposable Coverall CC-01 is a trusted coveralls option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 30
+    },
+    {
+      "id": "nav-cat-disposable-ppe-coveralls-pp-coverall-white-pack",
+      "name": "PP Coverall White Pack",
+      "brand": "PP",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "PP Coverall White Pack is a trusted coveralls option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 109
+    },
+    {
+      "id": "nav-cat-disposable-ppe-coveralls-mallmoon-protective-coverall",
+      "name": "Mallmoon Protective Coverall",
+      "brand": "Mallmoon",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Protective Coverall is a trusted coveralls option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 68
+    },
+    {
+      "id": "nav-cat-disposable-ppe-coveralls-karam-disposable-coverall",
+      "name": "Karam Disposable Coverall",
+      "brand": "Karam",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Disposable Coverall is a trusted coveralls option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 157
+    },
+    {
+      "id": "nav-cat-disposable-ppe-coveralls-neosafe-coverall-suit",
+      "name": "Neosafe Coverall Suit",
+      "brand": "Neosafe",
+      "categoryId": "cat-disposable-ppe",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Coverall Suit is a trusted coveralls option in our disposable ppe products range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 132
+    },
+    {
+      "id": "nav-cat-face-ear-safety-goggles-clear-safety-goggles-sg-01",
+      "name": "Clear Safety Goggles SG-01",
+      "brand": "Clear",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Clear Safety Goggles SG-01 is a trusted safety goggles option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 234
+    },
+    {
+      "id": "nav-cat-face-ear-safety-goggles-3m-securefit-goggles",
+      "name": "3M SecureFit Goggles",
+      "brand": "3M",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "3M SecureFit Goggles is a trusted safety goggles option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 191
+    },
+    {
+      "id": "nav-cat-face-ear-safety-goggles-karam-safety-goggles",
+      "name": "Karam Safety Goggles",
+      "brand": "Karam",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Safety Goggles is a trusted safety goggles option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 36
+    },
+    {
+      "id": "nav-cat-face-ear-safety-goggles-mallmoon-chemical-goggles",
+      "name": "Mallmoon Chemical Goggles",
+      "brand": "Mallmoon",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Chemical Goggles is a trusted safety goggles option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 124
+    },
+    {
+      "id": "nav-cat-face-ear-safety-goggles-uvex-safety-goggles",
+      "name": "Uvex Safety Goggles",
+      "brand": "Uvex",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Uvex Safety Goggles is a trusted safety goggles option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 114
+    },
+    {
+      "id": "nav-cat-face-ear-face-shields-polycarbonate-face-shield",
+      "name": "Polycarbonate Face Shield",
+      "brand": "Polycarbonate",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Polycarbonate Face Shield is a trusted face shields option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 99
+    },
+    {
+      "id": "nav-cat-face-ear-face-shields-3m-face-shield",
+      "name": "3M Face Shield",
+      "brand": "3M",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Face Shield is a trusted face shields option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 44
+    },
+    {
+      "id": "nav-cat-face-ear-face-shields-karam-face-shield-fs-01",
+      "name": "Karam Face Shield FS-01",
+      "brand": "Karam",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Face Shield FS-01 is a trusted face shields option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 73
+    },
+    {
+      "id": "nav-cat-face-ear-face-shields-mallmoon-visor-shield",
+      "name": "Mallmoon Visor Shield",
+      "brand": "Mallmoon",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Visor Shield is a trusted face shields option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 128
+    },
+    {
+      "id": "nav-cat-face-ear-face-shields-neosafe-face-shield",
+      "name": "Neosafe Face Shield",
+      "brand": "Neosafe",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Face Shield is a trusted face shields option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 84
+    },
+    {
+      "id": "nav-cat-face-ear-ear-muffs-industrial-ear-muffs-em-01",
+      "name": "Industrial Ear Muffs EM-01",
+      "brand": "Industrial",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Industrial Ear Muffs EM-01 is a trusted ear muffs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 141
+    },
+    {
+      "id": "nav-cat-face-ear-ear-muffs-3m-peltor-ear-muffs",
+      "name": "3M Peltor Ear Muffs",
+      "brand": "3M",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Peltor Ear Muffs is a trusted ear muffs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 23
+    },
+    {
+      "id": "nav-cat-face-ear-ear-muffs-karam-ear-defender",
+      "name": "Karam Ear Defender",
+      "brand": "Karam",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Ear Defender is a trusted ear muffs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 216
+    },
+    {
+      "id": "nav-cat-face-ear-ear-muffs-mallmoon-ear-muffs",
+      "name": "Mallmoon Ear Muffs",
+      "brand": "Mallmoon",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Ear Muffs is a trusted ear muffs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 144
+    },
+    {
+      "id": "nav-cat-face-ear-ear-muffs-honeywell-ear-muffs",
+      "name": "Honeywell Ear Muffs",
+      "brand": "Honeywell",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Honeywell Ear Muffs is a trusted ear muffs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 46
+    },
+    {
+      "id": "nav-cat-face-ear-ear-plugs-foam-ear-plugs-ep-01",
+      "name": "Foam Ear Plugs EP-01",
+      "brand": "Foam",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Foam Ear Plugs EP-01 is a trusted ear plugs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 47
+    },
+    {
+      "id": "nav-cat-face-ear-ear-plugs-3m-ear-plugs-1110",
+      "name": "3M Ear Plugs 1110",
+      "brand": "3M",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Ear Plugs 1110 is a trusted ear plugs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 127
+    },
+    {
+      "id": "nav-cat-face-ear-ear-plugs-karam-ear-plugs",
+      "name": "Karam Ear Plugs",
+      "brand": "Karam",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Ear Plugs is a trusted ear plugs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 87
+    },
+    {
+      "id": "nav-cat-face-ear-ear-plugs-mallmoon-disposable-ear-plugs",
+      "name": "Mallmoon Disposable Ear Plugs",
+      "brand": "Mallmoon",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Disposable Ear Plugs is a trusted ear plugs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 234
+    },
+    {
+      "id": "nav-cat-face-ear-ear-plugs-moldex-ear-plugs",
+      "name": "Moldex Ear Plugs",
+      "brand": "Moldex",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Moldex Ear Plugs is a trusted ear plugs option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 63
+    },
+    {
+      "id": "nav-cat-face-ear-respirators-half-face-respirator-rf-01",
+      "name": "Half Face Respirator RF-01",
+      "brand": "Half",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Half Face Respirator RF-01 is a trusted respirators option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 151
+    },
+    {
+      "id": "nav-cat-face-ear-respirators-3m-respirator-mask-6200",
+      "name": "3M Respirator Mask 6200",
+      "brand": "3M",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Respirator Mask 6200 is a trusted respirators option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 215
+    },
+    {
+      "id": "nav-cat-face-ear-respirators-karam-safety-respirator",
+      "name": "Karam Safety Respirator",
+      "brand": "Karam",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Safety Respirator is a trusted respirators option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 73
+    },
+    {
+      "id": "nav-cat-face-ear-respirators-mallmoon-dust-respirator",
+      "name": "Mallmoon Dust Respirator",
+      "brand": "Mallmoon",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Dust Respirator is a trusted respirators option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 176
+    },
+    {
+      "id": "nav-cat-face-ear-respirators-honeywell-respirator",
+      "name": "Honeywell Respirator",
+      "brand": "Honeywell",
+      "categoryId": "cat-face-ear",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Honeywell Respirator is a trusted respirators option in our face & ear protection range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 218
+    },
+    {
+      "id": "nav-cat-road-safety-traffic-cones-750mm-traffic-cone",
+      "name": "750mm Traffic Cone",
+      "brand": "750mm",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "750mm Traffic Cone is a trusted traffic cones option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 39
+    },
+    {
+      "id": "nav-cat-road-safety-traffic-cones-reflective-traffic-cone-1m",
+      "name": "Reflective Traffic Cone 1m",
+      "brand": "Reflective",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Reflective Traffic Cone 1m is a trusted traffic cones option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 195
+    },
+    {
+      "id": "nav-cat-road-safety-traffic-cones-mallmoon-pvc-traffic-cone",
+      "name": "Mallmoon PVC Traffic Cone",
+      "brand": "Mallmoon",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon PVC Traffic Cone is a trusted traffic cones option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 95
+    },
+    {
+      "id": "nav-cat-road-safety-traffic-cones-karam-road-cone",
+      "name": "Karam Road Cone",
+      "brand": "Karam",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Road Cone is a trusted traffic cones option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 222
+    },
+    {
+      "id": "nav-cat-road-safety-traffic-cones-neosafe-traffic-cone",
+      "name": "Neosafe Traffic Cone",
+      "brand": "Neosafe",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Traffic Cone is a trusted traffic cones option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 216
+    },
+    {
+      "id": "nav-cat-road-safety-warning-tapes-red-white-warning-tape",
+      "name": "Red White Warning Tape",
+      "brand": "Red",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Red White Warning Tape is a trusted warning tapes option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 110
+    },
+    {
+      "id": "nav-cat-road-safety-warning-tapes-caution-barrier-tape",
+      "name": "Caution Barrier Tape",
+      "brand": "Caution",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "description": "Caution Barrier Tape is a trusted warning tapes option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 232
+    },
+    {
+      "id": "nav-cat-road-safety-warning-tapes-mallmoon-reflective-tape",
+      "name": "Mallmoon Reflective Tape",
+      "brand": "Mallmoon",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Reflective Tape is a trusted warning tapes option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 158
+    },
+    {
+      "id": "nav-cat-road-safety-warning-tapes-3m-safety-warning-tape",
+      "name": "3M Safety Warning Tape",
+      "brand": "3M",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Safety Warning Tape is a trusted warning tapes option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 116
+    },
+    {
+      "id": "nav-cat-road-safety-warning-tapes-karam-hazard-tape",
+      "name": "Karam Hazard Tape",
+      "brand": "Karam",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Hazard Tape is a trusted warning tapes option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 119
+    },
+    {
+      "id": "nav-cat-road-safety-barricades-expandable-safety-barricade",
+      "name": "Expandable Safety Barricade",
+      "brand": "Expandable",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Expandable Safety Barricade is a trusted barricades option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 86
+    },
+    {
+      "id": "nav-cat-road-safety-barricades-plastic-road-barricade",
+      "name": "Plastic Road Barricade",
+      "brand": "Plastic",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop",
+      "description": "Plastic Road Barricade is a trusted barricades option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 187
+    },
+    {
+      "id": "nav-cat-road-safety-barricades-mallmoon-safety-barrier",
+      "name": "Mallmoon Safety Barrier",
+      "brand": "Mallmoon",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Safety Barrier is a trusted barricades option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 176
+    },
+    {
+      "id": "nav-cat-road-safety-barricades-karam-road-barricade",
+      "name": "Karam Road Barricade",
+      "brand": "Karam",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Road Barricade is a trusted barricades option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 59
+    },
+    {
+      "id": "nav-cat-road-safety-barricades-neosafe-barricade",
+      "name": "Neosafe Barricade",
+      "brand": "Neosafe",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Barricade is a trusted barricades option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 199
+    },
+    {
+      "id": "nav-cat-road-safety-reflective-strips-reflective-sticker-roll",
+      "name": "Reflective Sticker Roll",
+      "brand": "Reflective",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Reflective Sticker Roll is a trusted reflective strips option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 118
+    },
+    {
+      "id": "nav-cat-road-safety-reflective-strips-3m-reflective-tape-strip",
+      "name": "3M Reflective Tape Strip",
+      "brand": "3M",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=500&auto=format&fit=crop",
+      "description": "3M Reflective Tape Strip is a trusted reflective strips option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.5,
+      "reviews": 28
+    },
+    {
+      "id": "nav-cat-road-safety-reflective-strips-mallmoon-retro-reflective-strip",
+      "name": "Mallmoon Retro Reflective Strip",
+      "brand": "Mallmoon",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Retro Reflective Strip is a trusted reflective strips option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 209
+    },
+    {
+      "id": "nav-cat-road-safety-reflective-strips-karam-reflective-band",
+      "name": "Karam Reflective Band",
+      "brand": "Karam",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Reflective Band is a trusted reflective strips option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.6,
+      "reviews": 59
+    },
+    {
+      "id": "nav-cat-road-safety-reflective-strips-neosafe-reflective-strip",
+      "name": "Neosafe Reflective Strip",
+      "brand": "Neosafe",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Reflective Strip is a trusted reflective strips option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 202
+    },
+    {
+      "id": "nav-cat-road-safety-road-signs-caution-road-sign-rs-01",
+      "name": "Caution Road Sign RS-01",
+      "brand": "Caution",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Caution Road Sign RS-01 is a trusted road signs option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.7,
+      "reviews": 70
+    },
+    {
+      "id": "nav-cat-road-safety-road-signs-reflective-speed-limit-sign",
+      "name": "Reflective Speed Limit Sign",
+      "brand": "Reflective",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Reflective Speed Limit Sign is a trusted road signs option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 131
+    },
+    {
+      "id": "nav-cat-road-safety-road-signs-mallmoon-warning-road-sign",
+      "name": "Mallmoon Warning Road Sign",
+      "brand": "Mallmoon",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=500&auto=format&fit=crop",
+      "description": "Mallmoon Warning Road Sign is a trusted road signs option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 202
+    },
+    {
+      "id": "nav-cat-road-safety-road-signs-karam-traffic-sign-board",
+      "name": "Karam Traffic Sign Board",
+      "brand": "Karam",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "description": "Karam Traffic Sign Board is a trusted road signs option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.9,
+      "reviews": 147
+    },
+    {
+      "id": "nav-cat-road-safety-road-signs-neosafe-road-safety-sign",
+      "name": "Neosafe Road Safety Sign",
+      "brand": "Neosafe",
+      "categoryId": "cat-road-safety",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "description": "Neosafe Road Safety Sign is a trusted road signs option in our road safety range. Built for daily industrial use with reliable safety performance.",
+      "rating": 4.8,
+      "reviews": 91
+    }
+  ],
+  "heroBanners": [
+    {
+      "id": "hero-offer-1",
+      "type": "offer",
+      "href": "/categories/safety-shoes",
+      "title": "Safety Shoes",
+      "tagline": "Steel toe & industrial footwear",
+      "discountLabel": "UP TO",
+      "discount": "50%",
+      "cta": "Shop Now",
+      "backgroundImage": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1400&h=600&auto=format&fit=crop",
+      "productAlt": "Safety shoes sale"
+    },
+    {
+      "id": "hero-offer-2",
+      "type": "offer",
+      "href": "/categories/welding",
+      "title": "Welding Machines",
+      "tagline": "ARC, MIG & accessories",
+      "discountLabel": "FLAT",
+      "discount": "70%",
+      "cta": "Shop Now",
+      "backgroundImage": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1400&h=600&auto=format&fit=crop",
+      "productAlt": "Welding machines sale"
+    },
+    {
+      "id": "hero-offer-3",
+      "type": "offer",
+      "href": "/categories/reflective-jackets",
+      "title": "Reflective Jackets",
+      "tagline": "High visibility workwear",
+      "discountLabel": "UP TO",
+      "discount": "50%",
+      "cta": "Shop Now",
+      "backgroundImage": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1400&h=600&auto=format&fit=crop",
+      "productAlt": "Reflective jackets sale"
+    },
+    {
+      "id": "hero-offer-4",
+      "type": "offer",
+      "href": "/categories/safety-helmets",
+      "title": "Safety Helmets",
+      "tagline": "HDPE & ratchet helmets",
+      "discountLabel": "UP TO",
+      "discount": "50%",
+      "cta": "Shop Now",
+      "backgroundImage": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1400&h=600&auto=format&fit=crop",
+      "productAlt": "Safety supplies sale"
+    }
+  ],
+  "promoBanners": [
+    {
+      "id": "promo-1",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop",
+      "alt": "Safety Shoes Offer",
+      "link": "/categories/safety-shoes"
+    },
+    {
+      "id": "promo-2",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+      "alt": "Welding Machines Offer",
+      "link": "/categories/welding"
+    },
+    {
+      "id": "promo-3",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop",
+      "alt": "Reflective Jackets Offer",
+      "link": "/categories/reflective-jackets"
+    },
+    {
+      "id": "promo-4",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=500&auto=format&fit=crop",
+      "alt": "Safety Helmets Offer",
+      "link": "/categories/safety-helmets"
+    }
+  ],
+  "pageBanners": [
+    {
+      "id": "blog",
+      "title": "Industrial Blog",
+      "subtitle": "Safety tips, procurement guides, and product insights for factories and corporate buyers.",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1400&h=500&auto=format&fit=crop"
+    },
+    {
+      "id": "get-quote",
+      "title": "Get a Quote",
+      "subtitle": "Send your product query via WhatsApp or email for pricing and bulk discounts.",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1400&h=500&auto=format&fit=crop"
+    },
+    {
+      "id": "about",
+      "title": "About Us",
+      "subtitle": "India's trusted B2B supplier for industrial safety equipment and power tools.",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&h=500&auto=format&fit=crop"
+    },
+    {
+      "id": "contact",
+      "title": "Contact Us",
+      "subtitle": "Reach us for quotes, bulk orders, and product support.",
+      "image": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1400&h=500&auto=format&fit=crop"
+    },
+    {
+      "id": "faq",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about ordering and shipping.",
+      "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=1400&h=500&auto=format&fit=crop"
+    },
+    {
+      "id": "products",
+      "title": "All Products",
+      "subtitle": "Discover our wide selection of industrial safety and power tools.",
+      "image": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=1400&h=500&auto=format&fit=crop"
+    },
+    {
+      "id": "categories",
+      "title": "All Categories",
+      "subtitle": "Browse our complete range of industrial products and safety equipment.",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1400&h=500&auto=format&fit=crop"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "blog-1",
+      "slug": "how-to-choose-industrial-safety-shoes",
+      "title": "How to Choose the Right Industrial Safety Shoes for Your Workforce",
+      "excerpt": "Steel toe, anti-slip sole, and comfort matter on long factory shifts. Learn what to check before placing a bulk safety footwear order.",
+      "category": "Safety Shoes",
+      "author": "ISM Editorial",
+      "date": "Mar 12, 2026",
+      "readTime": "5 min read",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "blog-2",
+      "slug": "reflective-jacket-buying-guide",
+      "title": "Reflective Jacket Buying Guide for Construction & Road Sites",
+      "excerpt": "High-visibility jackets reduce night-shift risks. Compare fabric weight, reflective tape quality, and ISI standards for site compliance.",
+      "category": "Reflective Jackets",
+      "author": "ISM Editorial",
+      "date": "Mar 8, 2026",
+      "readTime": "4 min read",
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "blog-3",
+      "slug": "welding-safety-essentials",
+      "title": "Welding Safety Essentials Every Workshop Must Stock",
+      "excerpt": "From welding helmets to heat-resistant gloves, here is a practical checklist for SMEs setting up a safer fabrication unit.",
+      "category": "Welding",
+      "author": "ISM Editorial",
+      "date": "Feb 28, 2026",
+      "readTime": "6 min read",
+      "image": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "blog-4",
+      "slug": "safety-helmet-standards-india",
+      "title": "Safety Helmet Standards in India: What Buyers Should Verify",
+      "excerpt": "Not all helmets offer the same impact protection. Understand shell material, chin strap quality, and certification labels before procurement.",
+      "category": "Safety Helmets",
+      "author": "ISM Editorial",
+      "date": "Feb 20, 2026",
+      "readTime": "4 min read",
+      "image": "https://images.unsplash.com/photo-1581094794359-85a9f8073a6e?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "blog-5",
+      "slug": "disposable-ppe-cost-control",
+      "title": "Disposable PPE: Smart Bulk Buying Tips for Factories",
+      "excerpt": "Masks, gloves, and coveralls are daily consumables. See how to balance quality, shelf life, and per-worker cost on repeat orders.",
+      "category": "Disposable PPE",
+      "author": "ISM Editorial",
+      "date": "Feb 14, 2026",
+      "readTime": "5 min read",
+      "image": "https://images.unsplash.com/photo-1584036562875-038177750e9f?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "blog-6",
+      "slug": "road-safety-equipment-checklist",
+      "title": "Road Safety Equipment Checklist for Contractors & Municipal Projects",
+      "excerpt": "Cones, barricades, and warning signs keep crews protected. Use this starter list for highway maintenance and urban infrastructure jobs.",
+      "category": "Road Safety",
+      "author": "ISM Editorial",
+      "date": "Feb 5, 2026",
+      "readTime": "3 min read",
+      "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop"
+    }
+  ]
+}
