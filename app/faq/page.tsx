@@ -5,31 +5,24 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import PageHeroBanner from "@/components/PageHeroBanner";
+import { siteFaqs } from "@/lib/faq";
 
 export default function FAQPage() {
   return (
     <div className="bg-muted/20 min-h-screen">
       <PageHeroBanner pageId="faq" />
-      <div className="container mx-auto max-w-3xl px-4 py-16">
-        <Accordion className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>How do I get a quotation?</AccordionTrigger>
-            <AccordionContent>
-              You can get a quotation by clicking the &quot;WhatsApp Inquiry&quot; button on any product page. This will open a chat with our sales team who will provide you with the latest pricing based on your bulk requirements.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>Do you deliver PAN India?</AccordionTrigger>
-            <AccordionContent>
-              Yes, we have logistics partners that enable us to deliver industrial goods to any pin code across India securely.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>Are the products 100% genuine?</AccordionTrigger>
-            <AccordionContent>
-              Absolutely. We source our products directly from manufacturers or authorized distributors. All items come with an official brand warranty.
-            </AccordionContent>
-          </AccordionItem>
+      <div className="container mx-auto max-w-3xl px-4 py-16 sm:px-5 lg:px-6">
+        <Accordion className="card-pro w-full rounded-2xl bg-white px-4 py-2 md:px-6">
+          {siteFaqs.map((faq) => (
+            <AccordionItem key={faq.id} value={faq.id} className="border-pro">
+              <AccordionTrigger className="py-4 text-sm font-semibold md:text-base">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 text-sm leading-relaxed text-muted-foreground">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </div>
     </div>

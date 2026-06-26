@@ -20,10 +20,12 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
 
   return (
     <>
-      <Navbar />
-      <CategoryNav visibility="desktop" />
+      <div className="sticky top-0 z-40 bg-white shadow-[0_4px_20px_rgba(26,26,26,0.06)]">
+        <Navbar />
+        <CategoryNav visibility="desktop" />
+      </div>
       <main className={cn("flex-1 min-w-0 w-full", isHome && "bg-white")}>{children}</main>
-      <PopularSearches className={isHome ? "bg-white" : undefined} />
+      {isHome ? <PopularSearches className="bg-white" /> : null}
       <Footer />
       <FloatingWhatsApp />
       <WelcomePopup />

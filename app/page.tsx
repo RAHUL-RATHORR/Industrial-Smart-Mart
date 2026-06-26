@@ -14,6 +14,7 @@ import {
 import CategoryNav from "@/components/CategoryNav";
 import CategoryShowcase from "@/components/CategoryShowcase";
 import HeroOfferSlide from "@/components/HeroOfferSlide";
+import HomeFaqSection from "@/components/HomeFaqSection";
 import ProductCard from "@/components/ProductCard";
 import SafeImage from "@/components/SafeImage";
 import { useCatalog, useBestsellers } from "@/contexts/CatalogContext";
@@ -45,6 +46,28 @@ const iconMap = {
   ShieldCheck,
   Award,
 } as const;
+
+const whyChooseIconStyles: Record<
+  keyof typeof iconMap,
+  { bg: string; ring: string }
+> = {
+  Package: {
+    bg: "bg-gradient-to-br from-orange-400 to-amber-600",
+    ring: "ring-orange-100",
+  },
+  Zap: {
+    bg: "bg-gradient-to-br from-sky-400 to-blue-600",
+    ring: "ring-sky-100",
+  },
+  ShieldCheck: {
+    bg: "bg-gradient-to-br from-violet-400 to-purple-600",
+    ring: "ring-violet-100",
+  },
+  Award: {
+    bg: "bg-gradient-to-br from-emerald-400 to-green-600",
+    ring: "ring-emerald-100",
+  },
+};
 
 export default function HomePage() {
   const { categories, brands, getProductsByCategory, heroBanners, promoBanners } = useCatalog();
@@ -228,14 +251,22 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
             {whyChooseUs.map((item) => {
-              const Icon = iconMap[item.icon as keyof typeof iconMap] ?? Package;
+              const iconKey = item.icon as keyof typeof iconMap;
+              const Icon = iconMap[iconKey] ?? Package;
+              const iconStyle = whyChooseIconStyles[iconKey] ?? whyChooseIconStyles.Package;
               return (
                 <div
                   key={item.title}
                   className="card-pro flex flex-col items-center rounded-2xl p-6 text-center transition-all"
                 >
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-yellow/15 text-brand-yellow">
-                    <Icon className="h-7 w-7" />
+                  <div
+                    className={cn(
+                      "mb-4 flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm ring-4",
+                      iconStyle.bg,
+                      iconStyle.ring
+                    )}
+                  >
+                    <Icon className="h-7 w-7 text-white" strokeWidth={2} />
                   </div>
                   <h3 className="mb-2 text-sm font-bold md:text-base">{item.title}</h3>
                   <p className="text-xs text-muted-foreground md:text-sm">{item.desc}</p>
@@ -245,6 +276,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomeFaqSection />
     </div>
   );
 }

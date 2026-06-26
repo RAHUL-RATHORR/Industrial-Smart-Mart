@@ -2,161 +2,208 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { LayoutGrid, Menu, MessageCircle, Search, X } from "lucide-react";
 import SiteLogo from "@/components/SiteLogo";
 import SearchBar from "@/components/SearchBar";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useCatalog } from "@/contexts/CatalogContext";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Categories", href: "/categories" },
-  { name: "Products", href: "/products" },
-  { name: "Contact", href: "/contact" },
-  { name: "Blog", href: "/blog" },
-];
+const navActions = [
+  {
+    name: "Categories",
+    href: "/categories",
+    icon: LayoutGrid,
+    description: "Browse all categories",
+    iconBg: "bg-gradient-to-br from-violet-400 to-purple-600",
+    iconRing: "ring-violet-100",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+    icon: MessageCircle,
+    description: "Talk to our team",
+    iconBg: "bg-gradient-to-br from-sky-400 to-blue-600",
+    iconRing: "ring-sky-100",
+  },
+] as const;
+
+const getQuoteButtonClass = cn(
+  "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-[10px] border-0 px-7 py-3",
+  "text-[15px] font-bold leading-none text-white transition-all duration-200",
+  "bg-gradient-to-r from-brand-yellow to-[#ffc833]",
+  "shadow-[0_8px_20px_rgba(244,180,0,0.45)]",
+  "hover:bg-gradient-to-r hover:from-brand-black hover:to-[#1a1a1a] hover:text-white hover:shadow-[0_8px_20px_rgba(26,26,26,0.22)]",
+  "active:scale-[0.98]"
+);
+
+function NavActionLink({
+  name,
+  href,
+  icon: Icon,
+  description,
+  iconBg,
+  iconRing,
+  className,
+  onClick,
+}: {
+  name: string;
+  href: string;
+  icon: typeof LayoutGrid;
+  description: string;
+  iconBg: string;
+  iconRing: string;
+  className?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        "group flex items-center gap-2.5 rounded-xl border border-transparent px-2.5 py-1.5 transition-all hover:border-brand-yellow/30 hover:bg-brand-yellow/10 lg:px-3 lg:py-2",
+        className
+      )}
+    >
+      <span
+        className={cn(
+          "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg shadow-sm ring-2 transition-transform group-hover:scale-105",
+          iconBg,
+          iconRing
+        )}
+      >
+        <Icon className="h-4 w-4 text-white" strokeWidth={2.25} />
+      </span>
+      <span className="hidden min-w-0 lg:block">
+        <span className="block text-sm font-bold leading-tight text-brand-black">{name}</span>
+        <span className="block text-[10px] leading-tight text-muted-foreground">{description}</span>
+      </span>
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const { categories } = useCatalog();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
+  const closeMobile = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileSearchOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-pro bg-white shadow-pro-sm">
+    <header className="w-full bg-white">
       <div className="h-1 w-full bg-[#f4b400]" aria-hidden="true" />
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-        <div className="flex h-14 md:h-[4.25rem] items-center justify-between gap-3">
-          {/* Logo */}
-          <div className="flex shrink-0 items-center min-w-0">
-            <SiteLogo imageClassName="h-8 w-auto sm:h-10 md:h-12" />
+        <div className="flex h-[3.75rem] items-center gap-2 sm:gap-3 md:h-16 lg:gap-4">
+          <div className="flex shrink-0 items-center">
+            <SiteLogo imageClassName="h-8 w-auto sm:h-9 md:h-10 lg:h-11" />
           </div>
 
-          {/* Search Bar (Desktop) */}
-          <div className="hidden min-w-0 max-w-xl flex-1 mx-4 lg:mx-6 md:block">
-            <SearchBar onSearch={() => setIsMobileMenuOpen(false)} />
+          <div className="hidden min-w-0 flex-1 items-center gap-2 md:flex lg:gap-3">
+            {navActions.map((item) => (
+              <NavActionLink key={item.name} {...item} />
+            ))}
+
+            <div className="mx-1 hidden h-8 w-px bg-pro lg:block" aria-hidden="true" />
+
+            <div className="min-w-0 flex-1">
+              <SearchBar variant="navbar" onSearch={closeMobile} />
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-5 shrink-0">
-            <nav className="flex items-center gap-5 text-sm font-medium text-brand-black dark:text-white">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="transition-all hover:font-bold hover:text-brand-black"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-              <Link
-                href="/get-quote"
-                className={cn(buttonVariants({ variant: "brand" }), "rounded-full px-5 py-2 text-sm font-semibold")}
-              >
-                Get Quote
-              </Link>
+          <div className="hidden shrink-0 items-center gap-2 md:flex">
+            <Link href="/get-quote" className={getQuoteButtonClass}>
+              Get Quote
+            </Link>
           </div>
 
-          {/* Mobile Search + Menu */}
-          <div className="flex items-center gap-0.5 md:hidden">
+          <div className="ml-auto flex items-center gap-0.5 md:hidden">
             <button
               onClick={() => {
                 setIsMobileSearchOpen((open) => !open);
                 setIsMobileMenuOpen(false);
               }}
-              className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground focus:outline-none"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
               aria-expanded={isMobileSearchOpen}
               aria-label={isMobileSearchOpen ? "Close search" : "Open search"}
             >
-              {isMobileSearchOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Search className="h-6 w-6" aria-hidden="true" />
-              )}
+              {isMobileSearchOpen ? <X className="h-6 w-6" /> : <Search className="h-6 w-6" />}
             </button>
             <button
               onClick={() => {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
                 setIsMobileSearchOpen(false);
               }}
-              className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground focus:outline-none"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
             >
               <span className="sr-only">Open main menu</span>
-              {isMobileMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Search Panel */}
         <AnimatePresence>
           {isMobileSearchOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden pb-3 pt-2 md:hidden"
+              className="overflow-hidden pb-3 pt-1 md:hidden"
             >
-              <SearchBar
-                placeholder="Search products, categories, brands..."
-                onSearch={() => setIsMobileSearchOpen(false)}
-              />
+              <SearchBar variant="navbar" onSearch={closeMobile} autoFocus />
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-pro bg-white border-t md:hidden"
+            className="border-t border-pro bg-white md:hidden"
           >
-            <div className="space-y-1 px-4 pb-3 pt-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-black transition-all hover:bg-muted hover:font-bold hover:text-black dark:text-white dark:hover:text-white"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="pt-2 pb-1">
-                <p className="px-3 text-xs font-bold uppercase text-muted-foreground tracking-wider">Categories</p>
-                <div className="mt-2 max-h-48 overflow-y-auto hide-scrollbar">
+            <div className="space-y-3 px-4 pb-4 pt-3">
+              <div className="grid grid-cols-2 gap-2">
+                {navActions.map((item) => (
+                  <NavActionLink
+                    key={item.name}
+                    {...item}
+                    className="border-pro bg-[#faf8f3]"
+                    onClick={closeMobile}
+                  />
+                ))}
+              </div>
+
+              <div className="rounded-xl border border-pro bg-[#faf8f3] p-3">
+                <p className="mb-2 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                  Shop by Category
+                </p>
+                <div className="max-h-44 space-y-0.5 overflow-y-auto hide-scrollbar">
                   {categories.map((category) => (
                     <Link
                       key={category.id}
                       href={category.href}
-                      className="block rounded-md px-3 py-2 text-sm text-black dark:text-white hover:bg-muted"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block rounded-lg px-2 py-2 text-sm font-medium text-brand-black transition-colors hover:bg-brand-yellow/15"
+                      onClick={closeMobile}
                     >
                       {category.name}
                     </Link>
                   ))}
                 </div>
               </div>
-              <div className="pt-2">
-                <Link
-                  href="/get-quote"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={cn(buttonVariants({ variant: "brand" }), "w-full rounded-md font-bold justify-center")}
-                >
-                  Get Quote
-                </Link>
-              </div>
+
+              <Link
+                href="/get-quote"
+                onClick={closeMobile}
+                className={cn(getQuoteButtonClass, "w-full min-w-0 justify-center")}
+              >
+                Get Quote
+              </Link>
             </div>
           </motion.div>
         )}

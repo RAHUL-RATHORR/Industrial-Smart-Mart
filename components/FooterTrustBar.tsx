@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  HandHelping,
   Headphones,
   MessageCircle,
   Package,
@@ -9,6 +8,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { generateWhatsAppLink, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 function formatPhoneDisplay(number: string) {
   if (number.length === 12 && number.startsWith("91")) {
@@ -17,31 +17,58 @@ function formatPhoneDisplay(number: string) {
   return `+${number}`;
 }
 
-type TrustIconVariant = "wallet" | "truck" | "bulk" | "protection";
+type TrustIconVariant = "wallet" | "truck" | "bulk" | "protection" | "help";
+
+const iconStyles: Record<
+  TrustIconVariant,
+  { bg: string; ring: string; icon: string; Icon: typeof Wallet }
+> = {
+  wallet: {
+    bg: "bg-gradient-to-br from-emerald-400 to-green-600",
+    ring: "ring-emerald-100",
+    icon: "text-white",
+    Icon: Wallet,
+  },
+  truck: {
+    bg: "bg-gradient-to-br from-sky-400 to-blue-600",
+    ring: "ring-sky-100",
+    icon: "text-white",
+    Icon: Truck,
+  },
+  bulk: {
+    bg: "bg-gradient-to-br from-orange-400 to-amber-600",
+    ring: "ring-orange-100",
+    icon: "text-white",
+    Icon: Package,
+  },
+  protection: {
+    bg: "bg-gradient-to-br from-violet-400 to-purple-600",
+    ring: "ring-violet-100",
+    icon: "text-white",
+    Icon: ShieldCheck,
+  },
+  help: {
+    bg: "bg-gradient-to-br from-rose-400 to-pink-600",
+    ring: "ring-rose-100",
+    icon: "text-white",
+    Icon: Headphones,
+  },
+};
 
 function TrustIcon({ variant }: { variant: TrustIconVariant }) {
-  const iconClass = "h-10 w-10";
-  const stroke = 1.35;
+  const { bg, ring, icon, Icon } = iconStyles[variant];
 
-  switch (variant) {
-    case "wallet":
-      return <Wallet className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
-    case "truck":
-      return <Truck className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
-    case "bulk":
-      return <Package className={`${iconClass} text-brand-yellow`} strokeWidth={stroke} />;
-    case "protection":
-      return (
-        <div className="relative">
-          <HandHelping className={`${iconClass} text-brand-black`} strokeWidth={stroke} />
-          <span className="absolute -bottom-0.5 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow ring-2 ring-white">
-            <ShieldCheck className="h-3 w-3 text-brand-black" strokeWidth={2.5} />
-          </span>
-        </div>
-      );
-    default:
-      return null;
-  }
+  return (
+    <div
+      className={cn(
+        "flex h-12 w-12 items-center justify-center rounded-2xl shadow-sm ring-4",
+        bg,
+        ring
+      )}
+    >
+      <Icon className={cn("h-6 w-6", icon)} strokeWidth={2} aria-hidden="true" />
+    </div>
+  );
 }
 
 const trustFeatures = [
@@ -77,7 +104,7 @@ export default function FooterTrustBar() {
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
         {trustFeatures.map(({ icon, title, description, href }) => (
           <div key={title} className="flex flex-col items-center text-center">
-            <div className="mb-3 flex h-12 w-12 items-center justify-center">
+            <div className="mb-3">
               <TrustIcon variant={icon} />
             </div>
             {href ? (
@@ -92,8 +119,8 @@ export default function FooterTrustBar() {
         ))}
 
         <div className="flex flex-col items-center text-center">
-          <div className="relative mb-3 flex h-12 w-12 items-center justify-center">
-            <Headphones className="h-10 w-10 text-brand-black" strokeWidth={1.35} aria-hidden="true" />
+          <div className="mb-3">
+            <TrustIcon variant="help" />
           </div>
           <h3 className="mb-1.5 text-sm font-bold text-brand-black">365 Days Help Desk</h3>
           <a
@@ -102,7 +129,7 @@ export default function FooterTrustBar() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-black transition-colors hover:text-brand-yellow"
           >
-            <MessageCircle className="h-4 w-4 shrink-0 text-brand-yellow" />
+            <MessageCircle className="h-4 w-4 shrink-0 text-[#25D366]" />
             {phoneDisplay}
           </a>
           <Link href="/contact" className="mt-1.5 text-xs text-gray-600 transition-colors hover:text-brand-black">

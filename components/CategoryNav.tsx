@@ -80,10 +80,8 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
   return (
     <div
       className={cn(
-        "relative w-full bg-white z-30",
-        !isMobile && "sticky top-[3.75rem] md:top-[4.5rem]",
-        !isMobile && !isCompact && "min-h-[5.25rem] lg:min-h-[5.75rem]",
-        isMobile ? "border-b border-border shadow-pro-top" : "border-b border-border shadow-pro-bar",
+        "relative w-full bg-white",
+        isMobile ? "border-b border-border shadow-pro-top" : "border-b border-pro shadow-pro-top",
         visibilityClass
       )}
       onMouseLeave={() => setActiveCategory(null)}
@@ -104,8 +102,8 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
             isMobile
               ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
               : cn(
-                  "grid grid-cols-5 gap-x-3 gap-y-1 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6",
-                  isCompact ? "py-1.5" : "py-1.5"
+                  "grid grid-cols-5 gap-x-3 gap-y-0 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6",
+                  isCompact ? "py-1" : "py-1.5"
                 )
           )}
         >

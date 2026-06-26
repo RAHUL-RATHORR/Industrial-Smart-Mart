@@ -18,7 +18,7 @@ const socialLinks = [
 const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "All Products", href: "/products" },
-  { name: "Industrial Blog", href: "/blog" },
+  { name: "Blog", href: "/blog" },
   { name: "FAQs", href: "/faq" },
   { name: "Contact Us", href: "/contact" },
 ];
@@ -41,75 +41,77 @@ export default function Footer() {
           <FooterTrustBar />
         </div>
 
-        <div className="grid grid-cols-1 gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 lg:pb-12">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 pb-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 lg:pb-12 xl:gap-x-10">
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <SiteLogo imageClassName="h-12 w-auto md:h-14" />
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               Your trusted partner for industrial safety equipment, power tools, and B2B supplies. We deliver PAN India with guaranteed authenticity.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3.5 pt-1">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="transition-opacity hover:opacity-80"
+                  className="inline-flex transition-transform hover:scale-105 hover:opacity-90"
                   aria-label={social.label}
                 >
-                  <ContactChannelIcon channelId={social.id} className="h-[18px] w-[18px]" />
+                  <ContactChannelIcon channelId={social.id} className="h-8 w-8 sm:h-9 sm:w-9" />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-0 sm:col-span-2 lg:contents">
-            <div className="min-w-0">
-              <FooterHeading>Quick Links</FooterHeading>
-              <ul className="space-y-2.5 text-sm text-muted-foreground">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="transition-colors hover:text-brand-black">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="min-w-0">
-              <FooterHeading>Top Categories</FooterHeading>
-              <ul className="space-y-2.5 text-sm text-muted-foreground">
-                {categories.slice(0, 5).map((category) => (
-                  <li key={category.id}>
-                    <Link href={category.href} className="transition-colors hover:text-brand-black">
-                      {category.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="min-w-0">
+            <FooterHeading>Quick Links</FooterHeading>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="transition-colors hover:text-brand-black">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="min-w-0">
+            <FooterHeading>Top Categories</FooterHeading>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              {categories.slice(0, 5).map((category) => (
+                <li key={category.id}>
+                  <Link href={category.href} className="transition-colors hover:text-brand-black">
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="min-w-0">
             <FooterHeading>Contact Us</FooterHeading>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex gap-3">
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li className="flex gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow" />
                 <span>123 Industrial Estate, Phase 1, Sector 4, New Delhi - 110020, India</span>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 shrink-0 text-brand-yellow" />
                 <a href="tel:+917568450691" className="transition-colors hover:text-brand-black">
                   +91 75684 50691
                 </a>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 text-brand-yellow" />
                 <a href="mailto:inquiry@industrialsafetymart.com" className="transition-colors hover:text-brand-black">
                   inquiry@industrialsafetymart.com
                 </a>
               </li>
             </ul>
-            <ContactNewsletter variant="footer" />
+          </div>
+
+          <div className="min-w-0">
+            <FooterHeading>Newsletter</FooterHeading>
+            <ContactNewsletter variant="footer" standalone />
           </div>
         </div>
       </div>
