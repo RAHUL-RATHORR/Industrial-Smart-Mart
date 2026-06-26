@@ -187,11 +187,8 @@ export default function HomePage() {
 
       <section className="w-full bg-white py-6 md:py-8 lg:py-10">
         <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-          <div className="mb-5 flex items-center justify-between lg:mb-6">
+          <div className="mb-5 lg:mb-6">
             <h2 className={SECTION_TITLE_CLASS}>Bestsellers</h2>
-            <Link href="/products" className="text-sm font-semibold text-brand-yellow hover:underline">
-              Shop all
-            </Link>
           </div>
           <div className={PRODUCT_GRID}>{renderHomeProducts(bestsellers)}</div>
         </div>
@@ -205,14 +202,8 @@ export default function HomePage() {
             className="w-full bg-white py-6 md:py-8 lg:py-10"
           >
             <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-              <div className="mb-5 flex items-center justify-between lg:mb-6">
+              <div className="mb-5 lg:mb-6">
                 <h2 className={SECTION_TITLE_CLASS}>{category.name}</h2>
-                <Link
-                  href={category.href}
-                  className="text-sm font-semibold text-brand-yellow hover:underline"
-                >
-                  View category
-                </Link>
               </div>
               <CategoryShowcase category={category} products={products} />
             </div>
