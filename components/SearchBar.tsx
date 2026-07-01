@@ -1,8 +1,19 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
+import SearchSuggestionsPanel from "@/components/SearchSuggestionsPanel";
+import { useCatalog } from "@/contexts/CatalogContext";
+import { getAllProducts, type Product } from "@/lib/products";
+import { getAllDropdownProducts } from "@/lib/dropdown-products";
+import {
+  addRecentSearch,
+  buildSearchSuggestions,
+  flattenSuggestions,
+  getRecentSearches,
+  type SearchSuggestion,
+} from "@/lib/search-suggestions";
 import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
@@ -25,23 +36,130 @@ export default function SearchBar({
   variant = "default",
 }: SearchBarProps) {
   const router = useRouter();
+  const { products, categories, brands } = useCatalog();
+  const rootRef = useRef<HTMLFormElement>(null);
+
   const [query, setQuery] = useState(defaultValue);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+
+  const searchableProducts = useMemo(() => {
+    const merged = new Map<string, Product>();
+    for (const product of [...getAllProducts(), ...getAllDropdownProducts(), ...products]) {
+      merged.set(product.id, product);
+    }
+    return Array.from(merged.values());
+  }, [products]);
+
+  const suggestionGroups = useMemo(
+    () =>
+      buildSearchSuggestions(query, {
+        products: searchableProducts,
+        categories,
+        brands,
+        recentSearches,
+      }),
+    [query, searchableProducts, categories, brands, recentSearches]
+  );
+
+  const flatSuggestions = useMemo(() => flattenSuggestions(suggestionGroups), [suggestionGroups]);
+
+  useEffect(() => {
+    setRecentSearches(getRecentSearches());
+  }, []);
+
+  useEffect(() => {
+    setActiveIndex(flatSuggestions.length > 0 ? 0 : -1);
+  }, [flatSuggestions]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [isOpen]);
+
+  const navigateToQuery = useCallback(
+    (value: string) => {
+      const trimmed = value.trim();
+      if (trimmed) {
+        addRecentSearch(trimmed);
+        setRecentSearches(getRecentSearches());
+        router.push(`/products?q=${encodeURIComponent(trimmed)}`);
+      } else {
+        router.push("/products");
+      }
+      setIsOpen(false);
+      onSearch?.();
+    },
+    [router, onSearch]
+  );
+
+  const navigateToSuggestion = useCallback(
+    (suggestion: SearchSuggestion) => {
+      if (suggestion.type === "keyword") {
+        addRecentSearch(suggestion.label);
+        setRecentSearches(getRecentSearches());
+      } else if (suggestion.type === "brand") {
+        addRecentSearch(suggestion.label);
+        setRecentSearches(getRecentSearches());
+      } else if (query.trim()) {
+        addRecentSearch(query.trim());
+        setRecentSearches(getRecentSearches());
+      }
+
+      router.push(suggestion.href);
+      setIsOpen(false);
+      onSearch?.();
+    },
+    [router, onSearch, query]
+  );
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    const trimmed = query.trim();
-    if (trimmed) {
-      router.push(`/products?q=${encodeURIComponent(trimmed)}`);
-    } else {
-      router.push("/products");
+    if (isOpen && activeIndex >= 0 && flatSuggestions[activeIndex]) {
+      navigateToSuggestion(flatSuggestions[activeIndex]);
+      return;
     }
-    onSearch?.();
+    navigateToQuery(query);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!isOpen && (event.key === "ArrowDown" || event.key === "ArrowUp")) {
+      setIsOpen(true);
+      return;
+    }
+
+    if (event.key === "Escape") {
+      setIsOpen(false);
+      return;
+    }
+
+    if (!flatSuggestions.length) return;
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveIndex((current) => (current + 1) % flatSuggestions.length);
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveIndex((current) => (current - 1 + flatSuggestions.length) % flatSuggestions.length);
+    }
   };
 
   const isNavbar = variant === "navbar";
+  const showPanel = isOpen;
 
   return (
-    <form onSubmit={handleSubmit} className={cn("outline-none", className)}>
+    <form ref={rootRef} onSubmit={handleSubmit} className={cn("relative outline-none", className)}>
       <div className="relative group outline-none">
         <div
           className={cn(
@@ -61,8 +179,17 @@ export default function SearchBar({
           inputMode="search"
           enterKeyHint="search"
           autoComplete="off"
+          role="combobox"
+          aria-expanded={showPanel}
+          aria-autocomplete="list"
+          aria-controls="search-suggestions"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setIsOpen(true);
+          }}
+          onFocus={() => setIsOpen(true)}
+          onKeyDown={handleKeyDown}
           autoFocus={autoFocus}
           className={cn(
             "block w-full appearance-none bg-white shadow-none caret-brand-black transition-all [-webkit-tap-highlight-color:transparent] focus:outline-none focus-visible:outline-none focus:shadow-none focus:ring-0",
@@ -82,6 +209,17 @@ export default function SearchBar({
           </button>
         ) : null}
       </div>
+
+      {showPanel ? (
+        <SearchSuggestionsPanel
+          id="search-suggestions"
+          groups={suggestionGroups}
+          query={query}
+          activeIndex={activeIndex}
+          onSelect={navigateToSuggestion}
+          onSeeAll={() => navigateToQuery(query)}
+        />
+      ) : null}
     </form>
   );
 }
