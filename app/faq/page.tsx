@@ -14,7 +14,7 @@ export default function FAQPage() {
       <div className="container mx-auto max-w-3xl px-4 py-16 sm:px-5 lg:px-6">
         <Accordion className="card-pro w-full rounded-2xl bg-white px-4 py-2 md:px-6">
           {siteFaqs.map((faq) => (
-            <AccordionItem key={faq.id} value={faq.id} className="border-pro">
+            <AccordionItem key={faq.id} value={faq.id}>
               <AccordionTrigger className="py-4 text-sm font-semibold md:text-base">
                 {faq.question}
               </AccordionTrigger>

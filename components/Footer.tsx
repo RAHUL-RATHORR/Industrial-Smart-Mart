@@ -6,127 +6,139 @@ import ContactChannelIcon from "@/components/ContactChannelIcon";
 import ContactNewsletter from "@/components/ContactNewsletter";
 import SiteLogo from "@/components/SiteLogo";
 import FooterTrustBar from "@/components/FooterTrustBar";
-import { useCatalog } from "@/contexts/CatalogContext";
+import { PRIMARY_EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const socialLinks = [
   { label: "Facebook", id: "facebook", href: "#" },
-  { label: "Twitter", id: "twitter", href: "#" },
   { label: "Instagram", id: "instagram", href: "#" },
-  { label: "LinkedIn", id: "linkedin", href: "#" },
+  { label: "YouTube", id: "youtube", href: "#" },
+  { label: "WhatsApp", id: "whatsapp", href: "#" },
 ];
 
 const quickLinks = [
+  { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "All Products", href: "/products" },
+  { name: "Categories", href: "/categories" },
   { name: "Blog", href: "/blog" },
   { name: "FAQs", href: "/faq" },
   { name: "Contact Us", href: "/contact" },
 ];
 
+const usefulLinks = [
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms & Conditions", href: "/terms" },
+];
+
 function FooterHeading({ children }: { children: React.ReactNode }) {
+  return <h3 className="mb-4 text-base font-bold text-brand-black lg:mb-5">{children}</h3>;
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <div className="mb-4">
-      <h3 className="text-sm font-bold text-brand-black">{children}</h3>
-      <span className="mt-2 block h-0.5 w-10 rounded-full bg-[#f4b400]" aria-hidden="true" />
-    </div>
+    <Link
+      href={href}
+      className="block py-1 text-sm leading-7 text-[#5c5c5c] transition-colors hover:text-brand-black"
+    >
+      {children}
+    </Link>
   );
 }
 
 export default function Footer() {
-  const { categories } = useCatalog();
   return (
-    <footer className="mt-auto border-t border-pro bg-page">
-      <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-        <div className="pb-8 pt-6 md:pb-10 md:pt-8">
+    <footer className="mt-auto bg-white">
+      <div className="border-t border-[#e8e8e8] bg-[#f9f9f9]">
+        <div className="container mx-auto px-4 py-8 sm:px-5 md:py-10 lg:px-6">
           <FooterTrustBar />
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 pb-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 lg:pb-12 xl:gap-x-10">
-          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
-            <SiteLogo imageClassName="h-12 w-auto md:h-14" />
-            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Your trusted partner for industrial safety equipment, power tools, and B2B supplies. We deliver PAN India with guaranteed authenticity.
-            </p>
-            <div className="flex flex-wrap gap-3.5 pt-1">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="inline-flex transition-transform hover:scale-105 hover:opacity-90"
-                  aria-label={social.label}
-                >
-                  <ContactChannelIcon channelId={social.id} className="h-8 w-8 sm:h-9 sm:w-9" />
-                </a>
-              ))}
+      <div className="border-t border-[#e8e8e8] bg-white">
+        <div className="container mx-auto px-4 py-10 sm:px-5 md:py-12 lg:px-6 lg:py-14">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.72fr)_minmax(0,0.68fr)_minmax(0,1.45fr)] lg:gap-6 xl:gap-10">
+            <div>
+              <SiteLogo imageClassName="h-12 w-auto md:h-[52px]" />
+              <ul className="mt-6 space-y-4 text-sm leading-relaxed text-[#5c5c5c]">
+                <li className="flex gap-3">
+                  <MapPin className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-black" aria-hidden="true" />
+                  <p>
+                    <span className="font-bold text-brand-black">Warehouse: </span>
+                    123 Industrial Estate, Phase 1, Sector 4, New Delhi - 110020, India
+                  </p>
+                </li>
+                <li className="flex gap-3">
+                  <Mail className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-black" aria-hidden="true" />
+                  <a
+                    href={`mailto:${PRIMARY_EMAIL}`}
+                    className="break-all transition-colors hover:text-brand-black"
+                  >
+                    {PRIMARY_EMAIL}
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <Phone className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-black" aria-hidden="true" />
+                  <a href={PHONE_TEL} className="transition-colors hover:text-brand-black">
+                    {PHONE_DISPLAY}
+                  </a>
+                </li>
+              </ul>
             </div>
-          </div>
 
-          <div className="min-w-0">
-            <FooterHeading>Quick Links</FooterHeading>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="transition-colors hover:text-brand-black">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <FooterHeading>Quick Links</FooterHeading>
+              <ul>
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <FooterLink href={link.href}>{link.name}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="min-w-0">
-            <FooterHeading>Top Categories</FooterHeading>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              {categories.slice(0, 5).map((category) => (
-                <li key={category.id}>
-                  <Link href={category.href} className="transition-colors hover:text-brand-black">
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <FooterHeading>Useful Links</FooterHeading>
+              <ul>
+                {usefulLinks.map((link) => (
+                  <li key={link.name}>
+                    <FooterLink href={link.href}>{link.name}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="min-w-0">
-            <FooterHeading>Contact Us</FooterHeading>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li className="flex gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow" />
-                <span>123 Industrial Estate, Phase 1, Sector 4, New Delhi - 110020, India</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-brand-yellow" />
-                <a href="tel:+917568450691" className="transition-colors hover:text-brand-black">
-                  +91 75684 50691
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 shrink-0 text-brand-yellow" />
-                <a href="mailto:inquiry@industrialsafetymart.com" className="transition-colors hover:text-brand-black">
-                  inquiry@industrialsafetymart.com
-                </a>
-              </li>
-            </ul>
-          </div>
+            <div className="w-full min-w-0 sm:col-span-2 lg:col-span-1">
+              <FooterHeading>Newsletter</FooterHeading>
+              <p className="mb-4 max-w-[28rem] text-sm leading-[1.5] text-[#5c5c5c]">
+                You may unsubscribe at any moment. For that purpose, please find our contact info
+                in the legal notice.
+              </p>
+              <ContactNewsletter variant="footer" layout="pill" className="w-full max-w-[28rem]" />
 
-          <div className="min-w-0">
-            <FooterHeading>Newsletter</FooterHeading>
-            <ContactNewsletter variant="footer" standalone />
+              <h3 className="mb-4 mt-8 text-base font-bold text-brand-black">Connect With Us!</h3>
+              <div className="flex flex-wrap items-center gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    className="inline-flex transition-opacity hover:opacity-85"
+                    aria-label={social.label}
+                  >
+                    <ContactChannelIcon channelId={social.id} className="h-9 w-9 sm:h-10 sm:w-10" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-pro bg-white">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-3 px-4 py-4 text-xs text-muted-foreground sm:px-5 md:flex-row lg:px-6">
-          <p>&copy; {new Date().getFullYear()} Industrial Safety Mart. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="transition-colors hover:text-brand-black">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="transition-colors hover:text-brand-black">
-              Terms of Service
-            </Link>
-          </div>
+      <div className="border-t border-[#e8e8e8] bg-white">
+        <div className="container mx-auto px-4 py-4 text-center text-sm text-[#5c5c5c] sm:px-5 lg:px-6">
+          <p>
+            <span className="font-semibold text-brand-black">Copyright</span> @{" "}
+            {new Date().getFullYear()}. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -24,7 +24,7 @@ export default function HomeFaqSection() {
           <div className="card-pro rounded-2xl bg-white px-4 py-2 md:px-6 md:py-3">
             <Accordion className="w-full">
               {siteFaqs.map((faq) => (
-                <AccordionItem key={faq.id} value={faq.id} className="border-pro">
+                <AccordionItem key={faq.id} value={faq.id}>
                   <AccordionTrigger className="py-4 text-sm font-semibold text-brand-black hover:text-brand-black md:text-base">
                     {faq.question}
                   </AccordionTrigger>

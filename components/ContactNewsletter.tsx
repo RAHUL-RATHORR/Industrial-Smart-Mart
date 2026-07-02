@@ -8,12 +8,14 @@ type ContactNewsletterProps = {
   className?: string;
   variant?: "footer" | "card";
   standalone?: boolean;
+  layout?: "default" | "pill";
 };
 
 export default function ContactNewsletter({
   className,
   variant = "footer",
   standalone = false,
+  layout = "default",
 }: ContactNewsletterProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -28,10 +30,37 @@ export default function ContactNewsletter({
 
   if (isFooter && submitted) {
     return (
-      <div className={cn(standalone ? "" : "mt-4", className)}>
-        <p className="text-xs leading-relaxed text-muted-foreground">
+      <div className={cn(className)}>
+        <p className="text-sm leading-relaxed text-muted-foreground">
           Thanks! You&apos;re subscribed for updates &amp; offers.
         </p>
+      </div>
+    );
+  }
+
+  if (isFooter && layout === "pill") {
+    return (
+      <div className={cn("w-full", className)}>
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full overflow-hidden rounded-full border border-[#d9d9d9] bg-white shadow-sm"
+        >
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Enter your email here.."
+            className="min-w-0 w-full flex-[1_1_auto] bg-white px-4 py-3 text-sm text-brand-black outline-none placeholder:text-[#9a9a9a] sm:px-5"
+          />
+          <Button
+            type="submit"
+            variant="brand"
+            className="h-auto shrink-0 rounded-none rounded-r-full px-5 py-3 text-sm font-bold sm:px-6"
+          >
+            Subscribe
+          </Button>
+        </form>
       </div>
     );
   }
