@@ -164,13 +164,13 @@ export default function SearchBar({
         <div
           className={cn(
             "pointer-events-none absolute inset-y-0 left-0 flex items-center",
-            isNavbar ? "pl-3.5" : "pl-3"
+            isNavbar ? "pl-3" : "pl-3"
           )}
         >
           <Search
             className={cn(
               "text-muted-foreground transition-colors group-focus-within:text-brand-black",
-              isNavbar ? "h-5 w-5" : "h-4 w-4 sm:h-5 sm:w-5"
+              isNavbar ? "h-4 w-4" : "h-4 w-4 sm:h-5 sm:w-5"
             )}
           />
         </div>
@@ -194,7 +194,7 @@ export default function SearchBar({
           className={cn(
             "block w-full appearance-none bg-white shadow-none caret-brand-black transition-all [-webkit-tap-highlight-color:transparent] focus:outline-none focus-visible:outline-none focus:shadow-none focus:ring-0",
             isNavbar
-              ? "h-11 rounded-xl border-2 border-pro bg-[#faf8f3] py-2 pl-11 pr-[5.5rem] text-sm placeholder:text-muted-foreground focus:border-brand-yellow focus:bg-white sm:h-12 sm:pl-12 sm:pr-28 sm:text-[15px]"
+              ? "h-10 rounded-lg border border-pro bg-[#faf8f3] py-1.5 pl-9 pr-[4.75rem] text-sm placeholder:text-muted-foreground focus:border-brand-yellow focus:bg-white md:h-11 md:rounded-xl md:pl-10 md:pr-24 md:text-[15px]"
               : "rounded-full border border-pro py-2 pl-9 pr-4 text-sm focus:border-brand-black focus:bg-background sm:py-2.5 sm:pl-10",
             inputClassName
           )}
@@ -203,7 +203,7 @@ export default function SearchBar({
         {isNavbar ? (
           <button
             type="submit"
-            className="absolute right-1 top-1 bottom-1 rounded-lg bg-brand-black px-3 text-xs font-bold text-white transition-colors hover:bg-brand-yellow hover:text-brand-black sm:right-1.5 sm:px-5 sm:text-sm"
+            className="absolute right-1 top-1 bottom-1 rounded-md bg-brand-black px-3 text-xs font-bold text-white transition-colors hover:bg-brand-yellow hover:text-brand-black md:rounded-lg md:px-5 md:text-sm"
           >
             Search
           </button>

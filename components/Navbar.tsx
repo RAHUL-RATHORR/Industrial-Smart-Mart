@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { LayoutGrid, Menu, MessageCircle, Search, X } from "lucide-react";
 import SiteLogo from "@/components/SiteLogo";
@@ -9,25 +9,6 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useCatalog } from "@/contexts/CatalogContext";
-
-const navActions = [
-  {
-    name: "Categories",
-    href: "/categories",
-    icon: LayoutGrid,
-    description: "Browse all categories",
-    iconBg: "bg-gradient-to-br from-violet-400 to-purple-600",
-    iconRing: "ring-violet-100",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-    icon: MessageCircle,
-    description: "Talk to our team",
-    iconBg: "bg-gradient-to-br from-sky-400 to-blue-600",
-    iconRing: "ring-sky-100",
-  },
-] as const;
 
 const getQuoteButtonClass = cn(
   "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-[10px] border-0 px-7 py-3",
@@ -38,47 +19,28 @@ const getQuoteButtonClass = cn(
   "active:scale-[0.98]"
 );
 
-function NavActionLink({
-  name,
+function NavTextLink({
   href,
   icon: Icon,
-  description,
-  iconBg,
-  iconRing,
-  className,
+  children,
   onClick,
 }: {
-  name: string;
   href: string;
   icon: typeof LayoutGrid;
-  description: string;
-  iconBg: string;
-  iconRing: string;
-  className?: string;
+  children: React.ReactNode;
   onClick?: () => void;
 }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={cn(
-        "group flex items-center gap-2.5 rounded-xl border border-transparent px-2.5 py-1.5 transition-all hover:border-brand-yellow/30 hover:bg-brand-yellow/10 lg:px-3 lg:py-2",
-        className
-      )}
+      className="group inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-semibold text-brand-black transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
     >
-      <span
-        className={cn(
-          "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg shadow-sm ring-2 transition-transform group-hover:scale-105",
-          iconBg,
-          iconRing
-        )}
-      >
-        <Icon className="h-4 w-4 text-white" strokeWidth={2.25} />
-      </span>
-      <span className="hidden min-w-0 lg:block">
-        <span className="block text-sm font-bold leading-tight text-brand-black">{name}</span>
-        <span className="block text-[10px] leading-tight text-muted-foreground">{description}</span>
-      </span>
+      <Icon
+        className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-brand-yellow"
+        strokeWidth={2.25}
+      />
+      <span>{children}</span>
     </Link>
   );
 }
@@ -87,80 +49,101 @@ export default function Navbar() {
   const { categories } = useCatalog();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const mobileSearchRef = useRef<HTMLDivElement>(null);
 
   const closeMobile = () => {
     setIsMobileMenuOpen(false);
     setIsMobileSearchOpen(false);
   };
 
+  useEffect(() => {
+    if (!isMobileSearchOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (mobileSearchRef.current?.contains(target)) return;
+      setIsMobileSearchOpen(false);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [isMobileSearchOpen]);
+
   return (
     <header className="w-full bg-white">
       <div className="h-1 w-full bg-[#f4b400]" aria-hidden="true" />
       <div className="container mx-auto px-4 sm:px-5 lg:px-6">
-        <div className="flex h-[3.75rem] items-center gap-2 sm:gap-3 md:h-16 lg:gap-4">
-          <div className="flex shrink-0 items-center">
-            <SiteLogo imageClassName="h-8 w-auto sm:h-9 md:h-10 lg:h-11" />
-          </div>
+        <div
+          ref={mobileSearchRef}
+          className="grid h-[3.75rem] grid-cols-[auto_1fr_auto] items-center gap-2 sm:gap-3 md:h-16 md:grid-cols-[1fr_minmax(0,560px)_1fr] lg:gap-4 xl:grid-cols-[1fr_minmax(0,640px)_1fr]"
+        >
+          {isMobileSearchOpen ? (
+            <>
+              <div className="col-span-2 min-w-0 md:hidden">
+                <SearchBar variant="navbar" onSearch={closeMobile} autoFocus />
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMobileSearchOpen(false)}
+                className="inline-flex items-center justify-center justify-self-end rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black md:hidden"
+                aria-label="Close search"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="flex shrink-0 items-center justify-self-start">
+                <SiteLogo imageClassName="h-8 w-auto sm:h-9 md:h-10 lg:h-11" />
+              </div>
 
-          <div className="hidden min-w-0 flex-1 items-center gap-2 md:flex lg:gap-3">
-            {navActions.map((item) => (
-              <NavActionLink key={item.name} {...item} />
-            ))}
+              <div className="hidden min-w-0 justify-self-center md:block">
+                <SearchBar variant="navbar" onSearch={closeMobile} />
+              </div>
 
-            <div className="mx-1 hidden h-8 w-px bg-pro lg:block" aria-hidden="true" />
+              <div className="hidden shrink-0 items-center justify-self-end gap-1 md:flex lg:gap-2">
+                <NavTextLink href="/categories" icon={LayoutGrid}>
+                  Categories
+                </NavTextLink>
+                <NavTextLink href="/contact" icon={MessageCircle}>
+                  Contact
+                </NavTextLink>
+                <Link href="/get-quote" className={cn(getQuoteButtonClass, "ml-1 lg:ml-2")}>
+                  Get Quote
+                </Link>
+              </div>
 
-            <div className="min-w-0 flex-1">
-              <SearchBar variant="navbar" onSearch={closeMobile} />
-            </div>
-          </div>
-
-          <div className="hidden shrink-0 items-center gap-2 md:flex">
-            <Link href="/get-quote" className={getQuoteButtonClass}>
-              Get Quote
-            </Link>
-          </div>
-
-          <div className="ml-auto flex items-center gap-0.5 md:hidden">
-            <button
-              onClick={() => {
-                setIsMobileSearchOpen((open) => !open);
-                setIsMobileMenuOpen(false);
-              }}
-              className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
-              aria-expanded={isMobileSearchOpen}
-              aria-label={isMobileSearchOpen ? "Close search" : "Open search"}
-            >
-              {isMobileSearchOpen ? <X className="h-6 w-6" /> : <Search className="h-6 w-6" />}
-            </button>
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(!isMobileMenuOpen);
-                setIsMobileSearchOpen(false);
-              }}
-              className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
-            >
-              <span className="sr-only">Open main menu</span>
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-
-        <AnimatePresence>
-          {isMobileSearchOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden pb-3 pt-1 md:hidden"
-            >
-              <SearchBar variant="navbar" onSearch={closeMobile} autoFocus />
-            </motion.div>
+              <div className="col-start-3 flex items-center justify-self-end gap-0.5 md:hidden">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileSearchOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
+                  aria-label="Open search"
+                >
+                  <Search className="h-6 w-6" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(!isMobileMenuOpen);
+                    setIsMobileSearchOpen(false);
+                  }}
+                  className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-brand-yellow/10 hover:text-brand-black"
+                >
+                  <span className="sr-only">Open main menu</span>
+                  {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
+            </>
           )}
-        </AnimatePresence>
+        </div>
       </div>
 
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen && !isMobileSearchOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -169,14 +152,22 @@ export default function Navbar() {
           >
             <div className="space-y-3 px-4 pb-4 pt-3">
               <div className="grid grid-cols-2 gap-2">
-                {navActions.map((item) => (
-                  <NavActionLink
-                    key={item.name}
-                    {...item}
-                    className="border-pro bg-[#faf8f3]"
-                    onClick={closeMobile}
-                  />
-                ))}
+                <Link
+                  href="/categories"
+                  onClick={closeMobile}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-[#e8e4dc] bg-[#faf8f3] px-3 text-sm font-semibold text-brand-black"
+                >
+                  <LayoutGrid className="h-4 w-4 text-brand-yellow" strokeWidth={2.25} />
+                  Categories
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={closeMobile}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-[#e8e4dc] bg-[#faf8f3] px-3 text-sm font-semibold text-brand-black"
+                >
+                  <MessageCircle className="h-4 w-4 text-brand-yellow" strokeWidth={2.25} />
+                  Contact
+                </Link>
               </div>
 
               <div className="rounded-xl border border-pro bg-[#faf8f3] p-3">

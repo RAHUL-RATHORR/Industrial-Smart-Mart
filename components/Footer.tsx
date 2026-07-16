@@ -85,26 +85,28 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div>
-              <FooterHeading>Quick Links</FooterHeading>
-              <ul>
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <FooterLink href={link.href}>{link.name}</FooterLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div className="grid grid-cols-2 gap-6 sm:contents">
+              <div>
+                <FooterHeading>Quick Links</FooterHeading>
+                <ul>
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
+                      <FooterLink href={link.href}>{link.name}</FooterLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div>
-              <FooterHeading>Useful Links</FooterHeading>
-              <ul>
-                {usefulLinks.map((link) => (
-                  <li key={link.name}>
-                    <FooterLink href={link.href}>{link.name}</FooterLink>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <FooterHeading>Useful Links</FooterHeading>
+                <ul>
+                  {usefulLinks.map((link) => (
+                    <li key={link.name}>
+                      <FooterLink href={link.href}>{link.name}</FooterLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div className="w-full min-w-0 sm:col-span-2 lg:col-span-1">
@@ -124,7 +126,7 @@ export default function Footer() {
                     className="inline-flex transition-opacity hover:opacity-85"
                     aria-label={social.label}
                   >
-                    <ContactChannelIcon channelId={social.id} className="h-9 w-9 sm:h-10 sm:w-10" />
+                    <ContactChannelIcon channelId={social.id} className="h-7 w-7" />
                   </a>
                 ))}
               </div>

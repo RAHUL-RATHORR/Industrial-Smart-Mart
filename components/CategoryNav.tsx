@@ -100,7 +100,7 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
           className={cn(
             "w-full transition-[padding] duration-300 ease-in-out",
             isMobile
-              ? "grid grid-cols-3 gap-x-4 gap-y-5 pb-6"
+              ? "grid grid-cols-3 gap-x-3 gap-y-4 pb-5"
               : cn(
                   "grid grid-cols-5 gap-x-3 gap-y-0 sm:grid-cols-6 sm:gap-x-4 md:grid-cols-9 md:gap-x-5 lg:gap-x-6",
                   isCompact ? "py-1" : "py-1.5"
@@ -121,14 +121,16 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
                 title={category.name}
                 className={cn(
                   "flex w-full min-w-0 max-w-full flex-col items-center group transition-all duration-300 ease-in-out",
-                  isMobile ? "gap-2.5 overflow-hidden" : isCompact ? "gap-0 px-0.5 py-0" : "gap-0.5 px-0.5 py-0"
+                  isMobile ? "gap-1.5 overflow-hidden" : isCompact ? "gap-0 px-0.5 py-0" : "gap-0.5 px-0.5 py-0"
                 )}
               >
                 {isMobile ? (
-                  <CategoryNavIcon
-                    categoryId={category.id}
-                    className="aspect-[5/4] w-full"
-                  />
+                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center sm:h-20 sm:w-20">
+                    <CategoryNavIcon
+                      categoryId={category.id}
+                      className="h-full w-full"
+                    />
+                  </div>
                 ) : (
                   <div
                     className={cn(
@@ -171,9 +173,9 @@ export default function CategoryNav({ visibility = "all" }: CategoryNavProps) {
 
           {isMobile && (
             <li className="min-w-0">
-              <Link href="/categories" className="flex flex-col items-center gap-2.5 group">
-                <div className="flex aspect-[5/4] w-full items-center justify-center rounded-2xl bg-section">
-                  <LayoutGrid className="h-10 w-10 text-muted-foreground/70" strokeWidth={1.25} />
+              <Link href="/categories" className="flex flex-col items-center gap-1.5 group">
+                <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-section sm:h-20 sm:w-20">
+                  <LayoutGrid className="h-7 w-7 text-muted-foreground/70" strokeWidth={1.25} />
                 </div>
                 <span className="text-[11px] font-semibold text-brand-yellow text-center leading-snug px-1">
                   View All Categories

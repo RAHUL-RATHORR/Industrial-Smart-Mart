@@ -46,8 +46,8 @@ function RatingBar({ stars, percent }: { stars: number; percent: number }) {
 export default function ProductDetailExtraSections({ product }: ProductDetailExtraSectionsProps) {
   const compareRef = useRef<HTMLDivElement>(null);
   const similarProducts = getSimilarProducts(product, 4);
-  const compareProducts = [product, ...similarProducts.slice(0, 4)];
-  const compareAttributes = getComparisonAttributes(product, similarProducts.slice(0, 4));
+  const compareProducts = [product, ...similarProducts.slice(0, 2)];
+  const compareAttributes = getComparisonAttributes(product, similarProducts.slice(0, 2));
   const reviews = getProductReviews(product);
   const faqs = getProductFaqs(product);
   const interestedItems = getInterestedItems(product);
@@ -63,7 +63,27 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
     <div className="space-y-6 mt-6">
       {/* Similar Products To Compare */}
       <section className="bg-white border rounded-xl p-4 sm:p-6">
-        <h2 className="text-lg font-bold text-brand-black mb-4">Similar Products To Compare</h2>
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <h2 className="text-lg font-bold text-brand-black">Similar Products To Compare</h2>
+          <div className="flex items-center gap-1.5 sm:hidden">
+            <button
+              type="button"
+              onClick={() => scrollCompare("left")}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border bg-white shadow-sm"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollCompare("right")}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border bg-white shadow-sm"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
         <div className="relative">
           <button
             type="button"
@@ -82,52 +102,58 @@ export default function ProductDetailExtraSections({ product }: ProductDetailExt
             <ChevronRight className="h-4 w-4" />
           </button>
 
-          <div ref={compareRef} className="overflow-x-auto hide-scrollbar">
-            <div className="min-w-[640px] sm:min-w-[800px]">
-              <div
-                className="grid border rounded-lg overflow-hidden"
-                style={{ gridTemplateColumns: `140px repeat(${compareProducts.length}, minmax(140px, 1fr))` }}
-              >
-                <div className="bg-muted/30 p-3 border-r border-b font-semibold text-sm">Compare</div>
-                {compareProducts.map((item, index) => (
-                  <div
-                    key={item.id}
-                    className={`p-3 border-r border-b text-center space-y-2 ${index === 0 ? "bg-pink-50/80" : "bg-white"}`}
-                  >
-                    <Link href={`/products/${item.id}`}>
-                      <SafeImage src={item.image} alt={item.name} className="w-16 h-16 mx-auto object-contain" />
-                      <p className="text-[11px] font-medium line-clamp-2 mt-2 hover:text-brand-yellow">{item.name}</p>
-                    </Link>
-                    <a
-                      href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share availability and quotation.`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(WHATSAPP_BUTTON_CLASS, "w-full gap-1 rounded py-1.5 text-[10px] sm:text-xs")}
-                    >
-                      <MessageCircle className="h-3 w-3" />
-                      WhatsApp Inquiry
-                    </a>
-                  </div>
-                ))}
-
-                {compareAttributes.map((row) => (
-                  <div key={row.label} className="contents">
-                    <div className="p-3 border-r border-b bg-muted/20 text-xs font-semibold text-gray-600">
-                      {row.label}
-                    </div>
-                    {row.values.map((value, index) => (
-                      <div
-                        key={`${row.label}-${index}`}
-                        className={`p-3 border-r border-b text-xs text-center ${index === 0 ? "bg-pink-50/50" : ""}`}
-                      >
-                        {value}
-                      </div>
-                    ))}
-                  </div>
-                ))}
+          <div
+            ref={compareRef}
+            className="max-w-full overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]"
+          >
+            <div
+              className="grid w-max min-w-full border rounded-lg"
+              style={{
+                gridTemplateColumns: `minmax(96px,110px) repeat(${compareProducts.length}, minmax(128px, 150px))`,
+              }}
+            >
+              <div className="sticky left-0 z-[1] border-b border-r bg-muted/30 p-3 text-sm font-semibold backdrop-blur-sm">
+                Compare
               </div>
+              {compareProducts.map((item, index) => (
+                <div
+                  key={item.id}
+                  className={`space-y-2 border-b border-r p-3 text-center ${index === 0 ? "bg-pink-50/80" : "bg-white"}`}
+                >
+                  <Link href={`/products/${item.id}`}>
+                    <SafeImage src={item.image} alt={item.name} className="mx-auto h-16 w-16 object-contain" />
+                    <p className="mt-2 line-clamp-2 text-[11px] font-medium hover:text-brand-yellow">{item.name}</p>
+                  </Link>
+                  <a
+                    href={generateWhatsAppLink(`Hello, I am interested in ${item.name}. Please share availability and quotation.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(WHATSAPP_BUTTON_CLASS, "w-full gap-1 rounded py-1.5 text-[10px] sm:text-xs")}
+                  >
+                    <MessageCircle className="h-3 w-3" />
+                    WhatsApp Inquiry
+                  </a>
+                </div>
+              ))}
+
+              {compareAttributes.map((row) => (
+                <div key={row.label} className="contents">
+                  <div className="sticky left-0 z-[1] border-b border-r bg-muted/30 p-3 text-xs font-semibold text-gray-600 backdrop-blur-sm">
+                    {row.label}
+                  </div>
+                  {row.values.map((value, index) => (
+                    <div
+                      key={`${row.label}-${index}`}
+                      className={`border-b border-r p-3 text-center text-xs ${index === 0 ? "bg-pink-50/50" : "bg-white"}`}
+                    >
+                      {value}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
+          <p className="mt-2 text-[11px] text-muted-foreground sm:hidden">Swipe left/right to compare more products</p>
         </div>
       </section>
 
